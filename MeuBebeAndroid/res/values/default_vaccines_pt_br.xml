@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- @author GeckoApps Team -->
+	    
+<resources>
+    
+    <!-- 
+	    <item>Name</item>
+	    <item>Doses</item>
+	    <item>Months</item>
+	    <item>Description</item>
+	-->
+    
+    <string-array
+        name="vaccines" >
+        
+        <item>BCG</item>
+	    <item>Dose única</item>
+	    <item>0</item>
+        <item>Fornecida a crianças com no mínimo 2 kg, essa vacina, aplicada em dose única, imuniza contra a tuberculose. É normal a aparição de uma pequena lesão avermelhada no período de 2 a 6 semanas após a tomada da vacina, ocasionando em um pequena cicatriz, a qual não deve ser medicada. Caso a cicatriz não apareça num período máximo de 6 meses, a vacina deve ser reaplicada. A tuberculose é uma doença que afeta principalmente os pulmões, podendo ser transmitida de pessoa para pessoa através da saliva.</item>
+        
+	    <item>Hepatite B</item>
+	    <item>1ª dose</item>
+	    <item>0</item>
+	    <item>Deve ser tomada com até 12 horas após o nascimento, ainda na maternidade, podendo ocasionar dor no local da aplicação e febre. As outras 3 doses estão incluídas na vacina Pentavalente, que deve ser tomada aos 2 meses, aos 4 meses e aos 6 meses de idade.  Caso a febre se mantenha alta, um antitérmico deve ser administrado.</item>
+        
+	    <item>Pentavalente</item>
+	    <item>1ª dose, 2ª dose, 3ª dose</item>
+	    <item>2, 4, 6</item>
+        <item>Essa vacina veio para substituir a antiga Tetravalente, agora com a adição da vacina para Hepatite B, diminuindo o número de vacinas a serem tomadas. A Pentavalente protege contra cinco doenças: Hepatite B, Difteria, Tétano, Coqueluche e infecções causadas pela bactéria Haemophilus influenzae tipo B, que causa meningite, sinusite e pneumonia. É administrada em 3 doses, sendo a primeira dose aos 2 meses, a segunda dose aos 4 meses e a terceira dose aos 6 meses de idade.</item>
+        
+        <item>Poliomelite Inativada (VIP)</item>
+	    <item>1ª dose, 2ª dose</item>
+        <item>2, 4</item>
+        <item>Desde agosto de 2012, o Ministério da Saúde estipulou que as crianças que nunca foram imunizadas contra paralisia infantil deverão tomar nas duas primeiras doses a vacina inativada polimelite (VIP). Essa vacina é injetável, diferente da anterior que era em gotas, e mais segura. A primeira dose é administrada com 2 meses, enquanto que a segunda é administrada com 4 meses.</item>
+        
+        <item>Rotavírus Humano (VORH)</item>
+	    <item>1ª dose, 2ª dose</item>
+        <item>2, 4</item>
+        <item>Atua contra o rotavírus, vírus que causa, principalmente, a gastroenterite. A doença é uma  infecção que agride o estômago e o intestino e é responsável por cerca de 30% dos casos de diarreia grave nos menores de 5 anos. Os principais sintomas são vômito, febre e diarreia líquida constante e a forma de contágio é fecal-oral. Por esta razão, é indispensável lavar as mãos antes e depois de ir ao banheiro, antes das refeições e depois de troca de fraldas. São duas doses: a primeira aos 2 meses, e a 2ª aos 4 meses.</item>
+        
+        <item>Pneumocócica</item>
+	    <item>1ª dose, 2ª dose, 3ª dose, Reforço</item>
+        <item>2, 4, 6, 12</item>
+        <item>A vacina é administrada em 3 doses, além de um reforço: a primeira dose é oferecida ao segundo mês de vida; a segunda é oferecida aos 4 meses; e a terceira, aos 6 meses de idade. O reforço é feito aos 12 meses. Estudos da Organização Mundial de Saúde estimam que a doença pneumocócica é responsável pela morte de um milhão de crianças, com menos de 5 anos, por ano no mundo todo. Essa vacina protege a criança contra doenças graves como meningite, pneumonia, otite média aguda, sinusite e bacteremia, todas elas causadas por bactérias conhecidas como “pneumococo”.  Ambientes fechados, como creches, são propícios à propagação dessas doenças, pois essas bactérias são transmitidas de pessoa para pessoa através do ar.</item>
+        
+        <item>Meningocócica C</item>
+	    <item>1ª dose, 2ª dose, Reforço</item>
+        <item>3, 5, 15</item>
+        <item>Essa vacina protege a criança da meningocóco C, que é uma bactéria causadora da doença conhecida como meningite. A vacina é aplicada através de injeção, em 3 doses: a primeira dose aos 3 meses, a segunda aos 5 meses e o reforço é recomendado com 1 ano e 3 meses de idade. Se criança maior de um ano de idade ainda não foi vacinada, a dose é única. Em alguns casos, após a aplicação, podem ocorrer reações como dor no local e febre. É recomendado, nesses casos, compressas frias no local e uso de antitérmicos dependendo da intensidade da dor e da febre. A meningite atinge com maior frequência crianças de até 4 anos e caracteriza-se por febre alta, dor de cabeça e rigidez na nuca. Outros sintomas são vômitos, sonolência, irritabilidade, convulsões e repúdio alimentar, principalmente em crianças recém-nascidas e lactentes. As formas mais comuns de contágio são por meio do beijo e secreções expelidas pela boca ou espirro. Por este motivo, é desaconselhável assoprar a sopinha da criança para que esfrie.</item>
+        
+        <item>Poliomelite Oral (VOP)</item>
+	    <item>1ª dose</item>
+        <item>6</item>
+        <item>Imuniza contra a poliomielite ou paralisia infantil. A vacina oral é oferecida aos 6 meses, e o reforço, aos 15 meses. A Sociedade Brasileira de Pediatria recomenda em seu calendário de vacinas que as duas primeiras doses sejam da VIP (injetável - vírus inativados) e as seguintes podendo ser a vacina oral (VOP) ou a injetável (VIP). É recomendado que a criança menor de 5 anos sempre seja vacinada nas campanhas nacionais da vacina VOP. Em quase todos os casos, não existem efeitos colaterais associados a VOP. No entanto, às vezes, pode ocorrer diarréia. É importante evitar que a criança regurgite nos 30 minutos seguintes à aplicação da vacina. O vírus causador da poliomielite é bastante contagioso, podendo ser transmitido de pessoa para pessoa e através de contato com fezes contaminadas.</item>
+        
+        <item>Febre Amarela</item>
+        <item>Dose Inicial</item>
+        <item>9</item>
+        <item>A vacina contra febre amarela é indicada para crianças com, no mínimo, 9 meses de idade. A vacina, que é injetável, é aplicada em dose única, sendo reforçada a cada 10 anos. A febre amarela é uma doença causada por um vírus transmitido por diferentes tipos de mosquitos e seus sintomas são: febre alta repentina, dor de cabeça, calafrios, náuseas e sangramento no fígado, cérebro ou rins.</item>
+        
+        <item>Tríplice Viral</item>
+	    <item>1ª dose, 2ª dose</item>
+        <item>12, 48</item>
+        <item>A Tríplice Viral protege a criança contra Sarampo, Rubéola e Caxumba. É aplicada através de injeção em uma única dose com 1 ano de idade e um reforço entre quatro e seis anos. Não há necessidade de mais de duas doses. Após a aplicação pode ocorrer febre baixa e coriza. Se a febre atingir 38˚ C, recomenda-se a administração de um antitérmico.</item>
+        
+        <item>Tríplice Bacteriana (DTP)</item>
+	    <item>1ª dose, 2ª dose</item>
+        <item>15, 48</item>
+        <item>A Tríplice Bacteriana é uma vacina injetável que protege a criança contra Difteria, Tétano e Coqueluche. As 3 primeiras doses são aplicadas aos 2, 4 e 6 meses de idade, através da PentaValente, e o reforço é aplicado aos 15 meses e entre 4 e 6 anos. Após a aplicação, sintomas como febre baixa, irritabilidade e dor no local da aplicação podem ocorrer.</item>
+        
+    </string-array>
+	
+</resources>

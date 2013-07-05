@@ -9,48 +9,107 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_neutral" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/tabBar"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:background="@drawable/tab_bar_neutral"
-        android:gravity="center_vertical|right" >
+        android:background="@drawable/tab_bar_neutral" >
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/my_baby"
-            android:layout_weight="0.70"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/vaccine"
+			android:textSize="18dp"
+			android:textColor="#FFFFFF" />
+        
+        <TextView
+            android:id="@+id/babyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title"
+            android:layout_alignParentBottom="true"
+            android:text="@string/baby_name"
+			android:textSize="12dp"
+			android:textColor="#FFFFFF" />
+    
+	    <ImageButton
+	        android:id="@+id/infoVaccines"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_toLeftOf="@+id/imageButtonAddVaccine"
+	        android:src="@drawable/info"
+	        android:background="#00000000"
+	        android:onClick="infoVaccinesPressed" />
 
         <ImageButton
-            android:id="@+id/imageButtonAddBaby"
+            android:id="@+id/imageButtonAddVaccine"
 		    android:layout_width="40dp"
 		    android:layout_height="40dp"
+		    android:layout_alignParentRight="true"
             android:src="@drawable/button_add"
             android:background="#00000000"
-            android:onClick="loadAddBaby" />
-
-    </LinearLayout>
-
-    <FrameLayout
-	    android:id="@+id/dataFrameMain"
+            android:onClick="loadAddVaccine" />
+        
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/buttonsSortVaccinesLayout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tabBar"
-        android:layout_above="@+id/navigationBar"
-        android:layout_marginLeft="10dp"
-       	android:layout_marginRight="10dp" >
+        android:background="#55FFFFFF"
+        android:gravity="center" >
+ 
+            <Button
+                android:id="@+id/buttonAllVaccines"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+		        android:layout_marginTop="10dp"
+		        android:layout_marginBottom="10dp"
+                android:text="@string/vaccines_all"
+                android:textSize="12dp"
+                android:background="@drawable/button_selection_left_on"
+                android:onClick="allVaccinesPressed" />
+ 
+            <Button
+                android:id="@+id/buttonTakenVaccines"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:text="@string/vaccines_taken"
+                android:textSize="12dp"
+                android:background="@drawable/button_selection_middle_off"
+                android:onClick="takenVaccinesPressed" />
+ 
+            <Button
+                android:id="@+id/buttonReminders"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:text="@string/vaccines_reminders"
+                android:textSize="12dp"
+                android:background="@drawable/button_selection_right_off"
+                android:onClick="remindersPressed" />
+        
+    </LinearLayout>
+    
+    <FrameLayout
+	    android:id="@+id/dataFrameVaccines"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/buttonsSortVaccinesLayout"
+	    android:layout_above="@+id/navigationBar" >
         
 	    <ListView
-	        android:id="@+id/listMain"
+	        android:id="@+id/listVaccines"
 	        android:layout_width="fill_parent"
 	        android:layout_height="fill_parent"
 	        android:cacheColorHint="#00000000"
 	        android:divider="#00000000" />
-        
+	    
     </FrameLayout>
 
     <LinearLayout
@@ -75,8 +134,8 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#00000000"
-            android:src="@drawable/button_vaccines"
+            android:background="#20000000"
+            android:src="@drawable/button_vaccines_selected"
             android:onClick="loadVaccines" />
         
         <ImageButton
@@ -84,8 +143,8 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#20000000"
-            android:src="@drawable/button_my_baby_selected"
+            android:background="#00000000"
+            android:src="@drawable/button_my_baby"
             android:onClick="loadMain" />
         
         <ImageButton
@@ -172,5 +231,5 @@
 			android:textSize="12dp" />
     
     </LinearLayout>
-
+    
 </RelativeLayout>

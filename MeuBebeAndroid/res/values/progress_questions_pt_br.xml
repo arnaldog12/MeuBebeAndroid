@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- @author GeckoApps Team -->
+
+<resources>
+    
+    <string-array
+        name="questions" >
+        
+        <item>É capaz de erguer a cabeça quando de bruços?</item>
+        <item>1</item>    
+    
+	    <item>Olha para um rosto que esteja na sua linha de visão?</item>
+        <item>1</item>
+	
+	    <item>Agarra o seu dedo quando colocado na palma da mão do bebê?</item>
+        <item>1</item>
+	
+	
+	
+	    <item>Sorri e emite ruídos guturais?</item>
+        <item>2</item>
+	
+	    <item>Tenta pegar objetos suspensos?</item>
+        <item>2</item>
+	
+	    <item>Move as pernas rapidamente, como se estivesse pedalando?</item>
+        <item>2</item>
+	
+
+	
+	    <item>Acompanha com o olhar um objeto em movimento?</item>
+        <item>3</item>
+	
+	    <item>Mantém a cabeça ereta?</item>
+        <item>3</item>
+	
+	    <item>Responde com sorrisos, ou gritinhos, estímulos dos pais?</item>
+        <item>3</item>
+    
+	
+	
+	    <item>Consegue segurar um chocalho?</item>
+        <item>4</item>
+	
+	    <item>Demonstra preferência por brinquedos?</item>
+        <item>4</item>
+	
+	    <item>Ri ou grita alto?</item>
+        <item>4</item>
+	
+
+	
+	    <item>Se arrasta para alcançar um objeto?</item>
+        <item>5</item>
+	
+	    <item>Consegue rolar?</item>
+        <item>5</item>
+	
+	    <item>Leva os pés à boca?</item>
+        <item>5</item>
+	
+
+	
+	    <item>Olha quando é chamado?</item>
+        <item>6</item>
+	
+	    <item>Aperta com mais força objetos para não entregá-los?</item>
+        <item>6</item>	
+	
+	    <item>Consegue sentar-se com algum auxílio (uma mão)?</item>
+        <item>6</item>	
+	
+	    <item>Estranha pessoas que não conhece ou não vê frequentemente?</item>
+        <item>6</item>
+	
+
+	
+	    <item>É capaz de tranferir um objeto de uma mão para outra?</item>
+        <item>7</item>
+	
+	    <item>Consegue sentar-se, momentaneamente, sem auxílio?</item>
+        <item>7</item>
+	
+	    <item>Pega pedaçinhos de comida e come?</item>
+        <item>7</item>
+	
+
+	
+	    <item>Bate palminhas?</item>
+        <item>8</item>
+	
+	    <item>Consegue engatinhar?</item>
+        <item>8</item>
+	
+	    <item>Entende o significado do não?</item>
+        <item>8</item>
+	
+	    <item>Manifesta raiva quando contrariado?</item>
+        <item>8</item>
+	
+	    <item>Mantem-se sentado por aproximadamente 5 minutos?</item>
+        <item>8</item>
+	
+
+	
+	    <item>Consegue ficar em pé sozinho, segurando-se em algum objeto?</item>1
+        <item>9</item>
+	
+	    <item>É capaz de dizer ma-ma ou da-da?</item>
+        <item>9</item>
+	
+	    <item>Consegue empilhar cubos?</item>
+        <item>9</item>
+	
+
+	
+	    <item>Levanta sozinho?</item>
+        <item>10</item>
+	
+	    <item>Imita sons?</item>
+        <item>10</item>
+	
+	    <item>Consegue acenar &quot;adeus&quot; com a mão?</item>
+        <item>10</item>
+	
+	
+	
+	    <item>Consegue andar apoiado nos móveis?</item>
+        <item>11</item>
+	
+	    <item>Atende ao comando &quot;dá&quot;, mas não solta os objetos?</item>
+        <item>11</item>
+	
+	    <item>Abre gavetas?</item>
+        <item>11</item>
+	
+	
+	
+	    <item>Anda, segura por uma mão?</item>
+        <item>12</item>
+	
+	    <item>Possui vocabulário de 2 palavras?</item>
+        <item>12</item>
+	
+	    <item>Tem interesse pelas cores?</item>
+        <item>12</item>
+	
+	    <item>Entrega objetos quando pedem?</item>
+        <item>12</item>
+	
+	
+	
+	    <item>É capaz de andar sozinho?</item>
+        <item>15</item>
+	
+	    <item>É capaz de comunicar desejos apontando e emitindo sons?</item>
+        <item>15</item>
+	
+	    <item>Imita os outros?</item>	    
+        <item>15</item>
+	
+	
+	
+	    <item>Sobe e desce escada segurando no corrimão?</item>
+        <item>18</item>
+	
+	    <item>Fala 6 palavras?</item>
+        <item>18</item>
+	
+	    <item>Repete quase tudo o que ouve?</item>
+        <item>18</item>
+	
+	
+	
+	    <item>É capaz de correr?</item>
+	    <item>24</item>
+	
+	    <item>Consegue formular uma sentença de 2 ou 3 palavras?</item>
+	    <item>24</item>
+	
+	    <item>Consegue chutar uma bola sem perder o equilíbrio?</item>
+		<item>24</item>
+	
+	
+	
+	    <item>Consegue pular, erguendo os dois pés do chão?</item>
+	    <item>30</item>
+	
+	    <item>Quando solicitado, aponta para as partes do seu corpo?</item>
+	    <item>30</item>
+	
+	    <item>Carrega um copo cheio de água se derrubar?</item>
+	    <item>30</item>
+	
+	    <item>Faz perguntas com frequência?</item>
+	    <item>30</item>
+	
+	
+	
+	    <item>É capaz de atender a duas ordens emitidas sem gestos, envolvendo &quot;sobre&quot;, &quot;embaixo de&quot;, ou &quot;atrás de&quot;?</item>
+	    <item>36</item>
+	
+	    <item>Sabe seu primeiro nome?</item>
+        <item>36</item>
+	
+	    <item>É capaz de desenhar um círculo?</item>
+        <item>36</item>
+	
+	    <item>Não precisa mais usar fralda?</item>
+        <item>36</item> 
+	
+	
+	
+	    <item>Emprega adequadamente um verbo no tempo passado?</item>
+        <item>48</item>
+	
+	    <item>Se veste sozinho?</item>
+        <item>48</item>
+	
+	    <item>Escova os dentes sozinho?</item>
+        <item>48</item>
+	
+	
+	
+	    <item>É capaz de executar 3 ordens?</item>
+        <item>60</item>
+	
+	    <item>É capaz de desenhar um quadrado?</item>
+        <item>60</item>
+	
+	    <item>Consegue saltar?</item>
+        <item>60</item>
+		
+    </string-array>
+    
+    <string name="progressDescription1">
+        Nesta lista estão compilados marcos de desenvolvimento relacionados com a idade da criança. Responda as perguntas de acordo com a idade e observe o desenvolvimento da criança. Respostas negativas a idade apropriada podem ser sinal indicativo de atraso no desenvolvimento. Constatando-se desvio significativo, a criança deve ser avaliada mais cuidadosamente, tendo em vista a grande variabilidade das etapas do desenvolvimento.
+    </string>
+	
+	<string name="progressDescription2">
+	    Obs.: É necessário considerar a prematuridade, antes de 2 anos, subtraindo o tempo desta idade da criança. Exemplo: uma criança de 2 meses, prematura de 1 mês deve ser avaliada como uma criança de 1 mês.
+	</string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<transition
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/transition_girl" >
+    
+    <item
+        android:id="@+id/button_off"
+        android:drawable="@drawable/button_selection_right_off" />
+    
+    <item
+        android:id="@+id/button_on"
+        android:drawable="@drawable/button_selection_right_on" />
+
+</transition>

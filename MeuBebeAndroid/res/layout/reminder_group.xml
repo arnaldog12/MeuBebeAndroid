@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- @author GeckoApps Team -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/reminderBabyName"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+        android:text="@string/vaccine_month"
+        android:textColor="#FFFFFFFF"
+	    android:background="@drawable/background_divider_neutral" />
+    
+    <LinearLayout
+        android:id="@+id/dataReminderGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="#00000000"
+    	android:orientation="vertical" />
+    
+</LinearLayout>

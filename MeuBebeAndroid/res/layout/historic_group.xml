@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	
+    <TextView
+        android:id="@+id/historicGroupMonth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/month"
+        android:textColor="#FFFFFFFF"
+	    android:background="@drawable/background_divider_neutral" />
+	
+	<RelativeLayout
+	    android:id="@+id/relativeLayoutHistoricGroup"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" >
+	    
+		<LinearLayout
+	    	android:id="@+id/linearLayoutHistoricGroup"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical" >
+		    
+		    <TextView
+		        android:id="@+id/historicWeight"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="20dp"
+		        android:text="@string/weight"
+		        android:textColor="#555555" />
+			
+		    <TextView
+		        android:id="@+id/historicHeight"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="20dp"
+		        android:text="@string/height"
+		        android:textColor="#555555" />
+		    
+		</LinearLayout>
+
+	    <ImageButton
+	        android:id="@+id/buttonDeleteHistoricGroup"
+	        android:layout_width="wrap_content"
+	        android:layout_height="50dp"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignBottom="@+id/linearLayoutHistoricGroup"
+	        android:background="#00000000"
+	        android:src="@drawable/button_delete"
+	        android:onClick="onDeleteHistoricGroupPressed" />
+	    
+	</RelativeLayout>
+	
+</LinearLayout>

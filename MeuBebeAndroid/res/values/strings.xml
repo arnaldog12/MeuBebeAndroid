@@ -1,8 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- @author GeckoApps Team -->
+
 <resources>
+    
+    <!-- App info. -->
+    <string name="app_name">Meu Bebê</string>
+    <string name="gecko_apps">Gecko Apps</string>
+    
+    <!-- Common. -->
+    <string name="my_baby">Meu Bebê</string>
+    <string name="vaccines">Vacinas</string>
+    <string name="historic">Histórico</string>
+    <string name="progress">Progresso</string>
+    <string name="vaccine">Vacina</string>
+    <string name="name">Nome</string>
+    <string name="date">Data</string>
+    <string name="height">Altura</string>
+    <string name="weight">Peso</string>
+    <string name="boy">Menino</string>
+    <string name="girl">Menina</string>
+    <string name="bebe">Bebê</string>
+    <string name="month">Mês</string>
+    <string name="age">Idade</string>
+    <string name="alarm">Lembrete</string>
+    <string name="add_baby">Adicionar Bebê</string>
+    <string name="add_reminder">Adicionar Lembrete</string>
+    <string name="edit_baby">Editar Bebê</string>
+    <string name="camera">Câmera</string>
+    <string name="gallery">Galeria</string>
+    <string name="cancel">Cancelar</string>
+    <string name="rotate_cw">Girar horário</string>
+    <string name="rotate_ccw">Girar anti-horário</string>
+    <string name="rotate_angle">Girar ângulo</string>
+    
+    <!-- Views graphics and full_screen_graphics. -->
+    <string name="graphics">Gráficos</string>
+    <string name="full_screen_graphic">Gráficos Tela Cheia</string>
+    
+    <string name="baby_name">Nome</string>
+    <string name="baby_name_hint">Digite o nome e sobrenome</string>
+    <string name="baby_boy">Menino</string>
+    <string name="baby_girl">Menina</string>
+    <string name="baby_birth">Nascimento</string>
+    <string name="baby_birth_hint">Escolha a data</string>
+    <string name="baby_height">Altura</string>
+    <string name="baby_height_hint">Em centímetros</string>
+    <string name="baby_weight">Peso</string>
+    <string name="baby_weight_hint">Em kilos</string>
+    <string name="diagnostic">Diagnóstico</string>
 
-    <string name="app_name">LP3MeuBebe</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-
+    <!-- Views vaccine, vaccine_info and add_vaccine. -->
+    <string name="vaccine_info">Descrição da Vacina</string> <!-- View title. -->
+    <string name="add_vaccine">Adicionar Vacina</string> <!-- View title. -->
+    <string name="vaccines_all">Todas as Vacinas</string>
+    <string name="vaccines_reminders">Lembretes</string>
+    <string name="vaccines_reminder">Lembrete</string>
+    <string name="vaccines_taken">Vacinas Tomadas</string>
+    <string name="vaccine_name">Nome da Vacina</string>
+    <string name="vaccine_name_hint">Nome da vacina</string>
+    <string name="vaccine_dose">Dose da Vacina</string>
+    <string name="vaccine_dose_hint">Dose da vacina</string>
+    <string name="vaccine_month">Mês</string>
+    <string name="vaccine_description">Descrição</string>
+    <string name="date_hint_date">Escolha a data</string>
+    <string name="date_hint_time">Escolha a hora</string>
+    
+    <!-- Views progress and progress_info. -->
+    <string name="progress_info">Progresso</string>
+    <string name="progress_month">Mês</string>
+    <string name="healthy">Seu bebê está saudável.</string>
+    <string name="not_healthy">Seu bebê não está saudável.</string>
+    
+    <!-- Views progress and progress_info. -->
+    <string name="add_historic">Adicionar Histórico</string>
+    <string name="historic_info">Entre com as medidas do bebê para o mês.</string>
+    
+    <!-- Views tips and tips_info -->
+    <string name="tips_info">Dicas</string>
+    <string name="tips">Dicas</string>
+    <string name="tips_month">Mês</string>
+    <string name="breast_feeding">Amamentação</string>
+    <string name="care">Cuidados</string>
+    <string name="feeding">Alimentação</string>
+    <string name="first_days">Primeiros Dias</string>
+    <string name="stimulus">Estímulos</string>
+    
+    <!-- View historic -->
+    <string name="update_historic">Atualize o histórico do seu bebê para mais informações.</string>
+    
+    <!-- View historic -->
+    <string name="stop_alarm">Parar Alarme</string>
+    
+    <!-- Info buttons -->
+    <string name="info_botao_info">Para adicionar um bebê clique no botão \'+\'. Ao selecionar um bebê, o título dessa tela mudará e todo o restante do aplicativo é baseado nesse bebê selecionado.</string>
+    <string name="info_botao_gecko">Muito obrigado por adquirir o Meu Bebê. Por favor, avalie-nos na Google Play para continuarmos a melhorar o aplicativo.</string>
+    <string name="info_tela_vacinas">Clique em \'+\' para adicionar uma vacina. Dê um clique longo sobre uma vacina para poder adicionar um lembrete.</string>
+    <string name="info_adicionar_vacina">Ao salvar, a vacina será adicionada a todos os bebês automaticamente. A idade máxima permitida é 5 anos.</string>
+    <string name="info_historico">Para adicionar um histórico, clique em \'+\'. Para remover, use o botão de lixeira. A remoção apaga ambas as medidas do mês escolhido.</string>
+    
 </resources>

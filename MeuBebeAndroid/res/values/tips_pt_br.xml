@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- @author GeckoApps Team -->
+
+<resources>
+    
+    <string-array
+        name="tips" >
+        
+        <item>Amamentação</item>
+        <item>Cuidados</item>
+        <item>Alimentação</item>
+        <item>Primeiros Dias</item>
+        <item>Estímulos</item>
+        
+    </string-array>
+    
+    <string-array
+        name="breast_feeding_attention" >
+        
+		<item>Atenção</item>
+		<item> Não há necessidade de usar mamadeiras e chupetas, pois podem atrapalhar a amamentação. Além disso, podem causar doenças, problemas na dentição e na fala.</item>
+		<item> É importante a mãe cuidar-se bem, evitar bebidas alcoólicas e cigarro.</item>
+		<item> Os remédios que a mãe toma podem passar para a criança; por isso ela só deve tomar medicamentos com orientação médica.</item>
+		<item> Se a mãe precisar usar método para evitar uma nova gravidez, ela deve procurar o serviço de saúde.</item>
+		<item> No momento da amamentação é importante que a mãe converse, faça carinho e dê atenção à criança.</item>
+	
+	</string-array>
+	
+	<string-array
+        name="breast_feeding_difficulties" >
+	
+		<item>Dificuldades</item>
+	    <item> As rachaduras podem ser sinal de que é preciso melhorar o jeito do bebê pegar o peito.</item>
+		<item> Se o peito rachar, a mãe pode passar seu leite na rachadura.</item>
+		<item> Se não houver melhora, é bom procurar ajuda no serviço de saúde.</item>
+		<item> Quando as mamas ficam empedradas, é preciso esvaziar bem as mamas.</item>
+		<item> A mãe não deve deixar de amamentar com as mamas empedradas; ao contrário, deve amamentar com frequência, sem horários fixos, inclusive à noite.</item>
+		<item> É importante retirar um pouco de leite antes da mamada para amolecer a mama empedrada e facilitar para o bebê pegar o peito.</item>
+		<item> Se houver piora na mama empedrada, a mãe deve procurar ajuda no serviço de saúde.</item>
+		<item> Para manter uma boa quantidade de leite, é importante que a mãe amamente com frequência. A sucção é o maior estímulo à produção do leite: quanto mais o bebê suga, mais leite a mãe produz.</item>
+		<item> É importante, também, dar tempo ao bebê para que ele esvazie bem o peito em cada mamada.</item>
+		<item> Se o bebê dorme bem e está ganhando peso, o leite não está sendo pouco.</item>
+		<item> Se a mãe achar que está com pouco leite, deve procurar orientação no serviço de saúde.</item>
+	
+	</string-array>
+	
+	<string-array
+        name="breast_feeding_preventing_problems">
+	
+		<item>Problemas</item>
+	    <item> O bebê deve pegar corretamente a mama.</item>
+		<item> Lave os mamilos apenas com água, não usar sabonetes, cremes ou pomadas. Não é necessário lavar os mamilos sempre que o bebê for mamar.</item>
+		<item> Retire um pouco do leite para amaciar a aréola (parte escura do peito) antes da mamada se a mama estiver muito cheia e endurecida.</item>
+		<item> Converse com outras mulheres (amigas, vizinhas, parentes, etc.) que amamentaram bem e durante bastante tempo seus bebês.</item>
+	
+	</string-array>
+	
+	<string-array
+	    name="breast_feeding">
+		
+		<item>Amamentação</item>
+		<item> A melhor posição para amamentar é aquela em que mãe e o bebê sintam-se confortáveis. A amamentação deve ser prazerosa para a mãe e para o bebê.</item>
+		<item> O bebê deve estar virado para a mãe, bem junto de seu corpo, bem apoiado e com os braços livres.</item>
+		<item> A cabeça do bebê deve ficar de frente para o peito e o nariz bem na frente do mamilo. Só coloque o bebê para sugar quando ele abrir bem a boca.</item>
+		<item> Quando o bebê pega bem o peito, o queixo encosta na mama, os lábios ficam virados para fora, o nariz fica livre e aparece mais aréola (parte escura em volta do mamilo) na parte de cima da boca do que na de baixo.</item>
+		<item> Cada bebê tem seu próprio ritmo de mamar, o que deve ser respeitado. Deixe-o mamar até que fique satisfeito. Espere que ele esvazie bem a mama e então ofereça a outra, se ele quiser.</item>
+		<item> O leite do início da mamada tem mais água e mata a sede; e o do fim da mamada tem mais gordura e por isso mata a fome do bebê e faz com que ele ganhe mais peso.</item>
+		<item> No início da mamada o bebê suga com mais força porque está com mais fome e assim esvazia melhor a primeira mama oferecida. Por isso, é bom que a mãe comece cada mamada pelo peito em que o bebê mamou por último na mamada anterior. Assim o bebê tem a oportunidade de esvaziar bem as duas mamas, o que é importante para a mãe ter bastante leite.</item>
+		<item> Quando for preciso tirar o bebê do peito, para que ele solte o mamilo sem machucá-lo, a mãe pode colocar o dedo mínimo no canto da boca do bebê, entre as gengivas.</item>
+		<item> Depois da mamada, é importante colocar o bebê na posição vertical para que ele possa arrotar.</item>
+		<item> Não existe leite fraco! Todo leite materno é forte e bom. A cor do leite pode variar, mas ele nunca é fraco.</item>
+		<item> Nem todo choro do bebê é de fome. A criança chora quando quer aconchego ou sente algum desconforto. Sabendo disso, não deixe que idéias falsas atrapalhem a amamentação.</item>
+	
+	</string-array>
+	
+	<string-array
+	    name="stimulus_01">
+	    
+		<item>1º mês</item>
+		<item> Converse e cante músicas de ninar para o seu bebê.</item>
+		<item> Olhe para ele e sorria.</item>
+		<item> Mostre objetos próximos ao seu olhar.</item>
+		<item> Estique as perninhas para que ele saia da posição fetal.</item>
+		<item> Abra suas mãozinhas e dedinhos para ele relaxar.</item>
+		<item> Toque no seu corpo.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_02">
+		
+		<item>2º mês</item>
+		<item> Coloque objetos próximos ao seu campo de visão; ele vai erguer a cabeça para enxergá-los.</item>
+		<item> Levante-o para que ele possa enxergar ao seu redor.</item>
+		<item> Faça soar uma campainha com ruído mais ou menos alto; ele vai tentar localizá-la.</item>
+		<item> Instale móbiles no berço para ele acompanhar o movimento do brinquedo.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_03">
+	    
+		<item>3º mês</item>
+		<item> Brinque com gestos e palavras; ele vai abrir um grande e lindo sorriso.</item>
+		<item> Coloque um chocalho na sua mãozinha; ele vai vibrar com o barulho.</item>
+		<item> Pendure móbiles para que ele os balance.</item>
+		<item> Leve-o para passear.</item>
+		<item> Deixe que ele leve a mão limpa à boca (isso o interessa a pegar objetos) e ofereca mordedores.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_04">
+	    
+		<item>4º mês</item>
+		<item> Brinque com ele</item>
+		<item> Ofereca objetos interessantes para ele tocar sentado ou deitado.</item>
+		<item> Passe boa parte do tempo ao seu lado brincando e dando gargalhadas.</item>
+		<item> Imite seus próprios sons e apresentar alimentos diferentes para estimular olfato e paladar.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_05">
+	    
+		<item>5º mês</item>
+		<item> Brinque constantemente com ele, especialmente na hora do banho.</item>
+		<item> Coloque músicas para tocar, não importando o ritmo.</item>
+		<item> Responda seus ruídos e chamados; ele está desenvolvendo auto-estima e segurança.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_06">
+		
+		<item>6º mês</item>
+		<item> Coloque na sua mão alimentos diferentes para que ele toque.</item>
+		<item> Brinque de esconder.</item>
+		<item> Dá o máximo de carinho e atenção.</item>
+		<item> Incentive a ficar sentado e se arrastar para pegar objetos mais distantes.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_07">
+		
+		<item>7º mês</item>
+		<item> Afastar objetos e ele se esforça para pegá-los.</item>
+		<item> Deixe livre para explorar seus brinquedos.</item>
+		<item> Ofereca maior número de objetos sonoros.</item>
+		
+	</string-array>
+
+
+	<string-array
+	    name="stimulus_08">
+		
+		<item>8º mês</item>
+		<item> Passei com ele ao ar livre, mostrando tudo ao redor.</item>
+		<item> Insista em deixar os objetos longe dele.</item>
+		<item> Dê a assistência que ele necessita, pois ele percebe que a mãe é um ser separado dele e isso o angustia. A mãe deve mostrar que continua por perto.</item>
+	
+	</string-array>
+
+
+	<string-array
+	    name="stimulus_09">
+		
+		<item>9º mês</item>
+		<item> Converse com o bebê e explica tudo o que vai fazer.</item>
+		<item> Ajude-o a se manter em pé, fortalecendo sua musculatura.</item>
+		<item> Ofereça objetos de diferentes cores e tamanhos.</item>
+		<item> Encoraje-o a engatinhar e pegar objetos a sua frente.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_10">
+	    
+		<item>10º mês</item>
+		<item> Conte histórias e mostre figuras de livros infantis.</item>
+		<item> Ofereça brinquedos construtivos.</item>
+		<item> Dá livros de pano de fácil manuseio.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_11">
+
+		<item>11º mês</item>
+	    <item> Brinque de tirar e colocar objetos de uma caixa.</item>
+		<item> Toque cantigas de roda, cante e faça festa com ele.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_12">
+	    
+		<item>12º mês</item>
+		<item> Imite sons de bichinhos.</item>
+		<item> Fique longe e chame seu bebê, aprimorando seu andar.</item>
+		<item> Procure conversar sobre tudo.</item>
+		
+	</string-array>
+	
+	<string-array
+	    name="stimulus_15">
+		
+		<item>15º mês</item>
+		<item> Ofereça revistas para pintar e desenhar.</item>
+		<item> Rabisque e se divertam juntos.</item>
+		<item> Deixe-o comer sozinho ainda que se lambuze todo.</item>
+		
+	</string-array>
+	
+	<string-array
+	    name="stimulus_18">
+	    
+		<item>18º mês</item>
+		<item> Deixe-o subir escadas, empurrar carrinhos, queimar energia e se exercitar.</item>
+		<item> Ofereça brinquedos essencialmente construtivos.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_24">
+		
+		<item>24º mês</item>
+		<item> Leve-o aos parques, museus e zoológicos</item>
+		<item> Incentive a leitura.</item>
+		<item> Incentive-o a contar histórias e representar personagens.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_30">
+		
+		<item>30º mês</item>
+		<item> Ajude-o a descobrir o mundo por meio de brincadeiras, leituras e passeios.</item>
+		<item> Brinque com ele.</item>
+		
+	</string-array>
+
+	<string-array
+	    name="stimulus_36">
+		
+		<item>36º mês</item>
+		<item> Passe informações coerentes com a realidade.</item>
+		<item> Sempre reserve um tempo do seu dia para ele.</item>
+		<item> Viaje com o bebê nas suas brincadeiras e personagens que ele criar</item>
+		<item> Ofereça lápis e papel.</item>
+		
+	</string-array>
+	
+	<string-array
+        name="care_umbilicus">
+        
+		<item>Umbigo</item>
+        <item> Para limpar a região do umbigo, use somente álcool a 70% de concentração.</item>
+		<item> Não coloque faixas, moedas ou qualquer outro objeto ou substância sobre o umbigo.</item>
+		<item> A presença de secreção amarelada, com mau cheiro, purulenta no umbigo, ou de vermelhidão ao seu redor sugere infecção. Neste caso a criança deve ser vista imediatamente por profissional de saúde.</item>
+	
+	</string-array>
+
+	<string-array
+        name="care_other_cares">
+
+		<item>Outros Cuidados</item>
+		<item> Observe a pele do bebê. A presença da cor amarelada significa icterícia (amarelão). Quando ela aparece dentro das primeiras 24 horas de vida, quando o tom amarelado se torna intenso, quando se espalha por todo o corpo atingindo pernas e braços ou quando dura mais de duas semanas, é preciso que o bebê seja avaliado imediatamente pelo profissional de saúde.</item>
+		<item> Observe a cor das fezes do bebê. As fezes dos primeiros dias costumam ser escuras, ficando amareladas durante a primeira semana de vida. Podem também ser líquidas e, às vezes, esverdeadas. Se a criança está bem, isso não é diarreia.</item>
+		<item> Para evitar assaduras, troque as fraldas sempre que estiverem molhadas ou sujas, e limpe o bebê com pano ou algodão umedecido. Não use talco para evitar sufocação do bebÊ.</item>
+		<item> É importante que as roupas, os objetos e os brinquedos sejam lavados com água e sabão neutro e bem enxaguados, evitando-se o uso de produtos perfumados.</item>
+		
+	</string-array>
+	
+	<string-array
+	    name="feeding_0_2_years">
+		
+		<item>De 0 a 2 anos</item>
+		<item> Dar somente leite materno até os 6 meses, sem oferecer água, chás ou qualquer outro alimento.</item>
+		<item> Ao completar 6 meses, introduzir de forma lenta e gradual outros alimentos, mantendo o leite materno até os dois anos de idade ou mais.</item>
+		<item> Ao completar 6 meses, dar alimentos complementares (cerais, tubérculos, carnes, leguminosas, frutas e legumes) três vezes ao dia, se a criança estiver em aleitamento materno.</item>
+		<item> A alimentação complementar deve ser oferecida de acordo com os horários de refeição da família, em intervalos regulares e de forma a respeitar o apetite da criança.</item>
+		<item> A alimentação complementar deve ser espessa desde o início e oferecida de colher; iniciar com consistência pastosa (papas/purês) e, gradativamente, aumentar a consistência até chegar à alimentação da família.</item>
+		<item> Oferecer à criança diferentes alimentos ao dia. Uma alimentação variada é uma alimentação colorida.</item>
+		<item> Estimular o consumo diário de frutas, verduras e legumes nas refeições.</item>
+		<item> Evitar açúcar, café, enlatados, frituras, refrigerantes, balas, salgadinhos e outras guloseimas, nos primeiros anos de vida. Usar sal com moderação.</item>
+		<item> Cuidar da higiene no preparo e manuseio dos alimentos; garantir o seu armazenamento e conservação adequados.</item>
+		<item> Estimular a criança doente e convalescente a se alimentar, oferecendo sua alimentação habitual e seus alimentos preferidos, respeitando a sua aceitação.</item>
+
+	</string-array>
+
+	<string-array
+	    name="feeding_2_5_years">
+
+		<item>De 2 a 5 anos</item>
+	    <item> Oferecer alimentos variados, distribuindo-os em pelo menos três refeições e dois lanches por dia. Não pular as refeições. É importante que a criança coma devagar, porque, assim, mastiga bem os alimentos, aprecia melhor a refeição e satisfaz a fome. Prefirir alimentos saudáveis típicos da região e disponíveis na sua comunidade.</item>
+		<item> Incluir diariamente alimentos como cereais (arroz, milho), tubérculos (batatas), raízes (mandioca, macaxeira, aipim), pães e massas, distribuindo esses alimentos nas refeições e lanches da criança ao longo do dia. Dar preferência aos alimentos integrais e na forma mais natural.</item>
+		<item> Oferecer legumes e verduras nas duas principais refeições do dia; oferecer também, diariamente, duas frutas nas sobremesas e lanches. Todos esses alimentos são fontes de vitaminas e minerais, que ajudam na prevenção de doenças e melhoram a resistência do organismo. Variando os tipos de frutas, legumes e verduras oferecidos, garante-se um prato colorido e saboroso. </item>
+		<item> Oferecer feijão com arroz todos os dias ou, no mínimo, cinco vezes por semana. Essa combinação é muito boa para a saúde. Logo após a refeição, oferecer meio copo de suco de fruta natural ou meia fruta, que seja fonte de vitamina C, como laranja, limão, acerola, caju e outras, para melhorar o aproveitamento do ferro pelo corpo. Essa combinação ajuda a prevenir a anemia.</item>
+		<item> Oferecer leite ou derivados (queijo e iogurtes) três vezes ao dia. Esses alimentos são boas fontes de proteínas e cálcio e ajudam na saúde dos ossos, dentes e músculos. Se a criança ainda estiver sendo amamentada, não é necessário oferecer outro leite. Carnes, aves, peixes ou ovos devem fazer parte da refeição principal da criança. Além das carnes, oferecer à criança vísceras e miúdos (fígado, moela), que também são fontes de ferro, pelo menos uma vez por semana.</item>
+		<item> Evitar alimentos gordurosos e frituras; preferir alimentos assados, grelhados ou cozidos. Retirar a gordura visível das carnes e a pele das aves antes da preparação, para tornar esses alimentos mais saudáveis. Comer muita gordura faz mal à saúde e pode causar obesidade.</item>
+		<item> Evitar oferecer refrigerantes e sucos industrializados ou alimentos com muito açúcar (balas, bombons, biscoitos doces e recheados), salgadinhos e outras guloseimas no dia a dia. Uma alimentação com muito açúcar e doces pode aumentar o risco de obesidade e çries nas crianças.</item>
+		<item> Diminuir a quantidade de sal na comida; não deixar o saleiro na mesa. Evitar temperos prontos, alimentos enlatados, carnes salgadas e embutidos, como mortadela, presunto, hambúrguer, salsicha, linguiça e outros, pois esses alimentos têm muito sal. É importante que a criança se acostume com comidas menos salgadas desde cedo. Sal demais pode aumentar a pressão arterial. Usar temperos, como cheiro verde, alho, cebola e ervas frescas e secas, ou suco de frutas, como limão, para temperar e valorizar o sabor natural dos alimentos.</item>
+		<item> Estimular a criança a beber no mínimo quatro copos de água durante o dia, de preferência nos intervalos das refeições, para manter a hidratação e a saúde do corpo. Use sempre água tratada, fervida ou filtrada para beber e preparar refeições e bebidas. Suco natural de fruta também é uma bebida saudável, mas procure oferecer após as principais refeições. Não se esqueça também que suco não substitui a água.</item>
+		<item> Além da alimentação, a atividade física regular é importante para manter o peso e uma vida saudável. Atividades como caminhar, andar de bicicleta, passear com o cachorro, jogar bola, pular corda, brincar de esconde-esconde e pega-pega e evitar que a criança passe mais que duas horas por dia assistindo TV, jogando videogame ou brincando no computador contribuem para que ela torne-se mais ativa. Criança ativa é criança saudável.</item>
+	
+	</string-array>
+	
+	<string-array
+	    name="feeding_other_tips">
+	
+		<item>Outras Dicas</item>
+	    <item> Lavar as mãos antes de preparar as refeições e de alimentar a criança.</item>
+		<item> Oferecer água nos intervalos das refeições. Não oferecer sucos ou alimentos nesses intervalos.</item>
+		<item> Não oferecer restos da refeição anterior.</item>
+		
+	</string-array>
+	
+	<string-array
+	    name="newborn_first_days">
+	    
+		<item>Primeiros Dias</item>
+		<item> O bebê nunca deve dormir de barriga para baixo (de bruços). Recomenda- se que ele durma de barriga para cima. Cuide para que a boca e o nariz não fiquem cobertos. Para aquecê-lo, é preferível agasalhá-lo com mais roupas do que cobri-lo com muitas cobertas.</item>
+		<item> O bebê deve ser bem acolhido para se sentir protegido.</item>
+		<item> Não tenha medo de pegá-lo no colo, aproxime-o do seu corpo, apoiando seu pescoço e sua cabeça. Converse, cante, acaricie, embale, abrace, interaja com o bebê.</item>
+		<item> No início da vida, o bebê dorme bastante. Para garantir um bom sono é importante que ele durma em lugar tranquilo, arejado e limpo.</item>
+		<item> Nos primeiros dias o bebê perde um pouco de peso, mas, por volta do décimo dia, já recupera seu peso de nascimento.</item>
+		<item> O bebê precisa de tranquilidade. Evite levá-lo a lugares onde haja muita gente e muito barulho como supermercados e shopping.</item>
+		<item> Não permita que fumem dentro de casa. A fumaça faz mal à saúde. A criança não deve receber colo por alguém que acabou de fumar.</item>
+		<item> Evite usar produtos de limpeza com cheiro muito forte.</item>
+		<item> Proteja a criança de animais; mesmo os que são de casa podem ter reações imprevisíveis.</item>
+		<item> O banho deve ser dado desde os primeiros dias numa banheira ou numa bacia com água morna e sabonete neutro.</item>
+		<item> Enxugue-o rápido para que ele não sinta frio, não esquecendo de secar bem as dobrinhas da pele e o umbigo.</item>
+		<item> O coto do umbigo costuma cair até o final da segunda semana de vida.</item>
+	
+	</string-array>
+    
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<transition 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/transition_navigation_bar_boy_girl" >
+    
+    <item
+        android:drawable="@drawable/navigation_bar_boy" />
+    
+    <item
+        android:drawable="@drawable/navigation_bar_girl" />
+
+</transition>

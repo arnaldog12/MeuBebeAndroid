@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!-- @author GeckoApps Team -->
 
 <RelativeLayout
@@ -9,47 +8,68 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_neutral" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/tabBar"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:background="@drawable/tab_bar_neutral"
-        android:gravity="center_vertical|right" >
+        android:background="@drawable/tab_bar_neutral" >
+    
+	    <ImageButton
+	        android:id="@+id/infoHistoric"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_toLeftOf="@+id/imageButtonAddHistoric"
+	        android:src="@drawable/info"
+	        android:background="#00000000"
+	        android:onClick="infoHistoricPressed" />
+
+        <ImageButton
+            android:id="@+id/imageButtonAddHistoric"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#00000000"
+            android:onClick="loadAddHistoric"
+            android:src="@drawable/button_add" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/my_baby"
-            android:layout_weight="0.70"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <ImageButton
-            android:id="@+id/imageButtonAddBaby"
-		    android:layout_width="40dp"
-		    android:layout_height="40dp"
-            android:src="@drawable/button_add"
-            android:background="#00000000"
-            android:onClick="loadAddBaby" />
-
-    </LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/historic"
+			android:textSize="18dp"
+			android:textColor="#FFFFFF" />
+        
+        <TextView
+            android:id="@+id/babyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title"
+            android:layout_alignParentBottom="true"
+            android:text="@string/baby_name"
+			android:textSize="12dp"
+			android:textColor="#FFFFFF" />
+        
+    </RelativeLayout>
 
     <FrameLayout
-	    android:id="@+id/dataFrameMain"
+        android:id="@+id/dataFrameHistoric"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/tabBar"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/navigationBar"
-        android:layout_marginLeft="10dp"
-       	android:layout_marginRight="10dp" >
-        
-	    <ListView
-	        android:id="@+id/listMain"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
-	        android:cacheColorHint="#00000000"
-	        android:divider="#00000000" />
+        android:layout_below="@+id/tabBar" >
+
+        <ListView
+            android:id="@+id/listHistoric"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000" />
         
     </FrameLayout>
 
@@ -84,8 +104,8 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#20000000"
-            android:src="@drawable/button_my_baby_selected"
+            android:background="#00000000"
+            android:src="@drawable/button_my_baby"
             android:onClick="loadMain" />
         
         <ImageButton

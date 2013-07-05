@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+    
+    <group
+        android:id="@+id/rotateGroup" >
+    
+	    <item
+	        android:id="@+id/rotateCW"
+	        android:icon="@drawable/rotate_cw"
+	        android:title="@string/rotate_cw" />
+	    
+	    <item
+	        android:id="@+id/rotateCCW"
+	        android:icon="@drawable/rotate_ccw"
+	        android:title="@string/rotate_ccw" />
+        
+    </group>
+    
+</menu>
