@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gecko.lp3.meubebe"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="7" />
+    
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:configChanges="keyboardHidden|orientation" >
+        
+        <activity
+            android:name="gecko.lp3.mybaby.IntroActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            
+            <intent-filter>
+                
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+            
+        </activity>
+        
+        <activity
+            android:name="gecko.lp3.mybaby.MyBabyActivity"
+            android:label="MyBabyActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.AddBabyActivity"
+            android:label="AddBabyActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.AddHistoricActivity"
+            android:label="AddHistoricActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.AddVaccineActivity"
+            android:label="AddVaccineActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.EditBabyActivity"
+            android:label="EditBabyActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.GraphicsActivity"
+            android:label="GraphicsActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.HistoricActivity"
+            android:label="HistoricActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.ImageAreaPickerActivity"
+            android:label="ImageAreaPickerActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.ProgressActivity"
+            android:label="ProgressActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.ProgressInfoActivity"
+            android:label="ProgressInfoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.TipsActivity"
+            android:label="TipsActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.TipInfoActivity"
+            android:label="TipInfoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.VaccinesActivity"
+            android:label="VaccinesActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.VaccineInfoActivity"
+            android:label="VaccineiInfoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="gecko.lp3.mybaby.AlarmReceiverActivity"
+            android:label="AlarmReceiverActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+    </application>
+
+</manifest>
