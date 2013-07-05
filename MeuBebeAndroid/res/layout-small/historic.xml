@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- @author GeckoApps Team -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_neutral" >
+
+    <RelativeLayout
+        android:id="@+id/tabBar"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/tab_bar_neutral" >
+
+        <ImageButton
+            android:id="@+id/imageButtonAddHistoric"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#00000000"
+            android:onClick="loadAddHistoric"
+            android:src="@drawable/button_add" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/historic"
+			android:textSize="18dp"
+			android:textColor="#FFFFFF" />
+        
+        <TextView
+            android:id="@+id/babyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title"
+            android:layout_alignParentBottom="true"
+            android:text="@string/baby_name"
+			android:textSize="12dp"
+			android:textColor="#FFFFFF" />
+        
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/dataFrameHistoric"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navigationBar"
+        android:layout_below="@+id/tabBar" >
+
+        <ListView
+            android:id="@+id/listHistoric"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000" />
+        
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/navigation_bar_neutral"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/buttonMenuGraphics"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:src="@drawable/button_graphics"
+            android:background="#00000000"
+            android:onClick="loadGraphics" />
+        
+        <ImageButton
+            android:id="@+id/buttonMenuVaccines"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/button_vaccines"
+            android:onClick="loadVaccines" />
+        
+        <ImageButton
+            android:id="@+id/buttonMenuMyBaby"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/button_my_baby"
+            android:onClick="loadMain" />
+        
+        <ImageButton
+            android:id="@+id/buttonMenuProgress"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/button_progress"
+            android:onClick="loadProgress" />
+        
+        <ImageButton
+            android:id="@+id/buttonMenuTips"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/button_tips"
+            android:onClick="loadTips" />
+    
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navigationSubtitles"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#00000000"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/buttonMenuGraphicsSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/graphics"
+            android:textColor="#FFFFFFFF"
+            android:background="#00000000"
+            android:onClick="loadGraphics"
+            android:textSize="12dp" />
+        
+        <Button
+            android:id="@+id/buttonMenuVaccinesSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/vaccines"
+            android:textColor="#FFFFFFFF"
+            android:background="#00000000"
+            android:onClick="loadVaccines"
+			android:textSize="12dp" />
+        
+        <Button
+            android:id="@+id/buttonMenuMyBabySubtitle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/my_baby"
+            android:textColor="#FFFFFFFF"
+            android:background="#00000000"
+            android:onClick="loadMain"
+			android:textSize="12dp" />
+        
+        <Button
+            android:id="@+id/buttonMenuProgressSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/progress"
+            android:textColor="#FFFFFFFF"
+            android:background="#00000000"
+            android:onClick="loadProgress"
+			android:textSize="12dp" />
+        
+        <Button
+            android:id="@+id/buttonMenuTipsSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/tips"
+            android:textColor="#FFFFFFFF"
+            android:background="#00000000"
+            android:onClick="loadTips"
+			android:textSize="12dp" />
+    
+    </LinearLayout>
+
+</RelativeLayout>

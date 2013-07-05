@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- @author GeckoApps Team -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal|fill_vertical" >
+
+	<RelativeLayout
+	    android:id="@+id/imageAreaPickerRelativeLayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+	    
+	    <ImageView
+	    	android:id="@+id/imageViewAreaPicker"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:scaleType="matrix" />
+	    
+	</RelativeLayout>
+	
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+	    
+	    <ZoomControls
+	        android:id="@+id/zoomControl"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	    
+	    <Button
+	        android:id="@+id/okButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@android:string/ok"
+	        android:onClick="okButtonPressed" />
+	    
+    </LinearLayout>
+
+</RelativeLayout>
