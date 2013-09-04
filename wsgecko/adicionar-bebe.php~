@@ -1,0 +1,21 @@
+<?php
+
+include 'Classes/Conexao.php';
+include 'adiciona-bebe.php';
+include 'adiciona-progresso.php';
+
+if (isset($_GET['usuario']) && isset($_GET['nome']) && isset($_GET['idade']) && isset($_GET['sexo']) && isset($_GET['progresso'])) {
+	$usuario = $_GET['usuario'];
+	$nome = $_GET['nome'];
+	$idade = $_GET['idade'];
+	$sexo = $_GET['sexo'];
+	$progresso = $_GET['progresso'];
+
+	adicionaBebe($usuario, $nome, $idade, $sexo);
+	adicionaProgresso(global $id, $progresso);
+} else {
+
+    echo  json_encode(array("status" => false, "msg" => "Não Existe"));
+}
+?>
+
