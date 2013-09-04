@@ -96,28 +96,24 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return this.database.rawQuery(sql, null);
     }
     
-    public boolean insertContent(ContentValues content, String table) {
+    public long insertContent(ContentValues content, String table) {
     	
         if(this.database == null) {
         	
-            return false;
-        }
-        if(this.database.insert(table, null, content) != -1) {
-        	
-            return true;
+            return -1;
         }
         
-        return false;
+        return this.database.insert(table, null, content);
+        
     }
     
-    public void updateContent(ContentValues values, String table, String whereClause) {
+    public int updateContent(ContentValues values, String table, String whereClause) {
     	
         if (this.database == null) {
         	
-            return;
+            return 0;
         }
         
-        this.database.update(table, values, whereClause, null);
-    }
-    
+        return this.database.update(table, values, whereClause, null);
+    }    
 }

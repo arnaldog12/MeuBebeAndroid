@@ -82,6 +82,11 @@
             android:label="@string/edit_baby"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        
+        <provider
+	       android:authorities="gecko.mybaby.provider"
+	       android:name="gecko.mybaby.provider.BabyProvider" >
+		</provider> 
     </application>
 
 </manifest>

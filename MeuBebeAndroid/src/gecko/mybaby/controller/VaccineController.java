@@ -25,7 +25,7 @@ public class VaccineController {
     	
         if (vaccine == null) {
         	
-        	Log.e("Meu Bebê", "vaccine null");
+        	Log.e("Meu Bebï¿½", "vaccine null");
             return false;
         }
         
@@ -46,11 +46,11 @@ public class VaccineController {
         
         if (!this.dbHelper.open()) {
 
-        	Log.e("Meu Bebê", "db not open");
+        	Log.e("Meu Bebï¿½", "db not open");
             return false;
         }
         
-        boolean result = this.dbHelper.insertContent(values, "Vaccine");
+        boolean result = this.dbHelper.insertContent(values, "Vaccine") != -1;
         this.dbHelper.close();
         
         return result;

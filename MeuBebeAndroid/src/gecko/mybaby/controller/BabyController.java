@@ -58,7 +58,7 @@ public class BabyController {
         
         values.put("image", bytes);
         
-        boolean result = this.dbHelper.insertContent(values, "Baby");
+        boolean result = this.dbHelper.insertContent(values, "Baby") != -1L;
         this.dbHelper.close();
         
         return result;
