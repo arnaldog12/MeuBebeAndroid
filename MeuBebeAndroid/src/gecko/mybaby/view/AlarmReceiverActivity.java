@@ -31,7 +31,7 @@ public class AlarmReceiverActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.alarm);
+        this.setContentView(R.layout.activity_alarm);
         
         String message = this.getIntent().getExtras().getString("message");
         String vaccineId = this.getIntent().getExtras().getString("vaccine_id");
@@ -137,66 +137,46 @@ public class AlarmReceiverActivity extends Activity {
     
     private void finishActivities() {
     	
-//        if(AddBabyActivity.getInstance() != null) {
-//        	
-//            AddBabyActivity.getInstance().finish();
-//        }
-//        if(AddHistoricActivity.getInstance() != null) {
-//        	
-//            AddHistoricActivity.getInstance().finish();
-//        }
-//        if(AddVaccineActivity.getInstance() != null) {
-//        	
-//            AddVaccineActivity.getInstance().finish();
-//        }
-//        if(AlarmReceiverActivity.getInstance() != null) {
-//        	
-//            AlarmReceiverActivity.getInstance().finish();
-//        }
-//        if(EditBabyActivity.getInstance() != null) {
-//        	
-//            EditBabyActivity.getInstance().finish();
-//        }
-//        if(GraphicsActivity.getInstance() != null) {
-//        	
-//            GraphicsActivity.getInstance().finish();
-//        }
-//        if(HistoricActivity.getInstance() != null) {
-//        	
-//            HistoricActivity.getInstance().finish();
-//        }
-//        if(ImageAreaPickerActivity.getInstance() != null) {
-//        	
-//            ImageAreaPickerActivity.getInstance().finish();
-//        }
-//        if(MyBabyActivity.getInstance() != null) {
-//        	
-//            MyBabyActivity.getInstance().finish();
-//        }
-//        if(ProgressActivity.getInstance() != null) {
-//        	
-//            ProgressActivity.getInstance().finish();
-//        }
-//        if(ProgressInfoActivity.getInstance() != null) {
-//        	
-//            ProgressInfoActivity.getInstance().finish();
-//        }
-//        if(TipInfoActivity.getInstance() != null) {
-//        	
-//            TipInfoActivity.getInstance().finish();
-//        }
-//        if(TipsActivity.getInstance() != null) {
-//        	
-//            TipsActivity.getInstance().finish();
-//        }
-//        if(VaccineInfoActivity.getInstance() != null) {
-//        	
-//            VaccineInfoActivity.getInstance().finish();
-//        }
-//        if(VaccinesActivity.getInstance() != null) {
-//        	
-//            VaccinesActivity.getInstance().finish();
-//        }
+        if (AddHistoricActivity.instance != null) {
+        	
+            AddHistoricActivity.instance.finish();
+        }
+        if (AddVaccineActivity.instance != null) {
+        	
+            AddVaccineActivity.instance.finish();
+        }
+        if (EditBabyActivity.instance != null) {
+        	
+            EditBabyActivity.instance.finish();
+        }
+        if (GraphicsActivity.instance != null) {
+        	
+            GraphicsActivity.instance.finish();
+        }
+        if(HistoricActivity.instance != null) {
+        	
+            HistoricActivity.instance.finish();
+        }
+        if(MyBabyActivity.instance != null) {
+        	
+            MyBabyActivity.instance.finish();
+        }
+        if(ProgressActivity.instance != null) {
+        	
+            ProgressActivity.instance.finish();
+        }
+        if(TipsActivity.instance != null) {
+        	
+            TipsActivity.instance.finish();
+        }
+        if(VaccineDetailsActivity.instance != null) {
+        	
+        	VaccineDetailsActivity.instance.finish();
+        }
+        if(VaccinesActivity.instance != null) {
+        	
+            VaccinesActivity.instance.finish();
+        }
     }
     
     public void loadGraphics(View v) {

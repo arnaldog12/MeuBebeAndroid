@@ -1,11 +1,10 @@
 package gecko.mybaby.webservice;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.util.Log;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AddRemoteBaby implements Runnable {
 	
@@ -57,11 +56,12 @@ public class AddRemoteBaby implements Runnable {
 								   .append(AddRemoteBaby.URL_NAME)
 								   .append(baby.getName())
 								   .append(AddRemoteBaby.URL_AGE)
-								   .append(baby.getAgeInMonths())
+								   .append(baby.getBirth())
 								   .append(AddRemoteBaby.URL_SEX)
 								   .append(baby.getGender() == Baby.GENDER_BOY ? "1" : "0")
 								   .append(AddRemoteBaby.URL_PROGRESS)
 								   .append(AddRemoteBaby.URL_PROGRESS_NULL);
+		
 		return builder.toString();
 	}
 	

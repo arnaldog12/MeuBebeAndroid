@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 public class HistoricActivity extends Activity {
 
-	public static HistoricActivity instance;
+	public static HistoricActivity instance = null;
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
@@ -143,6 +143,47 @@ public class HistoricActivity extends Activity {
 	    	return ageStr;
 	    }
 		
+	}
+	
+	public void graphicsClicked(View view) {
+
+		HistoricActivity.instance.finish();
+	}
+	
+	public void vaccinesClicked(View view) {
+		
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void myBabyClicked(View view) {
+		
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+		
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+		
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+        Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+        this.startActivity(intent);
 	}
 	
 }

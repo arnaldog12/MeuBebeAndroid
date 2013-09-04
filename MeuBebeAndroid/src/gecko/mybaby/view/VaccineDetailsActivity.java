@@ -34,6 +34,8 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class VaccineDetailsActivity extends Activity {
+	
+	public static Activity instance = null;
 
 	private static final int VACCINE_ID_MASK = 0x00001FFF; //13 bits mask.
 	private static final int REMINDER_ID_MASK = 0x00000007; //3 bits mask.
@@ -58,6 +60,8 @@ public class VaccineDetailsActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_vaccine_details);
+		
+		VaccineDetailsActivity.instance = this;
 		
 		this.getReferences();
 		
@@ -137,6 +141,52 @@ public class VaccineDetailsActivity extends Activity {
     	
     	this.listView.setAdapter(new RemindersAdapter(this, this.reminders));
     }
+	
+	public void graphicsClicked(View view) {
+
+		VaccineDetailsActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate GraphicsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, GraphicsActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void vaccinesClicked(View view) {
+
+		VaccineDetailsActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void myBabyClicked(View view) {
+
+		VaccineDetailsActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+
+		VaccineDetailsActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+
+		VaccineDetailsActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+	    this.startActivity(intent);
+	}
     
     private class RemindersAdapter extends ArrayAdapter<Reminder> {
     	

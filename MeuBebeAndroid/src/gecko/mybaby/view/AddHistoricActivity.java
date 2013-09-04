@@ -1,12 +1,10 @@
 package gecko.mybaby.view;
 
 import gecko.mybaby.R;
-import gecko.mybaby.R.id;
-import gecko.mybaby.R.layout;
-import gecko.mybaby.R.string;
 import gecko.mybaby.exceptions.MeasureUpdateException;
 import gecko.mybaby.model.WeightHeight;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -16,6 +14,8 @@ import android.widget.Toast;
 
 public class AddHistoricActivity extends Activity {
 
+	public static Activity instance = null;
+	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
 	private LinearLayout navigationBar;
@@ -29,6 +29,8 @@ public class AddHistoricActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_add_historic);
+		
+		AddHistoricActivity.instance = this;
 		
 		this.getReferences();
 		
@@ -105,6 +107,45 @@ public class AddHistoricActivity extends Activity {
 		}
 		
 		this.finish();
+	}
+	
+	public void graphicsClicked(View view) {
+
+		AddHistoricActivity.instance.finish();
+		HistoricActivity.instance.finish();
+	}
+	
+	public void vaccinesClicked(View view) {
+
+		AddHistoricActivity.instance.finish();
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void progressClicked(View view) {
+
+		AddHistoricActivity.instance.finish();
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+
+		AddHistoricActivity.instance.finish();
+		HistoricActivity.instance.finish();
+		GraphicsActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+        Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+        this.startActivity(intent);
 	}
 
 }

@@ -1,20 +1,12 @@
 package gecko.mybaby.view;
 
-import gecko.lp3.mybaby.TipsActivity;
 import gecko.mybaby.R;
-import gecko.mybaby.controller.VaccineController;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Progress;
-import gecko.mybaby.model.Vaccine;
-import gecko.mybaby.view.custom.Page;
-import gecko.mybaby.view.custom.VaccinesPage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.TooManyListenersException;
 import java.util.Map.Entry;
 
 import org.apache.http.client.HttpClient;
@@ -23,24 +15,19 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.YuvImage;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class ProgressActivity extends Activity {
 	
-	public static ProgressActivity instance;
+	public static ProgressActivity instance = null;
 	
 	private static UpdateRemoteProgress updating = null;
 	
@@ -163,28 +150,39 @@ public class ProgressActivity extends Activity {
 		
 	}
 	
-	public void graphicsClicked(View v) {
+	public void graphicsClicked(View view) {
+
+		ProgressActivity.instance.finish();
 		
-		Intent inte = new Intent(this, GraphicsActivity.class);
-		this.startActivity(inte);
+		//Initiate GraphicsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, GraphicsActivity.class);
+	    this.startActivity(intent);
 	}
 	
-	public void vaccinesClicked(View v) {
+	public void vaccinesClicked(View view) {
 		
-		Intent inte = new Intent(this, VaccinesActivity.class);
-		this.startActivity(inte);
+		ProgressActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
 	}
 	
-	public void myBabyClicked(View v) {
+	public void myBabyClicked(View view) {
 		
-		Intent inte = new Intent(this, MyBabyActivity.class);
-		this.startActivity(inte);
+		ProgressActivity.instance.finish();
 	}
 	
-	public void tipsClicked(View v) {
+	public void progressClicked(View view) {
+	}
+	
+	public void tipsClicked(View view) {
 		
-		Intent inte = new Intent(this, TipsActivity.class);
-		this.startActivity(inte);
+		ProgressActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+	    this.startActivity(intent);
 	}
 	
 	private void saveRemote() {
@@ -232,6 +230,7 @@ public class ProgressActivity extends Activity {
 				}
 				
 				Log.d("MeuBebe", "URL Progress: " + sb.toString());
+				
 				HttpClient cli = new DefaultHttpClient();
 				HttpGet get = new HttpGet(sb.toString());
 				

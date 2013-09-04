@@ -1,11 +1,9 @@
 package gecko.mybaby.view;
 
 import gecko.mybaby.R;
-import gecko.mybaby.R.id;
-import gecko.mybaby.R.layout;
-import gecko.mybaby.R.string;
 import gecko.mybaby.model.Vaccine;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class AddVaccineActivity extends Activity {
+	
+	public static Activity instance = null;
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
@@ -29,6 +29,8 @@ public class AddVaccineActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_add_vaccine);
+		
+		AddVaccineActivity.instance = this;
 		
 		this.getReferences();
 		
@@ -89,6 +91,47 @@ public class AddVaccineActivity extends Activity {
 		VaccinesActivity.instance.addVaccine(vaccine);
 		
 		this.finish();
+	}
+	
+	public void graphicsClicked(View view) {
+		
+		AddVaccineActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate GraphicsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, GraphicsActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void vaccinesClicked(View view) {
+		
+		AddVaccineActivity.instance.finish();
+	}
+	
+	public void myBabyClicked(View view) {
+		
+		AddVaccineActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+		
+		AddVaccineActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+		
+		AddVaccineActivity.instance.finish();
+		VaccinesActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+        Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+        this.startActivity(intent);
 	}
 
 }

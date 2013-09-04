@@ -13,14 +13,18 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class FromMotherToMotherActivity extends Activity {
+	
+	public static Activity instance;
 	
 	private static final String BASE_URL = "http://ws.geckoapps.com.br/server2.php?data=2013%2F01%2F01%2000%3A00%3A00";
 	
@@ -42,6 +46,8 @@ public class FromMotherToMotherActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_tips_by_category);
+		
+		FromMotherToMotherActivity.instance = this;
 		
 		this.getReferences();
 		
@@ -177,6 +183,47 @@ public class FromMotherToMotherActivity extends Activity {
         
         Thread thread = new Thread(runnable);
         thread.start();
+	}
+	
+	public void graphicsClicked(View view) {
+		
+		FromMotherToMotherActivity.instance.finish();
+		TipsActivity.instance.finish();
+		
+		//Initiate GraphicsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, GraphicsActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void vaccinesClicked(View view) {
+		
+		FromMotherToMotherActivity.instance.finish();
+		TipsActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void myBabyClicked(View view) {
+		
+		FromMotherToMotherActivity.instance.finish();
+		TipsActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+		
+		FromMotherToMotherActivity.instance.finish();
+		TipsActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+		
+		FromMotherToMotherActivity.instance.finish();
 	}
 	
 }

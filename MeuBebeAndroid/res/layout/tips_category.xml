@@ -10,4 +10,4 @@
     android:layout_below="@+id/baby_name"
     android:layout_toRightOf="@+id/baby_image"
     android:textColor="@android:color/white"
-    android:textSize="@dimen/baby_age_text_size" />
+    android:textSize="26sp" />

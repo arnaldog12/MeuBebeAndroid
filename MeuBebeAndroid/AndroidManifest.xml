@@ -50,7 +50,7 @@
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="gecko.mybaby.view.ProgressActivity"
-            android:label="@string/progress_info"
+            android:label="@string/progress"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="gecko.mybaby.view.AlarmReceiverActivity"

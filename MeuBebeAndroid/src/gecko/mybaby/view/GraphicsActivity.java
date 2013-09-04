@@ -1,9 +1,6 @@
 package gecko.mybaby.view;
 
 import gecko.mybaby.R;
-import gecko.mybaby.R.drawable;
-import gecko.mybaby.R.id;
-import gecko.mybaby.R.layout;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.view.custom.ImagePage;
 import gecko.mybaby.view.custom.Page;
@@ -21,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class GraphicsActivity extends Activity {
+	
+	public static Activity instance;
 
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
@@ -33,6 +32,8 @@ public class GraphicsActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_graphics);
+
+		GraphicsActivity.instance = this;
 		
 		this.getReferences();
 		
@@ -140,6 +141,40 @@ public class GraphicsActivity extends Activity {
             this.viewPager.removeView((View) view);
         }
 		
+	}
+	
+	public void graphicsClicked(View view) {}
+	
+	public void vaccinesClicked(View view) {
+		
+		GraphicsActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void myBabyClicked(View view) {
+		
+		GraphicsActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+		
+		GraphicsActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+		
+		GraphicsActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+        Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+        this.startActivity(intent);
 	}
 
 }

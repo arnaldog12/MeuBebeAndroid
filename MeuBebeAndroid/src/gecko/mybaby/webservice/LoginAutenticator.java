@@ -75,10 +75,9 @@ public class LoginAutenticator implements Runnable {
 				String sexStr = babyJsonArray.getString(LoginAutenticator.JSON_SEX_INDEX);
 
 				int id = Integer.parseInt(idStr);
-				int age = Integer.parseInt(ageStr); //
 				int sex = ((sexStr.equals("t")) ? (Baby.GENDER_BOY) : (Baby.GENDER_GIRL));
 				
-				Baby baby = new Baby(nameStr, "25/12/2011", sex, new Historic(), new Progress(), null);
+				Baby baby = new Baby(nameStr, ageStr, sex, new Historic(), new Progress(), null);
 				baby.setId(id);
 				babysList.add(baby);
 			}

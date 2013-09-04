@@ -1,9 +1,12 @@
 package gecko.mybaby.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Progress {
+public class Progress implements Serializable {
 	
+	private static final long serialVersionUID = -1754735949745824068L;
+
 	public static final int PROGRESS_LIST_SIZE = 64;
 	
 	private ArrayList<Boolean> progress;

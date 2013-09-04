@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 public class TipsActivity extends Activity {
 	
+	public static Activity instance = null;
+	
 	private static String CAT_ALIMENTACAO = "Alimentação";
 	private static String CAT_AMAMENTACAO = "Amamentação";
 	private static String CAT_ESTIMULACAO = "Estimulação";
@@ -41,6 +43,8 @@ public class TipsActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_tips);
+		
+		TipsActivity.instance = this;
 		
 		this.getReferences();
 		
@@ -72,6 +76,40 @@ public class TipsActivity extends Activity {
 		this.tabBar.setBackgroundResource(MyBabyActivity.getBackgroundTabBar());
 		this.navigationBar.setBackgroundResource(MyBabyActivity.getBackgroundNavigationBar());
 	}
+	
+	public void graphicsClicked(View view) {
+
+		TipsActivity.instance.finish();
+		
+		//Initiate GraphicsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, GraphicsActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void vaccinesClicked(View view) {
+
+		TipsActivity.instance.finish();
+		
+		//Initiate VaccinesActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, VaccinesActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void myBabyClicked(View view) {
+
+		TipsActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+
+		TipsActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {}
 			
 	private class TipsListAdapter extends ArrayAdapter<String> {
 
@@ -120,5 +158,5 @@ public class TipsActivity extends Activity {
 			
 		}
 		
-	}	
+	}
 }

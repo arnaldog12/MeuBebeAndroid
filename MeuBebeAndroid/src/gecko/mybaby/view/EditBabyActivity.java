@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 public class EditBabyActivity extends Activity implements OnDateSetListener, RemoveBabyCallback {
 	
-	public static Activity instance;
+	public static Activity instance = null;
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;

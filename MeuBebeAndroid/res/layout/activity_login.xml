@@ -112,40 +112,35 @@
             android:layout_height="match_parent"
             android:layout_weight="20.0"
             android:src="@drawable/button_graphics"
-            android:background="#0000"
-            android:onClick="graphicsClicked" />
+            android:background="#0000" />
         
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="20.0"
             android:src="@drawable/button_vaccines"
-            android:background="#0000"
-            android:onClick="vaccinesClicked" />
+            android:background="#0000" />
         
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="20.0"
-            android:src="@drawable/button_my_baby_selected"
-            android:background="#0000"
-            android:onClick="myBabyClicked" />
+            android:src="@drawable/button_my_baby"
+            android:background="#0000" />
         
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="20.0"
             android:src="@drawable/button_progress"
-            android:background="#0000"
-            android:onClick="progressClicked" />
+            android:background="#0000" />
         
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="20.0"
             android:src="@drawable/button_tips"
-            android:background="#0000"
-            android:onClick="tipsClicked" />
+            android:background="#0000" />
         
     </LinearLayout>
     

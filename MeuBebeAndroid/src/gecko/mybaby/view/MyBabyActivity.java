@@ -33,7 +33,7 @@ import android.widget.Toast;
 
 public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCallback {
 
-	public static MyBabyActivity instance;
+	public static MyBabyActivity instance = null;
 	
 	private static int backgroundExternal = R.drawable.background_activity_neutral;
 	private static int backgroundTabBar = R.drawable.tab_bar_neutral;
@@ -268,6 +268,8 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		if (MyBabyActivity.instance.getSelectedBaby() != null) {
 
 			//Initiate ProgressActivity.
+	        Intent intent = new Intent(this, ProgressActivity.class);
+	        this.startActivity(intent);
 		}
 	}
 	

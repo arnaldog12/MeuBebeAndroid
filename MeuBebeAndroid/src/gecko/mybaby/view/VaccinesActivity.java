@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 
 public class VaccinesActivity extends Activity {
 	
-	public static VaccinesActivity instance;
+	public static VaccinesActivity instance = null;
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
@@ -112,6 +112,40 @@ public class VaccinesActivity extends Activity {
 	public void remindersClicked(View view) {
 		
 		
+	}
+	
+	public void graphicsClicked(View view) {
+
+		VaccinesActivity.instance.finish();
+		
+		//Initiate GraphicsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, GraphicsActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void vaccinesClicked(View view) {}
+	
+	public void myBabyClicked(View view) {
+
+		VaccinesActivity.instance.finish();
+	}
+	
+	public void progressClicked(View view) {
+
+		VaccinesActivity.instance.finish();
+		
+		//Initiate ProgressActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, ProgressActivity.class);
+	    this.startActivity(intent);
+	}
+	
+	public void tipsClicked(View view) {
+
+		VaccinesActivity.instance.finish();
+		
+		//Initiate TipsActivity.
+	    Intent intent = new Intent(MyBabyActivity.instance, TipsActivity.class);
+	    this.startActivity(intent);
 	}
 	
 	private class VaccinesPagerAdapter extends PagerAdapter {
