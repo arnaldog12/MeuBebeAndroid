@@ -6,8 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/background_neutral" >
+    android:layout_height="fill_parent" >
 
     <LinearLayout
         android:id="@+id/tabBar"
@@ -27,11 +26,11 @@
         
         <ImageButton
             android:id="@+id/returnButton"
-		    android:layout_width="40dp"
-		    android:layout_height="40dp"
-		    android:src="@drawable/button_return"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/button_return"
             android:background="#00000000"
-		    android:onClick="loadMain" />
+            android:onClick="loadMain" />
 
     </LinearLayout>
 
@@ -41,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tabBar"
         android:layout_above="@+id/navigationBar"
-        android:gravity="center"
-        android:orientation="vertical" >
+        android:gravity="center" >
+
         <EditText
             android:id="@+id/textViewVaccineInfo"
             android:layout_width="wrap_content"
@@ -55,7 +54,7 @@
             android:clickable="false"
             android:focusable="false"
             android:inputType="textMultiLine"
-            android:text="@string/vaccine_info"
+            android:text="@string/vaccine_description"
             android:gravity="center" />
 
         <Button
@@ -152,7 +151,7 @@
             android:textColor="#FFFFFFFF"
             android:background="#00000000"
             android:onClick="loadVaccines"
-			android:textSize="12dp" />
+            android:textSize="12dp" />
         
         <Button
             android:id="@+id/buttonMenuMyBabySubtitle"
@@ -163,7 +162,7 @@
             android:textColor="#FFFFFFFF"
             android:background="#00000000"
             android:onClick="loadMain"
-			android:textSize="12dp" />
+            android:textSize="12dp" />
         
         <Button
             android:id="@+id/buttonMenuProgressSubtitle"
@@ -174,7 +173,7 @@
             android:textColor="#FFFFFFFF"
             android:background="#00000000"
             android:onClick="loadProgress"
-			android:textSize="12dp" />
+            android:textSize="12dp" />
         
         <Button
             android:id="@+id/buttonMenuTipsSubtitle"
@@ -185,7 +184,7 @@
             android:textColor="#FFFFFFFF"
             android:background="#00000000"
             android:onClick="loadTips"
-			android:textSize="12dp" />
+            android:textSize="12dp" />
     
     </LinearLayout>
 

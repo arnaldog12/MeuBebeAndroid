@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    
+    <!-- 
+    <color name="tab_bar_text_color">#FFFFFF</color>
+    <color name="tab_bar_buttons_color_background">#00000000</color>
+    <color name="transition_bar_buttons_color_background">#00000000</color>
+    <color name="background_image_baby_background">#00000000</color> -->
+    
+    <color name="header_color">#FFF</color>
+    
+</resources>

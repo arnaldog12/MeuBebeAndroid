@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/small_margin_vertical"
+    android:paddingBottom="@dimen/small_margin_vertical"
+    android:orientation="horizontal"
+    android:weightSum="100.0" >
+    
+    <TextView
+        android:id="@+id/vaccine_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="90.0"
+        android:paddingLeft="@dimen/large_margin_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/small_label_text_size" />
+    
+    <ImageButton
+        android:id="@+id/vaccine_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10.0"
+        android:src="@drawable/arrow_right"
+        android:background="#0000" />
+
+</LinearLayout>

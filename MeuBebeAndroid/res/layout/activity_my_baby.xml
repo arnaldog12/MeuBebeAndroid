@@ -1,0 +1,103 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/external_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100.0"
+    android:orientation="vertical"
+    android:background="@drawable/background_activity_neutral"
+    tools:context=".MyBabyActivity" >
+    
+    <RelativeLayout
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.0"
+        android:background="@drawable/navigation_bar_neutral" >
+        
+        <TextView
+            android:id="@+id/baby_name_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/header"
+            android:textColor="@color/header_color"
+            android:gravity="center" />
+        
+        <ImageButton
+            android:id="@+id/add_baby"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/button_add"
+            android:background="#0000"
+            android:onClick="addBabyClicked" />
+        
+    </RelativeLayout>
+    
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="82.0"
+        android:paddingTop="@dimen/large_margin_vertical"
+        android:paddingBottom="@dimen/large_margin_vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:divider="#0000"
+        android:dividerHeight="@dimen/default_divider_height" />
+    
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10.0"
+        android:weightSum="100.0"
+        android:orientation="horizontal"
+        android:background="@drawable/navigation_bar_neutral" >
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_graphics"
+            android:background="#0000"
+            android:onClick="graphicsClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_vaccines"
+            android:background="#0000"
+            android:onClick="vaccinesClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_my_baby_selected"
+            android:background="#0000" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_progress"
+            android:background="#0000"
+            android:onClick="progressClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_tips"
+            android:background="#0000"
+            android:onClick="tipsClicked" />
+        
+    </LinearLayout>
+
+</LinearLayout>

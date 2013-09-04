@@ -1,0 +1,179 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/external_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100.0"
+    android:orientation="vertical"
+    android:background="@drawable/background_activity_neutral"
+    tools:context=".GraphicsActivity" >
+    
+    <RelativeLayout
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.0"
+        android:background="@drawable/navigation_bar_neutral" >
+        
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/graphics"
+            android:textSize="@dimen/header"
+            android:textColor="@color/header_color"
+            android:gravity="center" />
+        
+        <ImageButton
+            android:id="@+id/historic"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/button_update"
+            android:background="#0000"
+            android:onClick="historicClicked" />
+        
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="82.0"
+        android:paddingBottom="@dimen/small_margin_vertical"
+        android:weightSum="100.0"
+        android:orientation="vertical" >
+        
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50.0" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10.0"
+            android:text="@string/diagnostic"
+            android:textSize="@dimen/large_label_text_size"
+            android:textColor="@android:color/white"
+            android:gravity="center" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25.0"
+            android:gravity="center_vertical" >
+            
+            <TextView
+                android:id="@+id/weight_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/large_margin_horizontal"
+                android:text="@string/weight"
+                android:textSize="@dimen/large_label_text_size"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+            
+            <TextView
+                android:id="@+id/height_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weight_label"
+                android:layout_marginTop="@dimen/default_margin_vertical"
+                android:layout_marginLeft="@dimen/large_margin_horizontal"
+                android:text="@string/height"
+                android:textSize="@dimen/large_label_text_size"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+            
+            <TextView
+                android:id="@+id/weight_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/weight_label"
+                android:layout_toRightOf="@+id/height_label"
+                android:layout_marginLeft="@dimen/large_margin_horizontal"
+                android:textSize="@dimen/default_label_text_size"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+            
+            <TextView
+                android:id="@+id/height_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/height_label"
+                android:layout_toRightOf="@+id/height_label"
+                android:layout_marginLeft="@dimen/large_margin_horizontal"
+                android:textSize="@dimen/default_label_text_size"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+            
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/diagnostic_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15.0"
+            android:textSize="@dimen/large_label_text_size"
+            android:textColor="@android:color/white"
+            android:gravity="center" />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10.0"
+        android:weightSum="100.0"
+        android:orientation="horizontal"
+        android:background="@drawable/navigation_bar_neutral" >
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_graphics_selected"
+            android:background="#0000"
+            android:onClick="graphicsClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_vaccines"
+            android:background="#0000"
+            android:onClick="vaccinesClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_my_baby"
+            android:background="#0000"
+            android:onClick="myBabyClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_progress"
+            android:background="#0000"
+            android:onClick="progressClicked" />
+        
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20.0"
+            android:src="@drawable/button_tips"
+            android:background="#0000"
+            android:onClick="tipsClicked" />
+        
+    </LinearLayout>
+    
+</LinearLayout>

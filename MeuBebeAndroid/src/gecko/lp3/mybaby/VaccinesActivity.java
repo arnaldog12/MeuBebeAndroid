@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +19,7 @@ public class VaccinesActivity extends Activity {
     	
         super.onCreate(savedInstanceState);
         
+        Log.d("MeuBebe", "Vacinas");
         // Sets the current View to R.layout.vaccines.
         setContentView(R.layout.vaccines);
         
