@@ -64,6 +64,10 @@
             android:name="gecko.mybaby.view.FromMotherToMotherActivity"
             android:label="@string/tips_info"
             android:theme="@android:style/Theme.NoTitleBar" />
+      	<activity
+            android:name="gecko.mybaby.view.BooksResultsActivity"
+            android:label="@string/books" 
+        	android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="gecko.mybaby.view.LoginActivity"
             android:label="@string/login"
