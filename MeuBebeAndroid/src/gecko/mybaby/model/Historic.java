@@ -2,11 +2,13 @@ package gecko.mybaby.model;
 
 import gecko.mybaby.exceptions.MeasureUpdateException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Historic {
+public class Historic implements Serializable {
 	
+	private static final long serialVersionUID = 4104093384573099991L;
 	private static final int HISTORIC_LIST_SIZE = 64;
 
 	private ArrayList<WeightHeight> measures;

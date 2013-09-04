@@ -144,7 +144,6 @@ public class VaccinesActivity extends Activity {
 			List<List<Vaccine>> remindersPerMonth = new LinkedList<List<Vaccine>>();
 			
 			VaccinesPage allVaccinesPage = new VaccinesPage(this.activity, allVaccinesPerMonth);
-			
 			VaccinesPage takenVaccinesPage = new VaccinesPage(this.activity, takenVaccinesPerMonth);
 			VaccinesPage remindersPage = new VaccinesPage(this.activity, remindersPerMonth);
 

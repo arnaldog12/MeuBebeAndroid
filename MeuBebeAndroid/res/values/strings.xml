@@ -15,6 +15,10 @@
     <string name="historic">Histórico</string>
     <string name="progress">Progresso</string>
     <string name="vaccine">Vacina</string>
+    <string name="login">Login</string>
+    <string name="login_hint">Ex.: pai@gmail.com</string>
+    <string name="password">Senha</string>
+    <string name="create_user">Novo usuário</string>
     <string name="name">Nome</string>
     <string name="name_hint">Ex.: João</string>
     <string name="birth">Nascimento</string>
@@ -53,6 +57,9 @@
     <string name="vaccine_dose_not_set">Você precisa definir a dose da vacina</string>
     <string name="reminder_date_not_set">Você precisa definir a data do lembrete</string>
     <string name="reminder_time_not_set">Você precisa definir a hora do lembrete</string>
+    <string name="username_not_set">Você precisa preencher o login</string>
+    <string name="password_not_set">Você precisa preencher a senha</string>
+    <string name="wrong_login_or_password">Login ou senha errados</string>
 
     <!-- Views graphics and full_screen_graphics. -->
     <string name="graphics">Gráficos</string>
@@ -108,6 +115,7 @@
     <string name="feeding">Alimentação</string>
     <string name="first_days">Primeiros Dias</string>
     <string name="stimulus">Estímulos</string>
+    <string name="from_mother_to_mother">De mãe para mãe</string>
 
     <!-- View historic -->
     <string name="update_historic">Atualize o histórico do seu bebê para mais informações.</string>
@@ -131,5 +139,7 @@
     <string name="title_activity_vaccines">VaccinesActivity</string>
     <string name="title_activity_add_vaccine">AddVaccineActivity</string>
     <string name="title_activity_vaccine_details">VaccineDetailsActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_edit_baby">EditBabyActivity</string>
 
 </resources>

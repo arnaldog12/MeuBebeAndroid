@@ -11,6 +11,7 @@
     
     <dimen name="small_divider_height">2dp</dimen>
     <dimen name="default_divider_height">5dp</dimen>
+    <dimen name="large_divider_height">10dp</dimen>
     
     <dimen name="baby_image_size">150dp</dimen>
     

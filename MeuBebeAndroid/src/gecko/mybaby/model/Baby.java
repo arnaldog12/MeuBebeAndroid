@@ -3,13 +3,16 @@
  */
 package gecko.mybaby.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import android.graphics.Bitmap;
 
-public class Baby {
+public class Baby implements Serializable {
     
-    public static final int GENDER_GIRL = 0;
+	private static final long serialVersionUID = -4050782008947973979L;
+	
+	public static final int GENDER_GIRL = 0;
     public static final int GENDER_BOY = 1;
     public static final int GENDER_UNKNOWN = -1;
     
@@ -147,7 +150,7 @@ public class Baby {
         return Integer.parseInt(this.birth.split("/")[2]);
     }
     
-    private int getAgeInMonths() {
+    public int getAgeInMonths() {
     	
         Date date = new Date();
         int monthCurrent = date.getMonth() + 1;
@@ -159,6 +162,16 @@ public class Baby {
         
         return (12 * ((date.getYear() + 1900) - this.getYearBirthBaby())) +
         		(monthCurrent - this.getMonthBirthBaby());
+    }
+    
+    @Override
+    public boolean equals(Object object) {
+    	
+    	if (object instanceof Baby) {
+    		
+    		return (((Baby) object).getId() == this.getId());
+    	}
+    	return false;
     }
     
 }

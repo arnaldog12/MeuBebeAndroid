@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="@dimen/baby_margin_left_text"
+    android:layout_below="@+id/baby_name"
+    android:layout_toRightOf="@+id/baby_image"
+    android:textColor="@android:color/white"
+    android:textSize="@dimen/baby_age_text_size" />

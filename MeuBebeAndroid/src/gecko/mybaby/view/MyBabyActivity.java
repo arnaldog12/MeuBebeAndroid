@@ -5,6 +5,10 @@ import gecko.mybaby.controller.BabyController;
 import gecko.mybaby.controller.VaccineController;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Vaccine;
+import gecko.mybaby.webservice.AddRemoteBaby;
+import gecko.mybaby.webservice.AddRemoteBaby.AddBabyCallback;
+import gecko.mybaby.webservice.LoginAutenticator;
+import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,19 +18,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MyBabyActivity extends Activity {
+public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCallback {
 
 	public static MyBabyActivity instance;
 	
@@ -44,6 +49,9 @@ public class MyBabyActivity extends Activity {
 	
 	private ListView listView;
 	
+	private String username;
+	private String password;
+	
 	private ArrayList<Baby> babyList;
 	private Baby selectedBaby;
 	
@@ -59,11 +67,14 @@ public class MyBabyActivity extends Activity {
 		MyBabyActivity.instance = this;
 		
 		this.getReferences();
+
+		this.username = this.getIntent().getStringExtra("username");
+		this.password = this.getIntent().getStringExtra("password");
 		
 		//Initializing selectedBaby to null and decoration to neutral.
 		this.setSelectedBaby(null);
-		
-		this.getBabysOnDatabase();
+
+		this.babyList = (ArrayList<Baby>) this.getIntent().getSerializableExtra("babys");
 		
 		this.listView.setAdapter(new BabyListAdapter(this, 0, this.babyList));
 	}
@@ -79,28 +90,53 @@ public class MyBabyActivity extends Activity {
 		this.listView = ((ListView) this.findViewById(R.id.list_view));
 	}
 	
-	private void getBabysOnDatabase() {
+	private void getBabys() {
 		
-		BabyController controller = new BabyController(this);
-		this.babyList = controller.getAllBabys();
+		LoginAutenticator.autenticateLogin(this.username, this.password, this);
 		
-		if (this.babyList == null) {
+		if (true) {
 			
-			this.babyList = new ArrayList<Baby>(); 
+			return;
 		}
+		
+//		BabyController controller = new BabyController(this);
+//		this.babyList = controller.getAllBabys();
+//		
+//		if (this.babyList == null) {
+//			
+//			this.babyList = new ArrayList<Baby>(); 
+//		}
 	}
 	
 	public void addBaby(Baby baby) {
 
-		this.addBabyOnDatabase(baby);
-		this.getBabysOnDatabase();
+//		this.addBabyOnDatabase(baby);
+		this.addBabyOnRemoteDatabase(baby);
 		
-		this.updateListView();
+		this.getBabys();
+		
 		this.updateActivityDecoration();
-		
-		Log.v("Meu Beb�", "sz = " + this.babyList.size());
 	}
 	
+	public void removeBaby(Baby baby) {
+		
+		this.babyList.remove(baby);
+		
+		BabyController controller = new BabyController(this);
+		controller.removeBaby(baby.getId());
+		
+		if (baby.equals(this.selectedBaby)) {
+			
+			this.selectedBaby = null;
+			this.updateActivityDecoration();
+		}
+	}
+	
+	private void addBabyOnRemoteDatabase(Baby baby) {
+		
+		AddRemoteBaby.addBaby(this.username, baby, this);
+	}
+		
 	private void addBabyOnDatabase(Baby baby) {
 		
 		BabyController controller = new BabyController(this);
@@ -232,8 +268,6 @@ public class MyBabyActivity extends Activity {
 		if (MyBabyActivity.instance.getSelectedBaby() != null) {
 
 			//Initiate ProgressActivity.
-			Intent intent = new Intent(this, ProgressActivity.class);
-	        this.startActivity(intent);
 		}
 	}
 	
@@ -242,6 +276,8 @@ public class MyBabyActivity extends Activity {
 		if (MyBabyActivity.instance.getSelectedBaby() != null) {
 
 			//Initiate TipsActivity.
+	        Intent intent = new Intent(this, TipsActivity.class);
+	        this.startActivity(intent);
 		}
 	}
     
@@ -307,6 +343,7 @@ public class MyBabyActivity extends Activity {
 			ImageView image = (ImageView) layout.findViewById(R.id.baby_image);
 			TextView name = (TextView) layout.findViewById(R.id.baby_name);
 			TextView age = (TextView) layout.findViewById(R.id.baby_age);
+			ImageButton edit = (ImageButton) layout.findViewById(R.id.edit);
 			
 			name.setText(baby.getName());
 			age.setText(baby.getAge());
@@ -323,10 +360,30 @@ public class MyBabyActivity extends Activity {
 				
 				image.setImageResource(R.drawable.foreground_girl);
 			}
+			edit.setOnClickListener(new OnEditBabyClickListener(baby));
 			
 			layout.setOnClickListener(new OnBabyClickedListener(baby));
 			
 			return layout;
+		}
+		
+		private class OnEditBabyClickListener implements OnClickListener {
+			
+			private Baby baby;
+			
+			public OnEditBabyClickListener(Baby baby) {
+				
+				this.baby = baby;
+			}
+			
+			@Override
+			public void onClick(View v) {
+
+				//Initiate TipsActivity.
+		        Intent intent = new Intent(MyBabyActivity.this, EditBabyActivity.class);
+		        intent.putExtra("baby", this.baby);
+		        MyBabyActivity.this.startActivity(intent);
+			}
 		}
 		
 		private class OnBabyClickedListener implements OnClickListener {
@@ -342,10 +399,46 @@ public class MyBabyActivity extends Activity {
 			public void onClick(View v) {
 				
 				MyBabyActivity.instance.setSelectedBaby(this.baby);
-			}			
+			}
 			
 		}
 		
+	}
+
+	@Override
+	public void addBabyResponse(int status, Baby baby) {
+		
+		if (status == AddBabyCallback.STATUS_SUCCESS) {
+			
+			this.babyList.add(baby);
+			this.addBabyOnDatabase(baby);
+		}
+	}
+
+	@Override
+	public void loginResponse(int status, ArrayList<Baby> babysList,
+			String usernameStr, String passwordStr) {
+		
+		final int finalStatus = status;
+		final ArrayList<Baby> finalBabysList = babysList;
+		
+		this.runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+
+				if (finalStatus == LoginCallback.STATUS_ERROR) {
+					
+					Toast.makeText(MyBabyActivity.this, "Status_Error", Toast.LENGTH_LONG).show();
+					return;
+				}
+				
+				MyBabyActivity.this.babyList = finalBabysList;
+				
+				MyBabyActivity.this.updateListView();
+			}
+			
+		});
 	}
 
 }
