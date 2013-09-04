@@ -23,12 +23,13 @@ public class TipsActivity extends Activity {
 	
 	public static Activity instance = null;
 	
-	private static String CAT_ALIMENTACAO = "Alimentação";
-	private static String CAT_AMAMENTACAO = "Amamentação";
-	private static String CAT_ESTIMULACAO = "Estimulação";
+	private static String CAT_ALIMENTACAO = "Alimentação";
+	private static String CAT_AMAMENTACAO = "Amamentação";
+	private static String CAT_ESTIMULACAO = "Estimulação";
 	private static String CAT_CUIDADOS = "Cuidados";
 	private static String CAT_PRIMEIROS_DIAS = "Primeiros Dias";
-	private static String CAT_DE_MAE_PARA_MAE = "De Mãe para Mãe";
+	private static String CAT_DE_MAE_PARA_MAE = "De Mãe para Mãe";
+	private static String CAT_LIVROS = "Livros";
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
@@ -56,6 +57,7 @@ public class TipsActivity extends Activity {
 		this.tipsList.add(TipsActivity.CAT_ESTIMULACAO);
 		this.tipsList.add(TipsActivity.CAT_CUIDADOS);
 		this.tipsList.add(TipsActivity.CAT_PRIMEIROS_DIAS);
+		this.tipsList.add(TipsActivity.CAT_LIVROS);
 		this.tipsList.add(TipsActivity.CAT_DE_MAE_PARA_MAE);
 		
 		this.listView.setAdapter(new TipsListAdapter(this, 0, this.tipsList));
@@ -152,6 +154,12 @@ public class TipsActivity extends Activity {
 				if (this.category.equals(TipsActivity.CAT_DE_MAE_PARA_MAE)){
 					
 					intent = new Intent(TipsActivity.this, FromMotherToMotherActivity.class);
+					TipsActivity.this.startActivity(intent);
+				}
+				
+				if(this.category.equals(TipsActivity.CAT_LIVROS)){
+					
+					intent = new Intent(TipsActivity.this, BooksResultsActivity.class);
 					TipsActivity.this.startActivity(intent);
 				}
 			}			
