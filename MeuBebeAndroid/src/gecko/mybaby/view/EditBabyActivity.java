@@ -115,11 +115,12 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 						    Toast.LENGTH_LONG).show();
 			return;
 		}
-		
+
 		Bitmap img = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
 		Baby baby = new Baby(name, birth, this.gender, new Historic(), new Progress(), img);
 		
-		MyBabyActivity.instance.addBaby(baby);
+		baby.setId(this.baby.getId());
+		MyBabyActivity.instance.editBaby(baby);
 		
 		this.finish();
 	}

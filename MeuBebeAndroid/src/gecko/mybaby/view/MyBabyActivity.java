@@ -2,6 +2,7 @@ package gecko.mybaby.view;
 
 import gecko.mybaby.R;
 import gecko.mybaby.controller.BabyController;
+import gecko.mybaby.controller.SQLiteHelper;
 import gecko.mybaby.controller.VaccineController;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Vaccine;
@@ -13,11 +14,17 @@ import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -116,6 +123,44 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.getBabys();
 		
 		this.updateActivityDecoration();
+	}
+	
+	public void editBaby(Baby baby) {
+		
+		BabyController cont = new BabyController(this);
+		
+		cont.setBabyName(baby.getId(), baby.getName());
+		cont.setBabySex(baby.getId(), baby.getGender());
+		cont.setBabyBirth(baby.getId(), baby.getBirth());
+		
+		StringBuilder sb = new StringBuilder("http://ws.geckoapps.com.br/editar-bebe.php?");
+		sb.append("id=").append(baby.getId()).append("&nome=").append(baby.getName())
+			.append("&idade=").append(baby.getBirth()).append("&sexo=")
+			.append((baby.getGender() == Baby.GENDER_BOY?"1":"0"));
+		
+		AsyncTask<String, Void, Void> task = new AsyncTask<String, Void, Void>() {
+
+			@Override
+			protected Void doInBackground(String... params) {
+
+				try {
+					
+					Log.d("MeuBebe", "URL Progress: " + params[0]);
+					
+					HttpClient cli = new DefaultHttpClient();
+					HttpGet get = new HttpGet(params[0]);
+					
+					cli.execute(get);
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+				return null;
+			}
+		};
+		
+		task.execute(sb.toString());
+		
 	}
 	
 	public void removeBaby(Baby baby) {
