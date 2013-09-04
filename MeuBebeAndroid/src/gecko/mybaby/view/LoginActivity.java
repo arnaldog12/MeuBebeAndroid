@@ -11,6 +11,7 @@ import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -55,12 +56,44 @@ public class LoginActivity extends Activity implements LoginCallback {
 			return;
 		}
 		
-		LoginAutenticator.autenticateLogin(usernameStr, passwordStr, this);
+		MessageDigest md = null;
+		
+		try {
+			
+			md = MessageDigest.getInstance("SHA-512");
+		} catch (NoSuchAlgorithmException e) {
+			
+			e.printStackTrace();
+			return;
+		}
+		
+		md.update(passwordStr.getBytes());
+		byte[] hashMd5 = md.digest();
+		
+		LoginAutenticator.autenticateLogin(usernameStr, this.stringHexa(hashMd5).toUpperCase(), this);
 	}
 
 	public void addUserClicked(View view) {
 		
 		
+	}
+
+	private String stringHexa(byte[] bytes) {
+		
+		StringBuilder s = new StringBuilder();
+		for (int i = 0; i < bytes.length; i++) {
+			
+		    int parteAlta = ((bytes[i] >> 4) & 0xf) << 4;
+		    int parteBaixa = bytes[i] & 0xf;
+		    
+		    if (parteAlta == 0) {
+		    	
+		    	s.append('0');
+		    }
+		    
+		    s.append(Integer.toHexString(parteAlta | parteBaixa));
+		}
+		return s.toString();
 	}
 
 	@Override
@@ -84,20 +117,6 @@ public class LoginActivity extends Activity implements LoginCallback {
 					return;
 				} else if (finalstatus == LoginCallback.STATUS_SUCCESS) {
 					
-					MessageDigest md = null;
-					
-					try {
-						
-						md = MessageDigest.getInstance("SHA-512");
-					} catch (NoSuchAlgorithmException e) {
-						
-						e.printStackTrace();
-						return;
-					}
-					
-					md.update(finalPasswordStr.getBytes());
-					byte[] hashMd5 = md.digest();
-					
 					//Initiate MyBabyActivity.
 					Intent intent = new Intent(LoginActivity.this, MyBabyActivity.class);
 					intent.putExtra("babys", finalBabysList);
@@ -108,24 +127,6 @@ public class LoginActivity extends Activity implements LoginCallback {
 					
 					LoginActivity.this.finish();
 				}
-			}
-
-			private String stringHexa(byte[] bytes) {
-				
-				StringBuilder s = new StringBuilder();
-				for (int i = 0; i < bytes.length; i++) {
-					
-				    int parteAlta = ((bytes[i] >> 4) & 0xf) << 4;
-				    int parteBaixa = bytes[i] & 0xf;
-				    
-				    if (parteAlta == 0) {
-				    	
-				    	s.append('0');
-				    }
-				    
-				    s.append(Integer.toHexString(parteAlta | parteBaixa));
-				}
-				return s.toString();
 			}
 		
 		});
