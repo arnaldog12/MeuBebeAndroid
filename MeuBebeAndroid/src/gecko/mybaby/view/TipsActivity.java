@@ -23,12 +23,12 @@ public class TipsActivity extends Activity {
 	
 	public static Activity instance = null;
 	
-	private static String CAT_ALIMENTACAO = "Alimentação";
-	private static String CAT_AMAMENTACAO = "Amamentação";
-	private static String CAT_ESTIMULACAO = "Estimulação";
+	private static String CAT_ALIMENTACAO = "Alimentação";
+	private static String CAT_AMAMENTACAO = "Amamentação";
+	private static String CAT_ESTIMULACAO = "Estimulação";
 	private static String CAT_CUIDADOS = "Cuidados";
 	private static String CAT_PRIMEIROS_DIAS = "Primeiros Dias";
-	private static String CAT_DE_MAE_PARA_MAE = "De Mãe para Mãe";
+	private static String CAT_DE_MAE_PARA_MAE = "De Mãe para Mãe";
 	private static String CAT_LIVROS = "Livros";
 	
 	private LinearLayout externalLayout;

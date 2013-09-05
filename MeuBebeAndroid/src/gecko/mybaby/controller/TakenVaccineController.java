@@ -20,7 +20,7 @@ public class TakenVaccineController {
     }
     
     //Adiciona uma vacina a lista de vacinas tomadas por um bebe.
-    public boolean addTakenVaccine(int babyID, int vaccineID, short month) {
+    public boolean addTakenVaccine(int babyID, int vaccineID, int month) {
     	
         String sql = "insert into TakenVaccine values (" + babyID + "," + vaccineID + "," + month + ")";
         if (this.dbHelper.open() == false) {
@@ -35,21 +35,21 @@ public class TakenVaccineController {
     }
     
     //Remove uma vacina da lista de vacinas tomadas por um bebe.
-    public boolean removeTakenVaccine(int babyID, int vaccineID) {
+    public boolean removeTakenVaccine(int babyID, int vaccineID, int month) {
     	
         if (this.dbHelper.open() == false) {
         	
             return false;
         }
         
-        String sql = "delete from TakenVaccine where babyID = " + babyID + " and vaccineID = " + vaccineID;
+        String sql = "delete from TakenVaccine where babyID = " + babyID + " and vaccineID = " + vaccineID + " and month = " + month;
         boolean result = this.dbHelper.executeSQL(sql);
         this.dbHelper.close();
         
         return result;
     }
 
-	public boolean updateTakenVaccine(int babyID, int vaccineID, short month) {
+	public boolean updateTakenVaccine(int babyID, int vaccineID, int month) {
     	
         if (this.dbHelper.open() == false) {
         	

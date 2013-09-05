@@ -12,7 +12,9 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,12 +31,35 @@ public class LoginActivity extends Activity implements LoginCallback {
 		this.setContentView(R.layout.activity_login);
 		
 		this.getReferences();
+		
+		this.getPreferences();
+		
+		this.login();
 	}
 	
 	private void getReferences() {
 
 		this.username = (EditText) this.findViewById(R.id.username);
 		this.password = (EditText) this.findViewById(R.id.password);
+	}
+	
+	private void getPreferences() {
+		
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		String usernameStr = prefs.getString(this.getResources().getString(R.string.save_username), "");
+		String passwordStr = prefs.getString(this.getResources().getString(R.string.save_password), "");
+
+		this.username.setText(usernameStr);
+		this.password.setText(passwordStr);
+	}
+	
+	private void login() {
+		
+		if ((!this.username.getText().equals(""))
+				&& (!this.password.getText().equals(""))){
+			
+			this.loginClicked(null);
+		}
 	}
 
 	public void loginClicked(View view) {

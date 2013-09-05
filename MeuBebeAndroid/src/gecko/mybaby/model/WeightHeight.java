@@ -2,6 +2,12 @@ package gecko.mybaby.model;
 
 public final class WeightHeight implements Comparable<WeightHeight> {
 
+	public static final float FEET_TO_CM_FACTOR = 30.48f;
+	public static final float CM_TO_FEET_FACTOR = 0.03280F;
+	
+	public static final float POUND_TO_KG_FACTOR = 0.4536F;
+	public static final float KG_TO_POUND_FACTOR = 2.2046F;
+
 	protected int month;
 	protected double weight;
 	protected double height;
@@ -26,6 +32,11 @@ public final class WeightHeight implements Comparable<WeightHeight> {
 	public final double getHeight() {
 		
 		return this.height;
+	}
+
+	public final double getBMI() {
+		
+		return (this.weight / ((this.height / (float) 100.0) * (this.height / (float) 100.0)));
 	}
 	
 	@Override

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <EditTextPreference
+        android:key="@string/save_username"
+        android:summary="@string/save_username_summary"
+        android:title="@string/save_username" />
+    
+    <EditTextPreference
+        android:key="@string/save_password"
+        android:summary="@string/save_password_summary"
+        android:title="@string/save_password"
+        android:inputType="textPassword" />
+    
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/set_auto_vaccines"
+        android:summary="@string/set_auto_vaccines_summary"
+        android:title="@string/set_auto_vaccines" />
+    
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/show_imc"
+        android:summary="@string/show_imc_summary"
+        android:title="@string/show_imc" />
+
+    <ListPreference
+        android:entries="@array/metric_systems"
+        android:entryValues="@array/metric_systems"
+        android:key="@string/metric_system"
+        android:summary="@string/metric_system"
+        android:title="@string/metric_system"
+        android:defaultValue="@string/si" />
+    
+    <!-- 
+    <PreferenceCategory
+        android:title="@string/pref_user_profile" >
+        
+        <EditTextPreference
+            android:title="@string/pref_user_name"
+            android:summary="@string/pref_user_name_summary"
+            android:key="prefUsername"/>
+        
+    </PreferenceCategory>
+     
+    <PreferenceCategory android:title="@string/pref_update_setting" >
+        
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefSendReport"
+            android:summary="@string/pref_send_report_summary"
+            android:title="@string/pref_send_report" />
+ 
+        <ListPreference
+            android:key="prefSyncFrequency"
+            android:entries="@array/syncFrequency"
+            android:summary="@string/pref_sync_frequency_summary"
+            android:entryValues="@array/syncFrequencyValues"
+            android:title="@string/pref_sync_frequency" />
+    </PreferenceCategory>
+    
+    -->
+ 
+</PreferenceScreen>

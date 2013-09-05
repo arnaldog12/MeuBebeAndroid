@@ -3,6 +3,14 @@
 <!-- @author GeckoApps Team -->
 
 <resources>
+    
+    <string-array
+        name="metric_systems">
+        
+        <item>SI</item>
+        <item>Sistema Imperial</item>
+        
+    </string-array>
 
     <!-- App info. -->
     <string name="app_name">Meu Bebê</string>
@@ -25,6 +33,7 @@
     <string name="birth">Nascimento</string>
     <string name="birth_hint">Selecione a data</string>
     <string name="sex">Sexo</string>
+    <string name="bmi">IMC</string>
     <string name="height">Altura</string>
     <string name="height_hint">Ex.: 90.0</string>
     <string name="weight">Peso</string>
@@ -61,6 +70,28 @@
     <string name="username_not_set">Você precisa preencher o login</string>
     <string name="password_not_set">Você precisa preencher a senha</string>
     <string name="wrong_login_or_password">Login ou senha errados</string>
+    
+    <!-- Preferences -->
+    <string name="my_baby_preferences">Preferências</string>
+    
+    <string name="save_username">Salvar último login</string>
+    <string name="save_username_summary">Salvar nome de usuário do último login</string>
+    
+    <string name="save_password">Salvar senha</string>
+    <string name="save_password_summary">Salvar senha do último login</string>
+    
+    <string name="set_auto_progress">Setar Progresso Automaticamente</string>
+    <string name="set_auto_progress_summary">Setar Progresso Automaticamente para novos bebês criados</string>
+    
+    <string name="set_auto_vaccines">Setar Vacinas Automaticamente</string>
+    <string name="set_auto_vaccines_summary">Setar Vacinas Automaticamente para novos bebês criados</string>
+    
+    <string name="show_imc">Mostrar IMC</string>
+    <string name="show_imc_summary">Mostrar IMC na view de Histórico</string>
+    
+    <string name="metric_system">Sistema de medidas</string>
+    <string name="metric_system_summary">Sistema de medidas usado para o cálculo da altura e peso</string>
+    <string name="si">SI</string>
 
     <!-- Views graphics and full_screen_graphics. -->
     <string name="graphics">Gráficos</string>

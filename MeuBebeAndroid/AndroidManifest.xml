@@ -106,8 +106,13 @@
             android:name="gecko.mybaby.webservice.AddRemoteUser"
             android:label="@string/new_user"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name="gecko.mybaby.view.MyBabyPreferencesActivity"
+            android:label="@string/my_baby_preferences"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait" />
         
         <provider
 	       android:authorities="gecko.mybaby.provider"

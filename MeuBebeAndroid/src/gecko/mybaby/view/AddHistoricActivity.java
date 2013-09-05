@@ -6,6 +6,7 @@ import gecko.mybaby.model.WeightHeight;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -94,6 +95,14 @@ public class AddHistoricActivity extends Activity {
 			age = Integer.parseInt(ageStr);
 			weight = Double.parseDouble(weightStr);
 			height = Double.parseDouble(heightStr);
+
+			String metricSystem = PreferenceManager.getDefaultSharedPreferences(AddHistoricActivity.this)
+					.getString(AddHistoricActivity.this.getResources().getString(R.string.metric_system), "SI");
+			if (!metricSystem.equals("SI")) {
+
+				height *= WeightHeight.FEET_TO_CM_FACTOR;
+				weight *= WeightHeight.POUND_TO_KG_FACTOR;
+			}
 			
 			wh = new WeightHeight(age, weight, height);
 

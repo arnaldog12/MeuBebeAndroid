@@ -39,6 +39,18 @@
         android:textSize="@dimen/small_label_text_size" />
     
     <TextView
+        android:id="@+id/bmi_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/height_label"
+        android:layout_marginTop="@dimen/default_margin_vertical"
+        android:layout_marginLeft="@dimen/large_margin_horizontal"
+        android:paddingLeft="@dimen/default_margin_horizontal"
+        android:text="@string/bmi"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/small_label_text_size" />
+    
+    <TextView
         android:id="@+id/weight_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,6 +67,17 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/height_label"
         android:layout_alignBaseline="@+id/height_label"
+        android:layout_marginLeft="@dimen/large_margin_horizontal"
+        android:paddingLeft="@dimen/default_margin_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/small_label_text_size" />
+    
+    <TextView
+        android:id="@+id/bmi_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/height_label"
+        android:layout_alignBaseline="@+id/bmi_label"
         android:layout_marginLeft="@dimen/large_margin_horizontal"
         android:paddingLeft="@dimen/default_margin_horizontal"
         android:textColor="@android:color/white"

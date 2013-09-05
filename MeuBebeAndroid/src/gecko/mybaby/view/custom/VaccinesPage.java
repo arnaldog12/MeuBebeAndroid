@@ -1,6 +1,8 @@
 package gecko.mybaby.view.custom;
 
 import gecko.mybaby.R;
+import gecko.mybaby.controller.TakenVaccineController;
+import gecko.mybaby.model.TakenVaccine;
 import gecko.mybaby.model.Vaccine;
 import gecko.mybaby.view.MyBabyActivity;
 import gecko.mybaby.view.VaccineDetailsActivity;
@@ -14,6 +16,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -79,11 +84,17 @@ public class VaccinesPage implements Page {
 		
 		private Activity activity;
 		
+		private List<TakenVaccine> takenVaccines;
+		
 		public VaccinesAdapter(Activity activity, List<List<Vaccine>> vaccines) {
 			
 			super(activity, 0, vaccines);
 			
 			this.activity = activity;
+			
+			TakenVaccineController controller = new TakenVaccineController(this.activity);
+			this.takenVaccines = controller.takenVaccinesPerBaby(
+					MyBabyActivity.instance.getSelectedBaby().getId());
 		}
 		
 		@Override
@@ -113,12 +124,16 @@ public class VaccinesPage implements Page {
 				LinearLayout innerLayout =
 						(LinearLayout) LayoutInflater.from(this.getContext()).inflate(R.layout.vaccine, null);
 				
-				TextView vaccineName = (TextView) innerLayout.findViewById(R.id.vaccine_name);
+				CheckBox vaccineName = (CheckBox) innerLayout.findViewById(R.id.vaccine_name);
 				ImageButton vaccineInfo = (ImageButton) innerLayout.findViewById(R.id.vaccine_info);
 				
 				vaccineName.setText(vaccine.getName() + " - " + vaccine.getDose());
+				if (this.takenVaccines.contains(new TakenVaccine(vaccine.getId(), vaccine.getMonth()))) {
+					
+					vaccineName.setChecked(true);
+				}
+				vaccineName.setOnCheckedChangeListener(new VaccineCheckedListener(this.activity, vaccine));
 				vaccineInfo.setOnClickListener(new VaccineClickListener(this.activity, vaccine));
-				
 				vaccinesLayout.addView(innerLayout);
 			}
 			
@@ -175,6 +190,38 @@ public class VaccinesPage implements Page {
 	        intent.putExtra(this.activity.getResources().getString(R.string.vaccine), this.vaccine);
 	        this.activity.startActivity(intent);
 		}
+		
+	}
+	
+	private class VaccineCheckedListener implements OnCheckedChangeListener {
+
+		private Activity activity;
+		private Vaccine vaccine;
+		
+		public VaccineCheckedListener(Activity activity, Vaccine vaccine) {
+			
+			this.activity = activity;
+			this.vaccine = vaccine;
+		}
+		
+		@Override
+		public void onCheckedChanged( CompoundButton buttonView,
+									  boolean isChecked ) {
+			
+			TakenVaccineController controller = new TakenVaccineController(this.activity);
+			if (isChecked) {
+				
+				controller.addTakenVaccine(
+						MyBabyActivity.instance.getSelectedBaby().getId(),
+						this.vaccine.getId(), this.vaccine.getMonth() );
+			} else {
+				
+				controller.removeTakenVaccine(
+						MyBabyActivity.instance.getSelectedBaby().getId(),
+						this.vaccine.getId(), this.vaccine.getMonth() );
+			}
+		}
+		
 		
 	}
 	

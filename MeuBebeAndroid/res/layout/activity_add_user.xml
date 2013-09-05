@@ -69,7 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10.0"
-            android:textSize="@dimen/default_edit_text_size" />
+            android:textSize="@dimen/default_edit_text_size"
+            android:inputType="textPassword" />
         
         <TextView
             android:layout_width="match_parent"
@@ -84,7 +85,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10.0"
-            android:textSize="@dimen/default_edit_text_size" />
+            android:textSize="@dimen/default_edit_text_size"
+            android:inputType="textPassword" />
         
         <LinearLayout
             android:layout_width="wrap_content"

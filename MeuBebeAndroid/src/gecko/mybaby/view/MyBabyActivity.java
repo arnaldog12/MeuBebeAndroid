@@ -2,7 +2,7 @@ package gecko.mybaby.view;
 
 import gecko.mybaby.R;
 import gecko.mybaby.controller.BabyController;
-import gecko.mybaby.controller.SQLiteHelper;
+import gecko.mybaby.controller.TakenVaccineController;
 import gecko.mybaby.controller.VaccineController;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Vaccine;
@@ -24,8 +24,10 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -41,6 +43,7 @@ import android.widget.Toast;
 public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCallback {
 
 	public static MyBabyActivity instance = null;
+	private static final int PREFERENCES_RESULT_CODE = 1;
 	
 	private static int backgroundExternal = R.drawable.background_activity_neutral;
 	private static int backgroundTabBar = R.drawable.tab_bar_neutral;
@@ -85,6 +88,28 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		
 		this.listView.setAdapter(new BabyListAdapter(this, 0, this.babyList));
 	}
+ 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	
+        this.getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
+ 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	
+        switch (item.getItemId()) {
+        	
+	        case R.id.menu_settings:
+	            Intent intent = new Intent(this, MyBabyPreferencesActivity.class);
+	            this.startActivityForResult(intent, MyBabyActivity.PREFERENCES_RESULT_CODE);
+	            break;
+	            
+        }
+ 
+        return true;
+    }
 	
 	private void getReferences() {
 
@@ -97,7 +122,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.listView = ((ListView) this.findViewById(R.id.list_view));
 	}
 	
-	private void getBabys() {
+	private void getRemoteBabys() {
 		
 		LoginAutenticator.autenticateLogin(this.username, this.password, this);
 		
@@ -105,24 +130,30 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 			
 			return;
 		}
-		
-//		BabyController controller = new BabyController(this);
-//		this.babyList = controller.getAllBabys();
-//		
-//		if (this.babyList == null) {
-//			
-//			this.babyList = new ArrayList<Baby>(); 
-//		}
 	}
 	
 	public void addBaby(Baby baby) {
 
 //		this.addBabyOnDatabase(baby);
 		this.addBabyOnRemoteDatabase(baby);
+	}
+	
+	private void updateLocalVaccines(Baby baby) {
 		
-		this.getBabys();
+		int age = baby.getAgeInMonths();
 		
-		this.updateActivityDecoration();
+		VaccineController vaccineController = new VaccineController(this);
+		ArrayList<Vaccine> vaccines = vaccineController.getAllVaccines();
+
+		TakenVaccineController takenVaccineController = new TakenVaccineController(this);
+		
+		for (Vaccine vaccine : vaccines) {
+			
+			if (vaccine.getMonth() < age) {
+
+				takenVaccineController.addTakenVaccine(baby.getId(), vaccine.getId(), vaccine.getMonth());
+			}
+		}
 	}
 	
 	public void editBaby(Baby baby) {
@@ -144,8 +175,6 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 			protected Void doInBackground(String... params) {
 
 				try {
-					
-					Log.d("MeuBebe", "URL Progress: " + params[0]);
 					
 					HttpClient cli = new DefaultHttpClient();
 					HttpGet get = new HttpGet(params[0]);
@@ -458,8 +487,11 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		if (status == AddBabyCallback.STATUS_SUCCESS) {
 			
 			this.babyList.add(baby);
-			Log.d("MeuBebe", "Add Bebe call");
 			this.addBabyOnDatabase(baby);
+			
+			this.getRemoteBabys();
+			
+			this.updateActivityDecoration();
 		}
 	}
 
@@ -484,6 +516,20 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 				MyBabyActivity.this.babyList = finalBabysList;
 				
 				MyBabyActivity.this.updateListView();
+
+				boolean autoVaccines = PreferenceManager.getDefaultSharedPreferences(MyBabyActivity.this)
+						.getBoolean(MyBabyActivity.this.getResources().getString(R.string.set_auto_vaccines), false);
+				
+				if (autoVaccines) {
+					
+					try {
+						
+						Baby lastBaby = MyBabyActivity.this.babyList.get(MyBabyActivity.this.babyList.size() - 1);
+						MyBabyActivity.this.updateLocalVaccines(lastBaby);
+					} catch (Exception exception) {//In case there is only one baby.
+						
+					}
+				}
 			}
 			
 		});

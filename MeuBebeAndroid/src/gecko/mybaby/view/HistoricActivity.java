@@ -8,6 +8,7 @@ import gecko.mybaby.model.WeightHeight;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,17 +100,40 @@ public class HistoricActivity extends Activity {
 			
 			WeightHeight wh = this.getItem(position);
 			
+			boolean imperial = false;
+			String metricSystem = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this)
+					.getString(HistoricActivity.this.getResources().getString(R.string.metric_system), "SI");
+			
+			if (!metricSystem.equals("SI")) {
+				
+				imperial = true;
+				WeightHeight wh2 = new WeightHeight(wh.getMonth(), (wh.getWeight() * WeightHeight.KG_TO_POUND_FACTOR),
+						wh.getHeight() * WeightHeight.CM_TO_FEET_FACTOR);
+				wh = wh2;
+			}
+			
 			RelativeLayout layout = (RelativeLayout) LayoutInflater.from(this.getContext()).inflate(R.layout.historic, null);
 
 			TextView age = (TextView) layout.findViewById(R.id.age_value);
 			TextView weight = (TextView) layout.findViewById(R.id.weight_value);
 			TextView height = (TextView) layout.findViewById(R.id.height_value);
+			TextView bmi = (TextView) layout.findViewById(R.id.bmi_value);
 			
 			age.setBackgroundResource(MyBabyActivity.getBackgroundDivider());
 			
 			age.setText(this.getAgeStr(wh.getMonth()));
-			weight.setText(String.valueOf(wh.getWeight()));
-			height.setText(String.valueOf(wh.getHeight()));
+			weight.setText(String.valueOf(wh.getWeight()) + ((imperial) ? (" libras") : (" kg")));
+			height.setText(String.valueOf(wh.getHeight()) + ((imperial) ? (" pés") : (" cm")));
+			bmi.setText(String.valueOf(wh.getBMI()));
+			
+			boolean showPrefs = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this)
+					.getBoolean(HistoricActivity.this.getResources().getString(R.string.show_imc), false);
+			
+			if (!showPrefs) {
+				
+				bmi.setVisibility(View.GONE);
+				((TextView) layout.findViewById(R.id.bmi_label)).setVisibility(View.GONE);
+			}
 			
 			return layout;
 		}

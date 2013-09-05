@@ -31,7 +31,7 @@ public class BooksResultsActivity extends ListActivity {
 	private static final String baseUrl = "https://www.googleapis.com/books/v1/volumes?maxResults=30&q=";
 	private static final String apiKey = "AIzaSyCckSrYqQV_LvXkth-kPpkU5EReN44TmjA";
 	
-	private static final String[] temas = {"mãe", "pai", "bebe", "criança", "gravidez", "amamentação"};
+	private static final String[] temas = {"mãe", "pai", "bebê", "criança", "gravidez", "amamentação"};
 	
 	private static final String TAG_ITEMS = "items";
 	private static final String TAG_VOLUME_INFO = "volumeInfo";
