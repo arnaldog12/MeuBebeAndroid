@@ -16,6 +16,7 @@
         android:configChanges="keyboardHidden|orientation"
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
+        
         <activity
             android:name="gecko.mybaby.view.MyBabyActivity"
             android:label="@string/my_baby"
@@ -95,7 +96,8 @@
         <provider
 	       android:authorities="gecko.mybaby.provider"
 	       android:name="gecko.mybaby.provider.BabyProvider" >
-		</provider> 
+		</provider>
+		
     </application>
 
 </manifest>

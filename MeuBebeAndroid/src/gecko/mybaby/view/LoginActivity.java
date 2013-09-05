@@ -1,18 +1,18 @@
 package gecko.mybaby.view;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-
 import gecko.mybaby.R;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.webservice.AddRemoteUser;
 import gecko.mybaby.webservice.LoginAutenticator;
 import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -75,9 +75,9 @@ public class LoginActivity extends Activity implements LoginCallback {
 	}
 
 	public void addUserClicked(View view) {
+		
 		Intent intent = new Intent(this, AddRemoteUser.class);
 		this.startActivity(intent);
-		
 	}
 
 	private String stringHexa(byte[] bytes) {
