@@ -186,6 +186,14 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 				}
 				return null;
 			}
+			
+			@Override
+			protected void onPostExecute(Void result) {
+				
+				super.onPostExecute(result);
+				
+				MyBabyActivity.this.getRemoteBabys();
+			}
 		};
 		
 		task.execute(sb.toString());
