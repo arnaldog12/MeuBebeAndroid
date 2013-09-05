@@ -142,5 +142,8 @@
     <string name="title_activity_vaccine_details">VaccineDetailsActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_edit_baby">EditBabyActivity</string>
+    <string name="confirm_password">Confirmar Senha</string>
+    <string name="create_new_user">Criar Login</string>
+    <string name="new_user">Novo usuário</string>
 
 </resources>

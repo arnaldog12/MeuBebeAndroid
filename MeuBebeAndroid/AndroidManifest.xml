@@ -86,6 +86,11 @@
             android:label="@string/edit_baby"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name="gecko.mybaby.webservice.AddRemoteUser"
+            android:label="@string/new_user"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
         
         <provider
 	       android:authorities="gecko.mybaby.provider"
