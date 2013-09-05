@@ -6,6 +6,7 @@ package gecko.mybaby.controller;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Historic;
 import gecko.mybaby.model.Progress;
+import gecko.mybaby.webservice.AddRemoteBaby;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 public class BabyController {
     
@@ -58,7 +60,20 @@ public class BabyController {
         
         values.put("image", bytes);
         
-        boolean result = this.dbHelper.insertContent(values, "Baby") != -1L;
+        long new_id = this.dbHelper.insertContent(values, "Baby");
+        Log.d("MeuBebe", "Adicionando bebe");
+        ContentValues pv = new ContentValues();
+        pv.put("babyID", new_id);
+        pv.put("progress", AddRemoteBaby.URL_PROGRESS_NULL);
+        
+        try {
+        
+        	this.dbHelper.insertContent(pv, "Progress");
+        } catch (Exception e) {
+        	
+        	e.printStackTrace();
+        }
+        boolean result = new_id != -1L;
         this.dbHelper.close();
         
         return result;

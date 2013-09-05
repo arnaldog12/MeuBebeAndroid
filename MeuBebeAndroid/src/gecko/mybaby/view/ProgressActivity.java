@@ -1,6 +1,7 @@
 package gecko.mybaby.view;
 
 import gecko.mybaby.R;
+import gecko.mybaby.controller.SQLiteHelper;
 import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Progress;
 
@@ -15,6 +16,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +66,41 @@ public class ProgressActivity extends Activity {
 		this.getReferences();
 
 		Baby baby = MyBabyActivity.instance.getSelectedBaby();
+		SQLiteHelper helper = new SQLiteHelper(this);
+		try {
+			
+			Log.d("MeuBebe", "Query PRO: " + "SELECT * FROM Progress WHERE babyID = " + baby.getId());
+			helper.open();
+			Cursor c = helper.executeQuery("SELECT * FROM Progress WHERE babyID = " + baby.getId());
+			if (c.moveToFirst()) {
+				
+				String pg = c.getString(c.getColumnIndex("progress"));
+				
+				ArrayList<Boolean> valu = new ArrayList<Boolean>(Progress.PROGRESS_LIST_SIZE);
+				
+				for (int i = 0; i < pg.length(); i++) {
+				
+					if (pg.charAt(i) == '1') {
+						
+						valu.add(Boolean.TRUE);
+					} else {
+						
+						valu.add(Boolean.FALSE);
+					}
+				}
+				
+				Log.d("MeuBebe", "DB Progress: " + pg);
+				baby.setProgress(new Progress(valu));
+			} else {
+				
+				Log.d("MeuBebe", "Error first");
+			}
+		} catch (Exception e) {
+			
+			Log.d("MeuBebe", "Error execet");
+			e.printStackTrace();
+		}
+		
 		for (int i = 0; i < Progress.PROGRESS_LIST_SIZE; i++) {
 		
 			this.new_progress.add(baby.getProgress().getProgressAt(i));
@@ -84,7 +121,38 @@ public class ProgressActivity extends Activity {
 		Log.d("MeuBebe", "New progress len: " + new_progress.size());
 		MyBabyActivity.instance.getSelectedBaby().setProgress(new Progress(new_progress));
 		
+		this.saveLocal();
 		this.saveRemote();
+	}
+	
+	private void saveLocal() {
+		
+		try {
+			
+			Baby baby = MyBabyActivity.instance.getSelectedBaby();
+			StringBuilder sb = new StringBuilder();
+			
+			for (Boolean b : baby.getProgress().getProgress()) {
+				
+				if (b.equals(Boolean.TRUE)) {
+					
+					sb.append("1");
+				} else {
+					
+					sb.append("0");
+				}
+			}
+			
+			SQLiteHelper helper = new SQLiteHelper(this);
+			helper.open();
+			Log.d("MeuBebe", "QUERY: " + "UPDATE Progress SET progress = '" + sb.toString() + "' WHERE babyID = " + baby.getId());
+			helper.executeSQL("UPDATE Progress SET progress = '" + sb.toString() + "' WHERE babyID = " + baby.getId());
+			
+			helper.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 	}
 	
 	private void updateProgessView() {

@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
     
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 7;
     private static final String DATABASE_NAME = "mybaby.db";
     
     // SQL statements to create the tables.
@@ -22,6 +22,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     private String tableReminder = "create table Reminder (date, time, message, babyID, vaccineID, id, PRIMARY KEY(babyID, vaccineID, id)" + "FOREIGN KEY(babyID) references Baby(id) on delete cascade," + "FOREIGN KEY(vaccineID) references Vaccine(id) on delete cascade)";
     private String tableHistoric = "create table Historic (weight, height, month, babyID, PRIMARY KEY(babyID, month)" + "FOREIGN KEY(babyID) references Baby(id) on delete cascade)";
     private String tableTakenVaccine = "create table TakenVaccine (babyID, vaccineID, month, PRIMARY KEY(babyID, vaccineID)," + "FOREIGN KEY(babyID) references Baby(id) on delete cascade," + "FOREIGN KEY(vaccineID) references Vaccine(id) on delete cascade)";
+    private String tableProgress = "create table Progress (babyID, progress, PRIMARY KEY(babyID, progress)," + " FOREIGN KEY(babyID) references Baby(id) on delete cascade)";
     
     private SQLiteDatabase database = null;
     
@@ -34,11 +35,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     	
+    	try {
         db.execSQL(this.tableBaby);
         db.execSQL(this.tableVaccine);
         db.execSQL(this.tableReminder);
         db.execSQL(this.tableHistoric);
         db.execSQL(this.tableTakenVaccine);
+        db.execSQL(this.tableProgress);
+    	} catch (Exception e) {
+
+    		e.printStackTrace();
+		}
     }
     
     @Override
@@ -52,6 +59,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS TakenVaccine");
         db.execSQL("DROP TABLE IF EXISTS Reminder");
         db.execSQL("DROP TABLE IF EXISTS LastSelectedBaby");
+        db.execSQL("DROP TABLE IF EXISTS Progress");
         
         onCreate(db);
     }

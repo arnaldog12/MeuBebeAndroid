@@ -15,7 +15,7 @@ public class AddRemoteBaby implements Runnable {
 	private static final String URL_SEX = "&sexo=";
 	private static final String URL_PROGRESS = "&progresso=";
 	
-	private static final String URL_PROGRESS_NULL = "0000000000000000000000000000000000000000000000000000000000000000";
+	public static final String URL_PROGRESS_NULL = "0000000000000000000000000000000000000000000000000000000000000000";
 	
 	public interface AddBabyCallback {
 

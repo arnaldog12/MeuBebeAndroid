@@ -131,7 +131,9 @@ public class AddRemoteUser extends Activity{
 	            	 	            	 
 	            	 Intent intent = new Intent(AddRemoteUser.this, LoginActivity.class);
 	            	 AddRemoteUser.this.startActivity(intent);
+	            	 
 	             }else{
+	            	 
 	            	 AddRemoteUser.this.runOnUiThread(new Runnable() {					
 		 					@Override
 		 					public void run() {

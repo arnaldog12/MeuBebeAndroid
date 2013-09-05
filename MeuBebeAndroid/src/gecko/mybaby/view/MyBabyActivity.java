@@ -458,6 +458,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		if (status == AddBabyCallback.STATUS_SUCCESS) {
 			
 			this.babyList.add(baby);
+			Log.d("MeuBebe", "Add Bebe call");
 			this.addBabyOnDatabase(baby);
 		}
 	}
