@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import gecko.mybaby.R;
 import gecko.mybaby.model.Baby;
+import gecko.mybaby.webservice.AddRemoteUser;
 import gecko.mybaby.webservice.LoginAutenticator;
 import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
 import android.app.Activity;
@@ -74,7 +75,8 @@ public class LoginActivity extends Activity implements LoginCallback {
 	}
 
 	public void addUserClicked(View view) {
-		
+		Intent intent = new Intent(this, AddRemoteUser.class);
+		this.startActivity(intent);
 		
 	}
 

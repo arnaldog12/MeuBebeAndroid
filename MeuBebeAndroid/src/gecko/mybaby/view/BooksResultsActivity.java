@@ -31,7 +31,7 @@ public class BooksResultsActivity extends ListActivity {
 	private static final String baseUrl = "https://www.googleapis.com/books/v1/volumes?maxResults=30&q=";
 	private static final String apiKey = "AIzaSyCckSrYqQV_LvXkth-kPpkU5EReN44TmjA";
 	
-	private static final String[] temas = {"mãe", "pai", "bebe", "criança", "gravidez", "amamentação"};
+	private static final String[] temas = {"m√£e", "pai", "bebe", "crian√ßa", "gravidez", "amamenta√ß√£o"};
 	
 	private static final String TAG_ITEMS = "items";
 	private static final String TAG_VOLUME_INFO = "volumeInfo";
@@ -109,7 +109,7 @@ public class BooksResultsActivity extends ListActivity {
 	            	 JSONObject book = BooksResultsActivity.this.books.getJSONObject(i);
 	            	 JSONObject volumeInfo = book.getJSONObject(BooksResultsActivity.TAG_VOLUME_INFO);
 	            	 
-	            	 String title = "Sem título";
+	            	 String title = "Sem tÔøΩtulo";
 	            	 if(volumeInfo.has(BooksResultsActivity.TAG_TITLE))
 	            		 title = volumeInfo.getString(BooksResultsActivity.TAG_TITLE);
 	            	 
@@ -126,7 +126,7 @@ public class BooksResultsActivity extends ListActivity {
 							sbAuthors.append(authors.getString(j));	            	 
 	            	 }
 	            	 
-	            	 if((!BooksResultsActivity.this.titulo.trim().equals("") && !title.equals("Sem título"))
+	            	 if((!BooksResultsActivity.this.titulo.trim().equals("") && !title.equals("Sem tÔøΩtulo"))
 	            		|| (!BooksResultsActivity.this.autor.trim().equals("") && !sbAuthors.equals("Sem Autor(es)"))
 	            		|| (!BooksResultsActivity.this.editora.trim().equals("") && !publisher.equals("Sem editora"))){
 

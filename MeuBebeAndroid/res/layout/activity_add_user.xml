@@ -80,7 +80,7 @@
             android:textColor="@android:color/white" />
         
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/confirm_password"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10.0"
@@ -91,20 +91,13 @@
             android:layout_height="0dp"
             android:layout_weight="10.0"
             android:orientation="horizontal" >
-            
-            <Button
-                android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/login"
-                android:textSize="@dimen/default_button_text_size"
-                android:onClick="loginClicked" />
+           
             
             <Button
                 android:id="@+id/create_user"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/create_user"
+                android:text="@string/new_user"
                 android:textSize="@dimen/default_button_text_size"
                 android:onClick="addUserClicked" />
 	        
