@@ -54,6 +54,7 @@
             android:layout_height="0dp"
             android:layout_weight="10.0"
             android:hint="@string/login_hint"
+            android:inputType="textEmailAddress"
             android:textSize="@dimen/default_edit_text_size" />
 
         <TextView
@@ -98,51 +99,4 @@
         </LinearLayout>
         
     </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10.0"
-        android:weightSum="100.0"
-        android:orientation="horizontal"
-        android:background="@drawable/navigation_bar_neutral" >
-        
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20.0"
-            android:src="@drawable/button_graphics"
-            android:background="#0000" />
-        
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20.0"
-            android:src="@drawable/button_vaccines"
-            android:background="#0000" />
-        
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20.0"
-            android:src="@drawable/button_my_baby"
-            android:background="#0000" />
-        
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20.0"
-            android:src="@drawable/button_progress"
-            android:background="#0000" />
-        
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20.0"
-            android:src="@drawable/button_tips"
-            android:background="#0000" />
-        
-    </LinearLayout>
-    
 </LinearLayout>
