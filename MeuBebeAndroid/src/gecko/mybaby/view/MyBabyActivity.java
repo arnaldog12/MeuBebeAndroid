@@ -5,6 +5,7 @@ import gecko.mybaby.controller.BabyController;
 import gecko.mybaby.controller.TakenVaccineController;
 import gecko.mybaby.controller.VaccineController;
 import gecko.mybaby.model.Baby;
+import gecko.mybaby.model.FacebookHelper;
 import gecko.mybaby.model.Vaccine;
 import gecko.mybaby.webservice.AddRemoteBaby;
 import gecko.mybaby.webservice.AddRemoteBaby.AddBabyCallback;
@@ -12,19 +13,25 @@ import gecko.mybaby.webservice.LoginAutenticator;
 import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import com.facebook.model.GraphUser;
+import com.facebook.widget.LoginButton;
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,13 +56,16 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	private static int backgroundTabBar = R.drawable.tab_bar_neutral;
 	private static int backgroundNavigationBar = R.drawable.navigation_bar_neutral;
 	private static int backgroundDivider= R.drawable.divider_neutral;
-	
+
+	private FacebookHelper fbHelper;
 
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
 	private LinearLayout navigationBar;
 	
 	private TextView babyName;
+	private ImageButton fbButton;
+	private LoginButton loginButton;
 	
 	private ListView listView;
 	
@@ -75,6 +85,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.addDefaultVaccines();
 		
 		MyBabyActivity.instance = this;
+		this.fbHelper = new FacebookHelper(this);
 		
 		this.getReferences();
 
@@ -87,6 +98,18 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.babyList = (ArrayList<Baby>) this.getIntent().getSerializableExtra("babys");
 		
 		this.listView.setAdapter(new BabyListAdapter(this, 0, this.babyList));
+		
+	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		if(this.fbHelper == null){
+			this.fbHelper = new FacebookHelper(this);
+		}
+		
+		fbHelper.getActivitySession(requestCode, resultCode, data);
 	}
  
     @Override
@@ -120,6 +143,25 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.babyName = ((TextView) this.findViewById(R.id.baby_name_header));
 		
 		this.listView = ((ListView) this.findViewById(R.id.list_view));
+		
+		this.fbButton = (ImageButton) this.findViewById(R.id.button_facebook);
+		this.fbButton.setEnabled(false);
+		
+		loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
+            @Override
+            public void onUserInfoFetched(GraphUser user) {
+                MyBabyActivity.this.fbHelper.setUser(user);
+                loginButton.setVisibility(View.INVISIBLE);
+                loginButton.setEnabled(false);
+                
+                MyBabyActivity.this.fbButton.setEnabled(true);
+                // It's possible that we were waiting for this.user to be populated in order to post a
+                // status update.
+                MyBabyActivity.this.fbHelper.handlePendingAction();
+            }
+        });
+		
 	}
     
     private void addDefaultVaccines() {
@@ -406,6 +448,12 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	        Intent intent = new Intent(this, TipsActivity.class);
 	        this.startActivity(intent);
 		}
+	}
+	
+	public void shareOnFacebook(View view){
+		
+		Log.v("facebook", "facebook");
+		this.fbHelper.postMyBabyLink();
 	}
 	
 	private class BabyListAdapter extends ArrayAdapter<Baby> {
