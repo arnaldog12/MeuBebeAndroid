@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 public class ReminderController {
     
@@ -32,20 +31,15 @@ public class ReminderController {
         String sql = "insert into Reminder values (" + "\"" + date + "\",\"" + time + "\",\"" + message + "\",\"" + 
         			  babyId + "\",\"" + vaccineId + "\",\"" + reminderId + "\")";
         
-        Log.v("Meu Bebê", sql);
-        
         if (!this.dbHelper.open()) {
         	
-        	Log.e("Meu Bebê", "helper not opened on add");
             return false;
         }
         
         try {
         	
-	        boolean result = this.dbHelper.executeSQL(sql);
+	        this.dbHelper.executeSQL(sql);
 	        this.dbHelper.close();
-	        
-	        Log.e("Meu Bebê", "result do add reminders: " + result);
         } catch (Exception exception) {
         	
         	exception.printStackTrace();
@@ -57,8 +51,7 @@ public class ReminderController {
     public ArrayList<Reminder> getAllReminders() {
     	
         if (!this.dbHelper.open()) {
-
-        	Log.e("Meu Bebê", "helper not opened on getAll");
+        	
             return null;
         }
         
@@ -71,7 +64,6 @@ public class ReminderController {
         if (cursor == null) {
         	
             this.dbHelper.close();
-        	Log.e("Meu Bebê", "cursor null on getAll");
         	
             return null;
         }
@@ -85,8 +77,7 @@ public class ReminderController {
                 reminders.add(item);
             }
         } catch (Exception e) {
-
-        	Log.e("Meu Bebê", "Exception on getAll");
+        	
             e.printStackTrace();
             reminders = null;
         }
@@ -100,12 +91,11 @@ public class ReminderController {
     public ArrayList<Reminder> getRemindersPerBaby(int babyId) {
     	
         if (!this.dbHelper.open()) {
-
-        	Log.e("Meu Bebê", "helper not opened on getPerBaby");
+        	
             return null;
         }
         
-        String[] babyIds = {"" + babyId};
+        String[] babyIds = {String.valueOf(babyId)};
         Cursor cursor = dbHelper.getReadableDatabase().query("Reminder", null, "babyID = ?", babyIds, null, null, null);
         // String sql = "select * from Reminder where babyID = " + babyID;
         // Cursor cursor = this.dbHelper.executeQuery(sql);
@@ -113,8 +103,7 @@ public class ReminderController {
         ArrayList<Reminder> reminders = new ArrayList<Reminder>();
         
         if (cursor == null) {
-
-        	Log.e("Meu Bebê", "cursor null on getPerBaby");
+        	
             this.dbHelper.close();
             return null;
         }
@@ -129,7 +118,6 @@ public class ReminderController {
             }
         } catch (Exception e) {
 
-        	Log.e("Meu Bebê", "Exception on getPerBaby");
             e.printStackTrace();
             reminders = null;
         }

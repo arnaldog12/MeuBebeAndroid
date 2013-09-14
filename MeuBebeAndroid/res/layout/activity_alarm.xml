@@ -30,7 +30,7 @@
             android:layout_height="40dp"
             android:src="@drawable/button_return"
             android:background="#00000000"
-            android:onClick="loadMain" />
+            android:onClick="loadLogin" />
 
     </LinearLayout>
 
@@ -83,44 +83,39 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:src="@drawable/button_graphics"
-            android:background="#00000000"
-            android:onClick="loadGraphics" />
+            android:background="#0000" />
         
         <ImageButton
             android:id="@+id/buttonMenuVaccines"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#00000000"
             android:src="@drawable/button_vaccines"
-            android:onClick="loadVaccines" />
+            android:background="#0000" />
         
         <ImageButton
             android:id="@+id/buttonMenuMyBaby"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#00000000"
             android:src="@drawable/button_my_baby"
-            android:onClick="loadMain" />
+            android:background="#0000" />
         
         <ImageButton
             android:id="@+id/buttonMenuProgress"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#00000000"
             android:src="@drawable/button_progress"
-            android:onClick="loadProgress" />
+            android:background="#0000" />
         
         <ImageButton
             android:id="@+id/buttonMenuTips"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#00000000"
             android:src="@drawable/button_tips"
-            android:onClick="loadTips" />
+            android:background="#0000" />
     
     </LinearLayout>
 
@@ -129,7 +124,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#00000000"
+        android:background="#0000"
         android:gravity="center_vertical" >
 
         <Button
@@ -138,8 +133,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/graphics"
-            android:textColor="#FFFFFFFF"
-            android:background="#00000000"
+            android:textColor="#FFFF"
+            android:background="#0000"
             android:textSize="12dp" />
         
         <Button
@@ -148,8 +143,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/vaccines"
-            android:textColor="#FFFFFFFF"
-            android:background="#00000000"
+            android:textColor="#FFFF"
+            android:background="#0000"
             android:textSize="12dp" />
         
         <Button
@@ -158,8 +153,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/my_baby"
-            android:textColor="#FFFFFFFF"
-            android:background="#00000000"
+            android:textColor="#FFFF"
+            android:background="#0000"
             android:textSize="12dp" />
         
         <Button
@@ -168,8 +163,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/progress"
-            android:textColor="#FFFFFFFF"
-            android:background="#00000000"
+            android:textColor="#FFFF"
+            android:background="#0000"
             android:textSize="12dp" />
         
         <Button
@@ -178,8 +173,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/tips"
-            android:textColor="#FFFFFFFF"
-            android:background="#00000000"
+            android:textColor="#FFFF"
+            android:background="#0000"
             android:textSize="12dp" />
     
     </LinearLayout>

@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 public class FromMotherToMotherActivity extends Activity {
 	
-	public static Activity instance;
+	public static Activity instance = null;
 	
 	private static final String BASE_URL = "http://ws.geckoapps.com.br/server2.php?data=2013%2F01%2F01%2000%3A00%3A00";
 	

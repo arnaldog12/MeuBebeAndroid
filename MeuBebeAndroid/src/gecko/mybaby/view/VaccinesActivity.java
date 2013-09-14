@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 
 public class VaccinesActivity extends Activity {
 	
-	public static VaccinesActivity instance = null;
+	public static Activity instance = null;
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;

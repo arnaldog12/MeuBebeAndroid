@@ -25,7 +25,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -124,8 +123,6 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	}
     
     private void addDefaultVaccines() {
-
-    	Log.v("Meu Bebê", "Adding default vaccines");
     	
     	VaccineController controller = new VaccineController(this);
     	try {

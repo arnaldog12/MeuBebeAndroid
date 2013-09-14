@@ -20,7 +20,6 @@ import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -141,7 +140,6 @@ public class VaccineDetailsActivity extends Activity {
     	this.reminders = controller.getRemindersPerBabyAndVaccine(
     			MyBabyActivity.instance.getSelectedBaby().getId(), this.vaccine.getId());
     	
-    	Log.v("Meu Bebê", "reminders size = " + this.reminders.size());
     	this.listView.setAdapter(new RemindersAdapter(this, this.reminders));
     }
 	

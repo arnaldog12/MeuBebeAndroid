@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
@@ -18,7 +19,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class AlarmReceiverActivity extends Activity {
     
@@ -110,12 +110,16 @@ public class AlarmReceiverActivity extends Activity {
             ((Button) v).setText("Meu Bebê");
         } else {
         	
-        	this.loadMain(v);
+        	this.loadLogin(v);
         }
     }
     
     private void finishActivities() {
-    	
+
+        if (AddBabyActivity.instance != null) {
+        	
+        	AddBabyActivity.instance.finish();
+        }
         if (AddHistoricActivity.instance != null) {
         	
             AddHistoricActivity.instance.finish();
@@ -124,9 +128,17 @@ public class AlarmReceiverActivity extends Activity {
         	
             AddVaccineActivity.instance.finish();
         }
+        if (BooksResultsActivity.instance != null) {
+        	
+        	BooksResultsActivity.instance.finish();
+        }
         if (EditBabyActivity.instance != null) {
         	
             EditBabyActivity.instance.finish();
+        }
+        if (FromMotherToMotherActivity.instance != null) {
+        	
+        	FromMotherToMotherActivity.instance.finish();
         }
         if (GraphicsActivity.instance != null) {
         	
@@ -136,9 +148,17 @@ public class AlarmReceiverActivity extends Activity {
         	
             HistoricActivity.instance.finish();
         }
+        if (LoginActivity.instance != null) {
+        	
+        	LoginActivity.instance.finish();
+        }
         if (MyBabyActivity.instance != null) {
         	
             MyBabyActivity.instance.finish();
+        }
+        if (MyBabyPreferencesActivity.instance != null) {
+        	
+            MyBabyPreferencesActivity.instance.finish();
         }
         if (ProgressActivity.instance != null) {
         	
@@ -158,33 +178,13 @@ public class AlarmReceiverActivity extends Activity {
         }
     }
     
-    public void loadGraphics(View v) {
-    	
-        Toast.makeText(this, "Escolha um bebê na tela principal para ver os Gráficos e Históricos correspondentes.", Toast.LENGTH_LONG).show();
-    }
-    
-    public void loadVaccines(View v) {
-    	
-        Toast.makeText(this, "Escolha um bebê na tela principal para ver as Vacinas correspondentes.", Toast.LENGTH_LONG).show();
-    }
-    
-    public void loadMain(View v) {
+    public void loadLogin(View v) {
     	
         this.finish();
         
-        //Open Login. 
-//        Intent openMain = new Intent(this, MyBabyActivity.class);
-//        this.startActivity(openMain);
+        Intent intent = new Intent(this, LoginActivity.class);
+        this.startActivity(intent);
     }
     
-    public void loadProgress(View v) {
-    	
-        Toast.makeText(this, "Escolha um bebê na tela principal para ver os Progressos correspondentes.", Toast.LENGTH_LONG).show();
-    }
-    
-    public void loadTips(View v) {
-    	
-        Toast.makeText(this, "Escolha um bebê na tela principal para ver as Dicas.", Toast.LENGTH_LONG).show();
-    }
     
 }

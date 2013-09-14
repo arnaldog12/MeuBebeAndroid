@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity implements LoginCallback {
 	
+	public static Activity instance = null;
+	
 	private EditText username;
 	private EditText password;
 	
@@ -29,6 +31,8 @@ public class LoginActivity extends Activity implements LoginCallback {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_login);
+		
+		LoginActivity.instance = this;
 		
 		this.getReferences();
 		

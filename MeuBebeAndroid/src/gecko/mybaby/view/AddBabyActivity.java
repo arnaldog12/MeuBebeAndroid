@@ -24,6 +24,8 @@ import android.widget.Toast;
 
 public class AddBabyActivity extends Activity implements OnDateSetListener {
 	
+	public static Activity instance = null;
+	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
 	private LinearLayout navigationBar;
@@ -41,6 +43,8 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 		
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_add_baby);
+		
+		AddBabyActivity.instance = this;
 		
 		this.getReferences();
 	}
