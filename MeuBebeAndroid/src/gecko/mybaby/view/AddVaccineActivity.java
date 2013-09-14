@@ -88,7 +88,7 @@ public class AddVaccineActivity extends Activity {
 		int month = Integer.parseInt(monthStr);
 		
 		Vaccine vaccine = new Vaccine(name, dose, month, description, false);
-		VaccinesActivity.instance.addVaccine(vaccine);
+		((VaccinesActivity) VaccinesActivity.instance).addVaccine(vaccine);
 		
 		this.finish();
 	}

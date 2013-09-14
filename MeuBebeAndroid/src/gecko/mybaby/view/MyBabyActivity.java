@@ -42,7 +42,7 @@ import android.widget.Toast;
 
 public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCallback {
 
-	public static MyBabyActivity instance = null;
+	public static Activity instance = null;
 	private static final int PREFERENCES_RESULT_CODE = 1;
 	
 	private static int backgroundExternal = R.drawable.background_activity_neutral;
@@ -370,7 +370,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	
 	public void graphicsClicked(View view) {
 		
-		if (MyBabyActivity.instance.getSelectedBaby() != null) {
+		if (this.getSelectedBaby() != null) {
 			
 			//Initiate GraphicsActivity.
 	        Intent intent = new Intent(this, GraphicsActivity.class);
@@ -380,7 +380,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	
 	public void vaccinesClicked(View view) {
 
-		if (MyBabyActivity.instance.getSelectedBaby() != null) {
+		if (this.getSelectedBaby() != null) {
 
 			//Initiate VaccinesActivity.
 	        Intent intent = new Intent(this, VaccinesActivity.class);
@@ -390,7 +390,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	
 	public void progressClicked(View view) {
 
-		if (MyBabyActivity.instance.getSelectedBaby() != null) {
+		if (this.getSelectedBaby() != null) {
 
 			//Initiate ProgressActivity.
 	        Intent intent = new Intent(this, ProgressActivity.class);
@@ -400,7 +400,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	
 	public void tipsClicked(View view) {
 
-		if (MyBabyActivity.instance.getSelectedBaby() != null) {
+		if (this.getSelectedBaby() != null) {
 
 			//Initiate TipsActivity.
 	        Intent intent = new Intent(this, TipsActivity.class);
@@ -482,7 +482,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 			@Override
 			public void onClick(View v) {
 				
-				MyBabyActivity.instance.setSelectedBaby(this.baby);
+				MyBabyActivity.this.setSelectedBaby(this.baby);
 			}
 			
 		}

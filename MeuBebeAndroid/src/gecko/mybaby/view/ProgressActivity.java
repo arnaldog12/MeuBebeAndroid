@@ -29,7 +29,7 @@ import android.widget.ToggleButton;
 
 public class ProgressActivity extends Activity {
 	
-	public static ProgressActivity instance = null;
+	public static Activity instance = null;
 	
 	private static UpdateRemoteProgress updating = null;
 	
@@ -65,7 +65,7 @@ public class ProgressActivity extends Activity {
 		
 		this.getReferences();
 
-		Baby baby = MyBabyActivity.instance.getSelectedBaby();
+		Baby baby = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
 		SQLiteHelper helper = new SQLiteHelper(this);
 		try {
 			
@@ -119,7 +119,7 @@ public class ProgressActivity extends Activity {
 		super.onPause();
 		
 		Log.d("MeuBebe", "New progress len: " + new_progress.size());
-		MyBabyActivity.instance.getSelectedBaby().setProgress(new Progress(new_progress));
+		((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().setProgress(new Progress(new_progress));
 		
 		this.saveLocal();
 		this.saveRemote();
@@ -129,7 +129,7 @@ public class ProgressActivity extends Activity {
 		
 		try {
 			
-			Baby baby = MyBabyActivity.instance.getSelectedBaby();
+			Baby baby = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
 			StringBuilder sb = new StringBuilder();
 			
 			for (Boolean b : baby.getProgress().getProgress()) {
@@ -157,7 +157,7 @@ public class ProgressActivity extends Activity {
 	
 	private void updateProgessView() {
 		
-		Baby baby = MyBabyActivity.instance.getSelectedBaby();
+		Baby baby = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
 		
 		LinearLayout progress_root = (LinearLayout) findViewById(R.id.progess_root);
 
@@ -282,7 +282,7 @@ public class ProgressActivity extends Activity {
 
 			try {
 				
-				Baby baby = MyBabyActivity.instance.getSelectedBaby();
+				Baby baby = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
 				StringBuilder sb = new StringBuilder("http://ws.geckoapps.com.br/editar-progresso.php?id=");
 				sb.append(baby.getId()).append("&progresso=");
 				

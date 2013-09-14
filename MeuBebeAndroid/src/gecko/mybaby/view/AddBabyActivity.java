@@ -94,7 +94,7 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 		Bitmap img = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
 		Baby baby = new Baby(name, birth, this.gender, new Historic(), new Progress(), img);
 		
-		MyBabyActivity.instance.addBaby(baby);
+		((MyBabyActivity) MyBabyActivity.instance).addBaby(baby);
 		
 		this.finish();
 	}
@@ -192,6 +192,18 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 								   .append(year);
 
 		return builder.toString();
+	}
+	
+	public void babyImageClicked(View view) {
+		
+//		// create Intent to take a picture and return control to the calling application
+//	    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//
+//	    this.imageFileUri = new Uri(AddBabyActivity.URI_IMAGE); // create a file to save the image
+//	    intent.putExtra(MediaStore.EXTRA_OUTPUT, this.imageFileUri); // set the image file name
+//
+//	    // start the image capture Intent
+//	    this.startActivityForResult(intent, AddBabyActivity.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 	}
 
 }

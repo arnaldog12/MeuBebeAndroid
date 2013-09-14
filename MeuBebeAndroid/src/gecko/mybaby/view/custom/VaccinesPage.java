@@ -94,7 +94,7 @@ public class VaccinesPage implements Page {
 			
 			TakenVaccineController controller = new TakenVaccineController(this.activity);
 			this.takenVaccines = controller.takenVaccinesPerBaby(
-					MyBabyActivity.instance.getSelectedBaby().getId());
+					((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId());
 		}
 		
 		@Override
@@ -212,12 +212,12 @@ public class VaccinesPage implements Page {
 			if (isChecked) {
 				
 				controller.addTakenVaccine(
-						MyBabyActivity.instance.getSelectedBaby().getId(),
+						((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId(),
 						this.vaccine.getId(), this.vaccine.getMonth() );
 			} else {
 				
 				controller.removeTakenVaccine(
-						MyBabyActivity.instance.getSelectedBaby().getId(),
+						((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId(),
 						this.vaccine.getId(), this.vaccine.getMonth() );
 			}
 		}

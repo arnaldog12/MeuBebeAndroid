@@ -88,7 +88,7 @@ public class GraphicsActivity extends Activity {
 	        ImagePage weight = null;
 	        ImagePage bmi = null;
 	        
-	        int gender = MyBabyActivity.instance.getSelectedBaby().getGender();
+	        int gender = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getGender();
 	        
 	        if (gender == Baby.GENDER_BOY) {
 	        	

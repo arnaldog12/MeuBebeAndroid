@@ -49,7 +49,7 @@ public class HistoricActivity extends Activity {
 	
 	private void getHistoricForSelectedBaby() {
 		
-		int id = MyBabyActivity.instance.getSelectedBaby().getId();
+		int id = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId();
 		
 		HistoricController controller = new HistoricController(this);
 		this.historic = controller.getHistoricPerBaby(id);
@@ -74,7 +74,7 @@ public class HistoricActivity extends Activity {
 	public void addMeasure(WeightHeight wh) throws MeasureUpdateException {
 		
 		HistoricController controller = new HistoricController(this);
-		controller.addHistoric(wh, MyBabyActivity.instance.getSelectedBaby().getId());
+		controller.addHistoric(wh, ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId());
 		
 		this.getHistoricForSelectedBaby();
 		

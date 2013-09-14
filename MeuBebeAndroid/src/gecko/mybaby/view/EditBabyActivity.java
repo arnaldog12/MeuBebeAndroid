@@ -85,6 +85,11 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 
 			this.girlClicked(null);
 		}
+		
+		if (this.baby.getImage() != null) {
+			
+			this.babyImage.setImageBitmap(this.baby.getImage());
+		}
 	}
 	
 	public void saveBabyClicked(View view) {
@@ -120,7 +125,7 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 		Baby baby = new Baby(name, birth, this.gender, new Historic(), new Progress(), img);
 		
 		baby.setId(this.baby.getId());
-		MyBabyActivity.instance.editBaby(baby);
+		((MyBabyActivity) MyBabyActivity.instance).editBaby(baby);
 		
 		this.finish();
 	}
@@ -223,9 +228,9 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 				@Override
 				public void run() {
 					
-					MyBabyActivity.instance.removeBaby(finalBaby);
+					((MyBabyActivity) MyBabyActivity.instance).removeBaby(finalBaby);
 					
-					MyBabyActivity.instance.updateListView();
+					((MyBabyActivity) MyBabyActivity.instance).updateListView();
 					EditBabyActivity.this.finish();
 				}
 				

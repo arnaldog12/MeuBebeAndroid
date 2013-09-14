@@ -138,7 +138,7 @@ public class VaccineDetailsActivity extends Activity {
     	
     	ReminderController controller = new ReminderController(this);
     	this.reminders = controller.getRemindersPerBabyAndVaccine(
-    			MyBabyActivity.instance.getSelectedBaby().getId(), this.vaccine.getId());
+    			((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId(), this.vaccine.getId());
     	
     	this.listView.setAdapter(new RemindersAdapter(this, this.reminders));
     }
@@ -491,7 +491,8 @@ public class VaccineDetailsActivity extends Activity {
 			String message = this.createMessage() + " at " + dateStr + " at " + timeStr;
 			Reminder reminder = new Reminder( dateStr, timeStr,
 											  message,
-											  MyBabyActivity.instance.getSelectedBaby().getId(), vaccineId );
+											  ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId(),
+											  vaccineId );
 			
 			reminder.setReminderId(this.findNewReminderId());
 			
@@ -551,8 +552,8 @@ public class VaccineDetailsActivity extends Activity {
 	        	throw new PastTimeException();
 	        }
 	        
-	        int babyId = MyBabyActivity.instance.getSelectedBaby().getId();
-	        int gender = MyBabyActivity.instance.getSelectedBaby().getGender();
+	        int babyId = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId();
+	        int gender = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getGender();
 	        int reminderRequestCode = VaccineDetailsActivity.this.getReminderRequestCode(babyId, this.vaccine.getId(), reminderId);
 	        
 	        Intent intent = new Intent(VaccineDetailsActivity.this, AlarmReceiverActivity.class);
