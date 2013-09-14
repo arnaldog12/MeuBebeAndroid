@@ -1,7 +1,6 @@
 package gecko.mybaby.view;
 
 import gecko.mybaby.R;
-import gecko.mybaby.controller.BabyController;
 import gecko.mybaby.controller.ReminderController;
 import gecko.mybaby.model.Baby;
 
@@ -9,7 +8,6 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
@@ -24,7 +22,9 @@ import android.widget.Toast;
 
 public class AlarmReceiverActivity extends Activity {
     
-    private static AlarmReceiverActivity activity = null;
+    public static Activity activity = null;
+    
+    
     private MediaPlayer mediaPlayer;
     
     @Override
@@ -37,72 +37,51 @@ public class AlarmReceiverActivity extends Activity {
         String vaccineId = this.getIntent().getExtras().getString("vaccine_id");
         String babyId = this.getIntent().getExtras().getString("baby_id");
         String reminderId = this.getIntent().getExtras().getString("reminder_id");
+        int gender = this.getIntent().getExtras().getInt("gender");
         
         ReminderController rc = new ReminderController(this);
         rc.removeReminder(Integer.parseInt(babyId), Integer.parseInt(vaccineId), Integer.parseInt(reminderId));
         
         ((EditText) findViewById(R.id.textViewVaccineInfo)).setText(message);
         
-        finishActivities();
+        this.finishActivities();
         
-        playSound(this, getAlarmUri());
+        this.playSound(this, this.getAlarmUri());
         
-        final Window win = getWindow();
+        final Window win = this.getWindow();
         win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         
-        BabyController bc = new BabyController(this);
-        int sex = bc.getBabyPerId(Integer.parseInt(babyId)).getGender();
-        
-        if (sex == Baby.GENDER_GIRL) {
+        if (gender == Baby.GENDER_GIRL) {
         	
-//            findViewById(R.id.layout).setBackgroundResource(R.drawable.background_girl);
-//            findViewById(R.id.tabBar).setBackgroundResource(R.drawable.tab_bar_girl);
-//            findViewById(R.id.navigationBar).setBackgroundResource(R.drawable.navigation_bar_girl);
-        } else if (sex == Baby.GENDER_BOY) {
+            findViewById(R.id.layout).setBackgroundResource(R.drawable.background_girl);
+            findViewById(R.id.tabBar).setBackgroundResource(R.drawable.tab_bar_girl);
+            findViewById(R.id.navigationBar).setBackgroundResource(R.drawable.navigation_bar_girl);
+        } else if (gender == Baby.GENDER_BOY) {
         	
-//            findViewById(R.id.layout).setBackgroundResource(R.drawable.background_boy);
-//            findViewById(R.id.tabBar).setBackgroundResource(R.drawable.tab_bar_boy);
-//            findViewById(R.id.navigationBar).setBackgroundResource(R.drawable.navigation_bar_boy);
+            findViewById(R.id.layout).setBackgroundResource(R.drawable.background_boy);
+            findViewById(R.id.tabBar).setBackgroundResource(R.drawable.tab_bar_boy);
+            findViewById(R.id.navigationBar).setBackgroundResource(R.drawable.navigation_bar_boy);
         }
-    }
-    
-    @Override
-    public void onBackPressed() {
-    	
-        loadMain(null);
-    }
-    
-    public void finish(View v) {
-    	
-        finish();
-    }
-    
-    public MediaPlayer getMediaPlayer() {
-    	
-        return mediaPlayer;
     }
     
     private void playSound(Context context, Uri alert) {
     	
-        mediaPlayer = new MediaPlayer();
+        this.mediaPlayer = new MediaPlayer();
         
         try {
         	
-            mediaPlayer.setDataSource(context, alert);
+        	this.mediaPlayer.setDataSource(context, alert);
             
             final AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
             
             if(audioManager.getStreamVolume(AudioManager.STREAM_ALARM) != 0) {
             	
-                mediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
-                mediaPlayer.prepare();
-                mediaPlayer.start();
+            	this.mediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
+            	this.mediaPlayer.prepare();
+            	this.mediaPlayer.start();
             }
-        } catch(IOException e) {
-        	
-            ;
-        }
+        } catch(IOException e) {}
     }
     
     //Get an alarm sound. Try for an alarm. If none set, try notification, otherwise, ringtone.
@@ -110,10 +89,10 @@ public class AlarmReceiverActivity extends Activity {
     	
         Uri alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         
-        if(alert == null) {
+        if (alert == null) {
         	
             alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            if(alert == null) {
+            if (alert == null) {
             	
                 alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
             }
@@ -124,14 +103,14 @@ public class AlarmReceiverActivity extends Activity {
     
     public void stopAlarmPressed(View v) {
     	
-        if(((Button) v).getText().toString().equals("Parar Alarme")) {
+        if ( ((Button) v).getText().toString().equals("Parar Alarme") ) {
         	
-            mediaPlayer.stop();
+        	this.mediaPlayer.stop();
             
             ((Button) v).setText("Meu Bebê");
         } else {
         	
-            loadMain(v);
+        	this.loadMain(v);
         }
     }
     
@@ -153,27 +132,27 @@ public class AlarmReceiverActivity extends Activity {
         	
             GraphicsActivity.instance.finish();
         }
-        if(HistoricActivity.instance != null) {
+        if (HistoricActivity.instance != null) {
         	
             HistoricActivity.instance.finish();
         }
-        if(MyBabyActivity.instance != null) {
+        if (MyBabyActivity.instance != null) {
         	
             MyBabyActivity.instance.finish();
         }
-        if(ProgressActivity.instance != null) {
+        if (ProgressActivity.instance != null) {
         	
             ProgressActivity.instance.finish();
         }
-        if(TipsActivity.instance != null) {
+        if (TipsActivity.instance != null) {
         	
             TipsActivity.instance.finish();
         }
-        if(VaccineDetailsActivity.instance != null) {
+        if (VaccineDetailsActivity.instance != null) {
         	
         	VaccineDetailsActivity.instance.finish();
         }
-        if(VaccinesActivity.instance != null) {
+        if (VaccinesActivity.instance != null) {
         	
             VaccinesActivity.instance.finish();
         }
@@ -191,10 +170,11 @@ public class AlarmReceiverActivity extends Activity {
     
     public void loadMain(View v) {
     	
-        finish();
+        this.finish();
         
-        Intent openMain = new Intent(this, MyBabyActivity.class);
-        this.startActivity(openMain);
+        //Open Login. 
+//        Intent openMain = new Intent(this, MyBabyActivity.class);
+//        this.startActivity(openMain);
     }
     
     public void loadProgress(View v) {
@@ -205,11 +185,6 @@ public class AlarmReceiverActivity extends Activity {
     public void loadTips(View v) {
     	
         Toast.makeText(this, "Escolha um bebê na tela principal para ver as Dicas.", Toast.LENGTH_LONG).show();
-    }
-    
-    public static AlarmReceiverActivity getInstance() {
-    	
-        return activity;
     }
     
 }

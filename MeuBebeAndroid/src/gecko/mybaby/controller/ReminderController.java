@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 public class ReminderController {
     
@@ -31,13 +32,24 @@ public class ReminderController {
         String sql = "insert into Reminder values (" + "\"" + date + "\",\"" + time + "\",\"" + message + "\",\"" + 
         			  babyId + "\",\"" + vaccineId + "\",\"" + reminderId + "\")";
         
+        Log.v("Meu Bebê", sql);
+        
         if (!this.dbHelper.open()) {
         	
+        	Log.e("Meu Bebê", "helper not opened on add");
             return false;
         }
         
-        this.dbHelper.executeSQL(sql);
-        this.dbHelper.close();
+        try {
+        	
+	        boolean result = this.dbHelper.executeSQL(sql);
+	        this.dbHelper.close();
+	        
+	        Log.e("Meu Bebê", "result do add reminders: " + result);
+        } catch (Exception exception) {
+        	
+        	exception.printStackTrace();
+        }
         
         return true;
     }
@@ -45,7 +57,8 @@ public class ReminderController {
     public ArrayList<Reminder> getAllReminders() {
     	
         if (!this.dbHelper.open()) {
-        	
+
+        	Log.e("Meu Bebê", "helper not opened on getAll");
             return null;
         }
         
@@ -58,7 +71,8 @@ public class ReminderController {
         if (cursor == null) {
         	
             this.dbHelper.close();
-            
+        	Log.e("Meu Bebê", "cursor null on getAll");
+        	
             return null;
         }
         
@@ -71,7 +85,8 @@ public class ReminderController {
                 reminders.add(item);
             }
         } catch (Exception e) {
-        	
+
+        	Log.e("Meu Bebê", "Exception on getAll");
             e.printStackTrace();
             reminders = null;
         }
@@ -85,7 +100,8 @@ public class ReminderController {
     public ArrayList<Reminder> getRemindersPerBaby(int babyId) {
     	
         if (!this.dbHelper.open()) {
-        	
+
+        	Log.e("Meu Bebê", "helper not opened on getPerBaby");
             return null;
         }
         
@@ -97,7 +113,8 @@ public class ReminderController {
         ArrayList<Reminder> reminders = new ArrayList<Reminder>();
         
         if (cursor == null) {
-        	
+
+        	Log.e("Meu Bebê", "cursor null on getPerBaby");
             this.dbHelper.close();
             return null;
         }
@@ -111,7 +128,8 @@ public class ReminderController {
                 reminders.add(item);
             }
         } catch (Exception e) {
-        	
+
+        	Log.e("Meu Bebê", "Exception on getPerBaby");
             e.printStackTrace();
             reminders = null;
         }
@@ -128,10 +146,9 @@ public class ReminderController {
             return null;
         }
         
-        String[] babyIds = {"" + babyId};
-        Cursor cursor = dbHelper.getReadableDatabase().query("Reminder", null, "babyID = ?", babyIds, null, null, null);
-        // String sql = "select * from Reminder where babyID = " + babyID;
-        // Cursor cursor = this.dbHelper.executeQuery(sql);
+        String[] selectionArgs = {String.valueOf(babyId), String.valueOf(vaccineId)};
+        Cursor cursor = this.dbHelper.getReadableDatabase().query("Reminder", null, "babyID = ? and vaccineID = ?", selectionArgs, null, null, null);
+        
         Reminder item;
         ArrayList<Reminder> reminders = new ArrayList<Reminder>();
         
@@ -145,14 +162,9 @@ public class ReminderController {
         	
             while (cursor.moveToNext()) {
             	
-            	int vaccineIdTemp = cursor.getInt(3);
-            	
-            	if (vaccineIdTemp == vaccineId) {
-
-                    item = new Reminder(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3), vaccineIdTemp);
-                    item.setReminderId(cursor.getInt(5));
-                    reminders.add(item);            		
-            	}
+                item = new Reminder(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4));
+                item.setReminderId(cursor.getInt(5));
+                reminders.add(item);
             }
         } catch (Exception e) {
         	

@@ -25,6 +25,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -121,6 +122,51 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		
 		this.listView = ((ListView) this.findViewById(R.id.list_view));
 	}
+    
+    private void addDefaultVaccines() {
+
+    	Log.v("Meu Bebê", "Adding default vaccines");
+    	
+    	VaccineController controller = new VaccineController(this);
+    	try {
+    		
+	    	List<Vaccine> vaccines = controller.getAllVaccines();
+	    	if (vaccines != null) {
+	    		
+	    		if (vaccines.size() != 0) {
+	    			
+	    			return;
+	    		}
+	    	}
+    	} catch (Exception exception) {
+    		
+    		return;
+    	}
+    	
+    	String[] vaccinesStr = this.getResources().getStringArray(R.array.vaccines);
+
+    	String name;
+    	String[] doses;
+    	String[] months;
+    	String description;
+    	
+    	for (int i = 0, i3 = 1 ; i < vaccinesStr.length ; i++) {
+    		
+    		name = vaccinesStr[i++];
+    		doses = vaccinesStr[i++].split(", ");
+    		months = vaccinesStr[i++].split(", ");
+    		description = vaccinesStr[i];
+    		
+    		for (int i2 = 0 ; i2 < doses.length ; i2++, i3++) {
+
+    			int month = Integer.parseInt(months[i2]);
+        		Vaccine vaccine = new Vaccine(name, doses[i2], month, description, true);
+        		vaccine.setId(i3);
+        		
+        		controller.addVaccine(vaccine);
+    		}
+    	}
+    }
 	
 	private void getRemoteBabys() {
 		
@@ -364,49 +410,6 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	        this.startActivity(intent);
 		}
 	}
-    
-    private void addDefaultVaccines() {
-    	
-    	VaccineController controller = new VaccineController(this);
-    	try {
-    		
-	    	List<Vaccine> vaccines = controller.getAllVaccines();
-	    	if (vaccines != null) {
-	    		
-	    		if (vaccines.size() != 0) {
-	    			
-	    			return;
-	    		}
-	    	}
-    	} catch (Exception exception) {
-    		
-    		return;
-    	}
-    	
-    	String[] vaccinesStr = this.getResources().getStringArray(R.array.vaccines);
-
-    	String name;
-    	String[] doses;
-    	String[] months;
-    	String description;
-    	
-    	for (int i = 0, i3 = 1 ; i < vaccinesStr.length ; i++) {
-    		
-    		name = vaccinesStr[i++];
-    		doses = vaccinesStr[i++].split(", ");
-    		months = vaccinesStr[i++].split(", ");
-    		description = vaccinesStr[i];
-    		
-    		for (int i2 = 0 ; i2 < doses.length ; i2++, i3++) {
-
-    			int month = Integer.parseInt(months[i2]);
-        		Vaccine vaccine = new Vaccine(name, doses[i2], month, description, true);
-        		vaccine.setId(i3);
-        		
-        		controller.addVaccine(vaccine);
-    		}
-    	}
-    }
 	
 	private class BabyListAdapter extends ArrayAdapter<Baby> {
 

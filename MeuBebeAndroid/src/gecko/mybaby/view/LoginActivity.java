@@ -149,7 +149,6 @@ public class LoginActivity extends Activity implements LoginCallback {
 					intent.putExtra("babys", finalBabysList);
 					intent.putExtra("username", finalUsernameStr);
 					intent.putExtra("password", finalPasswordStr);
-//					intent.putExtra("password", this.stringHexa(hashMd5).toUpperCase());
 					LoginActivity.this.startActivity(intent);
 					
 					LoginActivity.this.finish();

@@ -70,6 +70,8 @@
     <string name="username_not_set">Você precisa preencher o login</string>
     <string name="password_not_set">Você precisa preencher a senha</string>
     <string name="wrong_login_or_password">Login ou senha errados</string>
+    <string name="past_time">Você deve escolher uma hora e data futuras à atual</string>
+    
     
     <!-- Preferences -->
     <string name="my_baby_preferences">Preferências</string>

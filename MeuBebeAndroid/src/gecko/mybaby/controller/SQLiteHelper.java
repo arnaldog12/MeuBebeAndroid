@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
     
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "mybaby.db";
     
     // SQL statements to create the tables.
@@ -25,23 +25,27 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     private String tableProgress = "create table Progress (babyID, progress, PRIMARY KEY(babyID, progress)," + " FOREIGN KEY(babyID) references Baby(id) on delete cascade)";
     
     private SQLiteDatabase database = null;
+    private Context context;
     
     public SQLiteHelper(Context context) {
     	
-        super(context, SQLiteHelper.DATABASE_NAME,
-        		null, SQLiteHelper.DATABASE_VERSION);
+        super( context, SQLiteHelper.DATABASE_NAME,
+        	   null, SQLiteHelper.DATABASE_VERSION );
+        
+        this.context = context;
     }
     
     @Override
     public void onCreate(SQLiteDatabase db) {
     	
     	try {
-        db.execSQL(this.tableBaby);
-        db.execSQL(this.tableVaccine);
-        db.execSQL(this.tableReminder);
-        db.execSQL(this.tableHistoric);
-        db.execSQL(this.tableTakenVaccine);
-        db.execSQL(this.tableProgress);
+    		
+	        db.execSQL(this.tableBaby);
+	        db.execSQL(this.tableVaccine);
+	        db.execSQL(this.tableReminder);
+	        db.execSQL(this.tableHistoric);
+	        db.execSQL(this.tableTakenVaccine);
+	        db.execSQL(this.tableProgress);    
     	} catch (Exception e) {
 
     		e.printStackTrace();
@@ -112,7 +116,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
         
         return this.database.insert(table, null, content);
-        
     }
     
     public int updateContent(ContentValues values, String table, String whereClause) {
@@ -123,5 +126,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
         
         return this.database.update(table, values, whereClause, null);
-    }    
+    }
+    
 }

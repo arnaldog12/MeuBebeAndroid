@@ -2,6 +2,7 @@ package gecko.mybaby.view;
 
 import gecko.mybaby.R;
 import gecko.mybaby.controller.ReminderController;
+import gecko.mybaby.exceptions.PastTimeException;
 import gecko.mybaby.model.Reminder;
 import gecko.mybaby.model.Vaccine;
 
@@ -19,6 +20,7 @@ import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -139,6 +141,7 @@ public class VaccineDetailsActivity extends Activity {
     	this.reminders = controller.getRemindersPerBabyAndVaccine(
     			MyBabyActivity.instance.getSelectedBaby().getId(), this.vaccine.getId());
     	
+    	Log.v("Meu Bebê", "reminders size = " + this.reminders.size());
     	this.listView.setAdapter(new RemindersAdapter(this, this.reminders));
     }
 	
@@ -488,14 +491,24 @@ public class VaccineDetailsActivity extends Activity {
 			year = Integer.parseInt(dateStrSplitted[2]);
 			
 			String message = this.createMessage() + " at " + dateStr + " at " + timeStr;
-			Reminder reminder = new Reminder(dateStr, timeStr,
-					message,
-					MyBabyActivity.instance.getSelectedBaby().getId(), vaccineId);
+			Reminder reminder = new Reminder( dateStr, timeStr,
+											  message,
+											  MyBabyActivity.instance.getSelectedBaby().getId(), vaccineId );
 			
 			reminder.setReminderId(this.findNewReminderId());
+			
+			try {
+				
+				this.addAlarm(message, minute, hour, day, month, year, reminder.getReminderId());
+			} catch (PastTimeException exception) {
+				
+				Toast.makeText( this.activity,
+							    this.activity.getResources().getString(R.string.past_time),
+							    Toast.LENGTH_LONG).show();
+				return;
+			}
 			controller.addReminder(reminder);
 			
-			this.addAlarm(message, minute, hour, day, month, year, reminder.getReminderId());
 			
 			VaccineDetailsActivity.this.updateListView();
 		}
@@ -531,12 +544,17 @@ public class VaccineDetailsActivity extends Activity {
 		}
 	    
 	    public void addAlarm( String message, int minute, int hour,
-	    					  int day, int month, int year, int reminderId ) {
+	    					  int day, int month, int year, int reminderId ) throws PastTimeException {
 	    	
 	        Calendar cal = Calendar.getInstance();
 	        cal.set(year, month, day, hour, minute, 0);
+	        if (!cal.after(Calendar.getInstance())) {
+	        	
+	        	throw new PastTimeException();
+	        }
 	        
 	        int babyId = MyBabyActivity.instance.getSelectedBaby().getId();
+	        int gender = MyBabyActivity.instance.getSelectedBaby().getGender();
 	        int reminderRequestCode = VaccineDetailsActivity.this.getReminderRequestCode(babyId, this.vaccine.getId(), reminderId);
 	        
 	        Intent intent = new Intent(VaccineDetailsActivity.this, AlarmReceiverActivity.class);
@@ -544,6 +562,7 @@ public class VaccineDetailsActivity extends Activity {
 	        intent.putExtra("vaccine_id", String.valueOf(this.vaccine.getId()));
 	        intent.putExtra("baby_id", String.valueOf(babyId));
 	        intent.putExtra("reminder_id", String.valueOf(reminderId));
+	        intent.putExtra("gender", gender);
 	        
 	        PendingIntent pendingIntent = PendingIntent.getActivity(
 	        		VaccineDetailsActivity.this, reminderRequestCode,
