@@ -58,6 +58,10 @@ public class FacebookHelper {
 		this.user = user;
 	}
 	
+	public GraphUser getUser(){
+		return this.user;
+	}
+	
 	public void loadUser(){
 	
 	}
