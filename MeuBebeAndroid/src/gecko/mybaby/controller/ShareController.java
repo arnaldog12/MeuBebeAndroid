@@ -51,7 +51,20 @@ public final class ShareController {
 			return false;
 		}
 		
-		adapter.updateStatus(message, null, false);
+		adapter.updateStatus(message, new SocialAuthListener<Integer>() {
+			
+			@Override
+			public void onExecute(String arg0, Integer arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onError(SocialAuthError arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		}, false);
 		return true;
 	}
 	
