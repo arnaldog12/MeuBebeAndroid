@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -55,6 +56,8 @@ public class VaccinesActivity extends Activity {
 		this.updateActivityDecoration();
 		
 		this.setPager();
+		
+		this.viewPager.setOnPageChangeListener(new VaccinesOnPageChangeListener(this.allVaccines, this.takenVaccines, this.reminders));
 	}
 	
 	private void getReferences() {
@@ -105,18 +108,18 @@ public class VaccinesActivity extends Activity {
 	}
 	
 	public void allVaccinesClicked(View view) {
-		
-		
+
+		this.viewPager.setCurrentItem(0);
 	}
 	
 	public void takenVaccinesClicked(View view) {
-		
-		
+
+		this.viewPager.setCurrentItem(1);
 	}
 	
 	public void remindersClicked(View view) {
 		
-		
+		this.viewPager.setCurrentItem(2);
 	}
 	
 	public void graphicsClicked(View view) {
@@ -332,6 +335,49 @@ public class VaccinesActivity extends Activity {
             
             this.viewPager.removeView((View) view);
         }
+		
+	}
+	
+	private class VaccinesOnPageChangeListener extends SimpleOnPageChangeListener {
+		
+		private Button buttons[];
+		    	
+		public VaccinesOnPageChangeListener(Button button1, Button button2, Button button3) {
+		    		
+			this.buttons = new Button[3];
+		    		
+		    this.buttons[0] = button1;
+		    this.buttons[1] = button2;
+		    this.buttons[2] = button3;
+		}
+    	
+		@Override
+		public void onPageSelected(int position) {
+			
+			super.onPageSelected(position);
+			
+			switch (position) {
+			
+				case 0:
+					this.buttons[0].setBackgroundResource(R.drawable.button_selection_left_on);
+					this.buttons[1].setBackgroundResource(R.drawable.button_selection_middle_off);
+					this.buttons[2].setBackgroundResource(R.drawable.button_selection_right_off);
+					break;
+
+				case 1:
+					this.buttons[0].setBackgroundResource(R.drawable.button_selection_left_off);
+					this.buttons[1].setBackgroundResource(R.drawable.button_selection_middle_on);
+					this.buttons[2].setBackgroundResource(R.drawable.button_selection_right_off);
+					break;
+
+				case 2:
+					this.buttons[0].setBackgroundResource(R.drawable.button_selection_left_off);
+					this.buttons[1].setBackgroundResource(R.drawable.button_selection_middle_off);
+					this.buttons[2].setBackgroundResource(R.drawable.button_selection_right_on);
+					break;
+					
+			}
+		}
 		
 	}
 

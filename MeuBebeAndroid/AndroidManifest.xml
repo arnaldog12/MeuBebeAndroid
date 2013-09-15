@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="gecko.mybaby"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -24,66 +26,79 @@
             android:label="@string/my_baby"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.AddBabyActivity"
             android:label="@string/add_baby"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.GraphicsActivity"
             android:label="@string/graphics"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.HistoricActivity"
             android:label="@string/historic"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.AddHistoricActivity"
             android:label="@string/add_historic"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.VaccinesActivity"
             android:label="@string/vaccines"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.AddVaccineActivity"
             android:label="@string/add_vaccine"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.VaccineDetailsActivity"
             android:label="@string/vaccine_details"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.ProgressActivity"
             android:label="@string/progress"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.AlarmReceiverActivity"
             android:label="@string/alarm"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.TipsActivity"
             android:label="@string/tips"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name="gecko.mybaby.view.FromMotherToMotherActivity"
             android:label="@string/tips_info"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+        
       	<activity
             android:name="gecko.mybaby.view.BooksResultsActivity"
             android:label="@string/books" 
         	android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" />
+      	
         
         <activity
             android:name="gecko.mybaby.view.LoginActivity"
@@ -133,10 +148,10 @@
         
         <provider
 	       android:authorities="gecko.mybaby.provider"
-	       android:name="gecko.mybaby.provider.BabyProvider" >
-            
-		</provider>
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+	       android:name="gecko.mybaby.provider.BabyProvider" />
+        
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id" />
 		
     </application>
 

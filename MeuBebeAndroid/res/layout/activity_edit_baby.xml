@@ -156,9 +156,7 @@
                 android:layout_height="@dimen/baby_image_size"
                 android:layout_gravity="center"
                 android:src="@drawable/no_photo_120x120"
-                android:background="#0000"
-                android:onClick="changeBabyPhoto"
-                />
+                android:background="#0000" />
             
         </FrameLayout>
         

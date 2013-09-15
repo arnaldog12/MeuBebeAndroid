@@ -12,18 +12,14 @@ import java.util.Date;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -31,8 +27,6 @@ import android.widget.Toast;
 public class EditBabyActivity extends Activity implements OnDateSetListener, RemoveBabyCallback {
 	
 	public static Activity instance = null;
-	
-	private static final int REQUEST_PHOTO_ID = 387286772;
 	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
@@ -45,8 +39,6 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 	private ImageButton babyImage;
 	
 	private int gender = Baby.GENDER_UNKNOWN;
-	
-	private Bitmap preview_image = null;
 	
 	private Baby baby;
 
@@ -100,12 +92,6 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 		}
 	}
 	
-	public void changeBabyPhoto(View v) {
-		
-		Intent getPhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		this.startActivityForResult(getPhoto, REQUEST_PHOTO_ID);
-	}
-	
 	public void saveBabyClicked(View view) {
 		
 		String name = this.babyName.getText().toString();
@@ -135,15 +121,7 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 			return;
 		}
 
-		Bitmap img = null;
-		
-		if (preview_image == null) {
-		
-			BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
-		} else {
-			
-			img = preview_image;
-		}
+		Bitmap img = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
 		Baby baby = new Baby(name, birth, this.gender, new Historic(), new Progress(), img);
 		
 		baby.setId(this.baby.getId());
@@ -273,23 +251,5 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 
 		return builder.toString();
 	}
-	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-		Log.d("MeuBebe", "Recebendo photo");
-		if (requestCode == REQUEST_PHOTO_ID) {
-			
-			Bitmap photo =  (Bitmap) data.getExtras().get("data");
-			if (photo != null) {
-				
-				ImageView iv = (ImageView) findViewById(R.id.baby_image);
-				this.preview_image = photo;
-				iv.setImageBitmap(photo);
-			}
-		} else {
-			
-			super.onActivityResult(requestCode, resultCode, data);
-		}
-	}
 }
