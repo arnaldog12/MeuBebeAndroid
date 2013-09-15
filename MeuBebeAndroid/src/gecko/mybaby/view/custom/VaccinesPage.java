@@ -1,7 +1,9 @@
 package gecko.mybaby.view.custom;
 
 import gecko.mybaby.R;
+import gecko.mybaby.controller.ShareController;
 import gecko.mybaby.controller.TakenVaccineController;
+import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.TakenVaccine;
 import gecko.mybaby.model.Vaccine;
 import gecko.mybaby.view.MyBabyActivity;
@@ -11,6 +13,8 @@ import gecko.mybaby.view.VaccinesActivity;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -112,7 +116,7 @@ public class VaccinesPage implements Page {
 			String ageStr;
 			if (vaccines.get(0).getMonth() == 0) {
 				
-				ageStr = "Recém Nascido";
+				ageStr = "Recï¿½m Nascido";
 			} else {
 				
 				ageStr = this.getAgeStr(vaccines.get(0).getMonth());
@@ -146,7 +150,7 @@ public class VaccinesPage implements Page {
 	    	String ageStr;
 	    	if (age < 12) {
 	        	
-	    		ageStr = ((age == 1) ? "1 mês" : (age + " meses"));
+	    		ageStr = ((age == 1) ? "1 mï¿½s" : (age + " meses"));
 	        } else if (age < 24) {
 	        	
 	            if (age == 12) {
@@ -154,7 +158,7 @@ public class VaccinesPage implements Page {
 	            	ageStr = "1 ano";
 	            } else {
 	            	
-	            	ageStr = "1 ano e " + (((age % 12) == 1) ? "1 mês" : ((age % 12) + " meses"));
+	            	ageStr = "1 ano e " + (((age % 12) == 1) ? "1 mï¿½s" : ((age % 12) + " meses"));
 	            }
 	        } else {
 	        	
@@ -163,7 +167,7 @@ public class VaccinesPage implements Page {
 	            	ageStr = (age / 12) + " anos";
 	            } else {
 	            	
-	            	ageStr = (age / 12) + " anos e " + (((age % 12) == 1) ? "1 mês" : ((age % 12) + " meses"));
+	            	ageStr = (age / 12) + " anos e " + (((age % 12) == 1) ? "1 mï¿½s" : ((age % 12) + " meses"));
 	            }
 	        }
 	    	
@@ -212,6 +216,28 @@ public class VaccinesPage implements Page {
 			TakenVaccineController controller = new TakenVaccineController(this.activity);
 			if (isChecked) {
 				
+				if (ShareController.getInstance().isLogged()) {
+					
+					AlertDialog.Builder builder = new AlertDialog.Builder(VaccinesPage.this.activity);
+					builder.setMessage("Deseja compartilhar?")
+					       .setCancelable(false)
+					       .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+					           public void onClick(DialogInterface dialog, int id) {
+					        	   
+					        	   Baby bebe = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
+					        	   ShareController.getInstance().post(bebe.getName()
+					        			   + " tomou a " + vaccine.getDose() + " da vacina " + vaccine.getName());
+					           }
+					       })
+					       .setNegativeButton("NÃ£o", new DialogInterface.OnClickListener() {
+					           public void onClick(DialogInterface dialog, int id) {
+					        	   
+					                dialog.cancel();
+					           }
+					       });
+					AlertDialog alert = builder.create();
+					alert.show();
+				}
 				controller.addTakenVaccine(
 						((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId(),
 						this.vaccine.getId(), this.vaccine.getMonth() );

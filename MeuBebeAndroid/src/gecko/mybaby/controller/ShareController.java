@@ -44,6 +44,22 @@ public final class ShareController {
 		adapter.enable(but);
 	}
 	
+	public boolean post(String message) {
+		
+		if (!logged) {
+			
+			return false;
+		}
+		
+		adapter.updateStatus(message, null, false);
+		return true;
+	}
+	
+	public boolean isLogged() {
+		
+		return logged;
+	}
+	
 	public static ShareController getInstance() {
 		
 		if (_instance == null) {
