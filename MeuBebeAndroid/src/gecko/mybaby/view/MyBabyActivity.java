@@ -150,13 +150,16 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
             @Override
             public void onUserInfoFetched(GraphUser user) {
                 MyBabyActivity.this.fbHelper.setUser(user);
-                loginButton.setVisibility(View.INVISIBLE);
-                loginButton.setEnabled(false);
                 
-                MyBabyActivity.this.fbButton.setEnabled(true);
-                // It's possible that we were waiting for this.user to be populated in order to post a
-                // status update.
-                MyBabyActivity.this.fbHelper.handlePendingAction();
+                if(user != null){
+                	loginButton.setVisibility(View.INVISIBLE);
+                	loginButton.setEnabled(false);
+                
+                	MyBabyActivity.this.fbButton.setEnabled(true);
+                	MyBabyActivity.this.fbHelper.handlePendingAction();
+                }else{
+                	MyBabyActivity.this.fbButton.setEnabled(false);
+                }
             }
         });
 		

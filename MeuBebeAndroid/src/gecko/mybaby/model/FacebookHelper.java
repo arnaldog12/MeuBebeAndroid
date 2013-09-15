@@ -13,7 +13,7 @@ import com.facebook.widget.*;
 
 public class FacebookHelper {
 	
-	Activity activity;
+	public Activity activity;
 	
 	private static final String PERMISSION = "publish_actions";
 	private PendingAction pendingAction = PendingAction.NONE;
@@ -162,7 +162,8 @@ public class FacebookHelper {
         return new FacebookDialog.ShareDialogBuilder(this.activity)
                 .setName("Meu Bebê")
                 .setDescription("Conheça o aplicativo para iOS/Android que vai te dar mais tempo para curtir seu filho.")
-                .setLink("http://itunes.apple.com/br/app/meu-bebe/id570007996?mt=8");
+                .setLink("http://itunes.apple.com/br/app/meu-bebe/id570007996?mt=8")
+                .setApplicationName("Meu Bebê");
     }
     
     private void showPublishResult(String message, GraphObject result, FacebookRequestError error) {
