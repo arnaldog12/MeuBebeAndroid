@@ -61,6 +61,8 @@
         	android:layout_width="wrap_content"
         	android:background="#0000"
         	android:layout_height="wrap_content"
+        	android:layout_marginLeft="5dp"
+        	android:layout_marginBottom="5dp"
         	android:src="@drawable/button_facebook" 
         	android:visibility="gone"
         	android:onClick="shareOnFacebook"/>

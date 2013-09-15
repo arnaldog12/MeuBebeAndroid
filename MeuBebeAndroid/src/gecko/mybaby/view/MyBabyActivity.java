@@ -155,8 +155,16 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
                 
                 	MyBabyActivity.this.fbButton.setVisibility(View.VISIBLE);
                 	MyBabyActivity.this.fbButton.setEnabled(true);
+                	
+                	MyBabyActivity.this.loginButton.setVisibility(View.INVISIBLE);
+                	MyBabyActivity.this.loginButton.setEnabled(false);
+                	
                 	MyBabyActivity.this.fbHelper.handlePendingAction();
                 }else{
+                	
+                	MyBabyActivity.this.fbButton.setVisibility(View.INVISIBLE);
+                	MyBabyActivity.this.fbButton.setEnabled(false);
+                	
                 	MyBabyActivity.this.loginButton.setVisibility(View.VISIBLE);
                 	MyBabyActivity.this.loginButton.setEnabled(true);
                 }
