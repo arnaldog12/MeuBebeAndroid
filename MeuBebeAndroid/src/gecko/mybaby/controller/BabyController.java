@@ -31,6 +31,7 @@ public class BabyController {
     
     public boolean addBaby(Baby baby) {
     	
+    	Log.d("MeuBebe", "Salvando boy ou boya no DB");
         if (!this.dbHelper.open() || baby == null) {
         	
             return false;

@@ -211,11 +211,6 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	private void getRemoteBabys() {
 		
 		LoginAutenticator.autenticateLogin(this.username, this.password, this);
-		
-		if (true) {
-			
-			return;
-		}
 	}
 	
 	public void addBaby(Baby baby) {

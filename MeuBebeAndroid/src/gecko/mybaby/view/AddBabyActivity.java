@@ -10,19 +10,25 @@ import java.util.Date;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class AddBabyActivity extends Activity implements OnDateSetListener {
+
+	private static final int REQUEST_PHOTO_ID = 387254872;
 	
 	public static Activity instance = null;
 	
@@ -35,6 +41,8 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 	private Button babyBoy;
 	private Button babyGirl;
 	private ImageButton babyImage;
+	
+	private Bitmap preview_image = null;
 	
 	private int gender = Baby.GENDER_UNKNOWN;
 	
@@ -91,7 +99,15 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 			return;
 		}
 		
-		Bitmap img = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
+		Bitmap img = null;
+		if (preview_image == null) {
+			
+			img = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
+		} else {
+			
+			img = preview_image;
+		}
+		
 		Baby baby = new Baby(name, birth, this.gender, new Historic(), new Progress(), img);
 		
 		((MyBabyActivity) MyBabyActivity.instance).addBaby(baby);
@@ -196,14 +212,27 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 	
 	public void babyImageClicked(View view) {
 		
-//		// create Intent to take a picture and return control to the calling application
-//	    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//
-//	    this.imageFileUri = new Uri(AddBabyActivity.URI_IMAGE); // create a file to save the image
-//	    intent.putExtra(MediaStore.EXTRA_OUTPUT, this.imageFileUri); // set the image file name
-//
-//	    // start the image capture Intent
-//	    this.startActivityForResult(intent, AddBabyActivity.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+		Intent getPhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		this.startActivityForResult(getPhoto, REQUEST_PHOTO_ID);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		Log.d("MeuBebe", "Recebendo photo");
+		if (requestCode == REQUEST_PHOTO_ID) {
+			
+			Bitmap photo =  (Bitmap) data.getExtras().get("data");
+			if (photo != null) {
+				
+				ImageView iv = (ImageView) findViewById(R.id.baby_image);
+				this.preview_image = photo;
+				iv.setImageBitmap(photo);
+			}
+		} else {
+			
+			super.onActivityResult(requestCode, resultCode, data);
+		}
 	}
 
 }
