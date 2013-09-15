@@ -74,6 +74,7 @@ public final class ShareController {
 		@Override
 		public void onComplete(Bundle values) {
 
+			Log.d("MeuBebe", "#### Login completed");
 			final String providerName = values.getString(SocialAuthAdapter.PROVIDER);
 			logged = true;
 		}
