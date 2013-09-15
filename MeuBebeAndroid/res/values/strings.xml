@@ -72,7 +72,7 @@
     <string name="password_not_set">Você precisa preencher a senha</string>
     <string name="wrong_login_or_password">Login ou senha errados</string>
     <string name="past_time">Você deve escolher uma hora e data futuras à atual</string>
-    
+    <string name="baby_birth_future_date">Você deve escolher uma data no passado para o nascimento do bebê</string>
     
     <!-- Preferences -->
     <string name="my_baby_preferences">Preferências</string>

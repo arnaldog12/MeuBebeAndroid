@@ -7,7 +7,9 @@ import gecko.mybaby.model.Progress;
 import gecko.mybaby.webservice.RemoveRemoteBaby;
 import gecko.mybaby.webservice.RemoveRemoteBaby.RemoveBabyCallback;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -101,7 +103,7 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 			
 			Toast.makeText( this,
 						    this.getResources().getString(R.string.baby_name_not_set),
-						    Toast.LENGTH_LONG).show();
+						    Toast.LENGTH_LONG ).show();
 			return;
 		}
 		
@@ -109,7 +111,7 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 			
 			Toast.makeText( this,
 						    this.getResources().getString(R.string.baby_birth_not_set),
-						    Toast.LENGTH_LONG).show();
+						    Toast.LENGTH_LONG ).show();
 			return;
 		}
 		
@@ -117,7 +119,15 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 			
 			Toast.makeText( this,
 						    this.getResources().getString(R.string.baby_gender_not_set),
-						    Toast.LENGTH_LONG).show();
+						    Toast.LENGTH_LONG ).show();
+			return;
+		}
+		
+		if (!this.isPastBirthDate()) {
+
+			Toast.makeText( this,
+						    this.getResources().getString(R.string.baby_birth_future_date),
+						    Toast.LENGTH_LONG ).show();
 			return;
 		}
 
@@ -178,6 +188,22 @@ public class EditBabyActivity extends Activity implements OnDateSetListener, Rem
 		
 		dialog = new DatePickerDialog(this, this, year, month, day);
 		dialog.show();
+	}
+	
+	private boolean isPastBirthDate() {
+		
+		String dateStr = this.babyBirth.getText().toString();
+		
+		String dateStrSplitted[] = dateStr.split("/");
+			
+		int day = Integer.parseInt(dateStrSplitted[0]);
+		int month = Integer.parseInt(dateStrSplitted[1]) - 1;
+		int year = Integer.parseInt(dateStrSplitted[2]);
+		
+		Calendar birthDate = new GregorianCalendar(year, month, day);
+		Calendar currentDate = Calendar.getInstance();
+		
+		return birthDate.before(currentDate);
 	}
 	
 	public void deleteBabyClicked(View view) {

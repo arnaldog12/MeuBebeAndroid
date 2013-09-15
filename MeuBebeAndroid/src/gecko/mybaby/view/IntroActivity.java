@@ -33,7 +33,7 @@ public class IntroActivity extends Activity {
         this.startActivity(intent);
     }
     
-    class IntroTask extends AsyncTask<Void, Void, Void> {
+    private class IntroTask extends AsyncTask<Void, Void, Void> {
     	
         private static final int SLEEP_TIME = 2000;
         
@@ -43,10 +43,8 @@ public class IntroActivity extends Activity {
             try {
             	
                 Thread.sleep(SLEEP_TIME);
-            } catch (InterruptedException e) {
-            	
-                ;
-            }
+            } catch (InterruptedException e) {}
+            
             return null;
         }
         

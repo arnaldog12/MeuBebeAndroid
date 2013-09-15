@@ -465,6 +465,7 @@ public class VaccineDetailsActivity extends Activity {
 							    Toast.LENGTH_LONG).show();
 				return;
 			}
+			
 			if (timeStr.equals("")) {
 
 				Toast.makeText( this.activity,

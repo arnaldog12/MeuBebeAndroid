@@ -127,7 +127,7 @@
         
         <activity
             android:name="gecko.mybaby.view.IntroActivity"
-            android:label="@string/gecko_apps"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait" >
             
