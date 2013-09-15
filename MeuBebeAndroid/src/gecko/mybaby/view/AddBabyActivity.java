@@ -5,7 +5,9 @@ import gecko.mybaby.model.Baby;
 import gecko.mybaby.model.Historic;
 import gecko.mybaby.model.Progress;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -79,7 +81,7 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 			
 			Toast.makeText( this,
 						    this.getResources().getString(R.string.baby_name_not_set),
-						    Toast.LENGTH_LONG).show();
+						    Toast.LENGTH_LONG ).show();
 			return;
 		}
 		
@@ -87,7 +89,7 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 			
 			Toast.makeText( this,
 						    this.getResources().getString(R.string.baby_birth_not_set),
-						    Toast.LENGTH_LONG).show();
+						    Toast.LENGTH_LONG ).show();
 			return;
 		}
 		
@@ -95,17 +97,25 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 			
 			Toast.makeText( this,
 						    this.getResources().getString(R.string.baby_gender_not_set),
-						    Toast.LENGTH_LONG).show();
+						    Toast.LENGTH_LONG ).show();
+			return;
+		}
+		
+		if (!this.isPastBirthDate()) {
+
+			Toast.makeText( this,
+						    this.getResources().getString(R.string.baby_birth_future_date),
+						    Toast.LENGTH_LONG ).show();
 			return;
 		}
 		
 		Bitmap img = null;
-		if (preview_image == null) {
+		if (this.preview_image == null) {
 			
 			img = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_photo_120x120);
 		} else {
 			
-			img = preview_image;
+			img = this.preview_image;
 		}
 		
 		Baby baby = new Baby(name, birth, this.gender, new Historic(), new Progress(), img);
@@ -187,6 +197,22 @@ public class AddBabyActivity extends Activity implements OnDateSetListener {
 				this.navigationBar.setBackgroundResource(R.drawable.navigation_bar_neutral);
 				
 		}
+	}
+	
+	private boolean isPastBirthDate() {
+		
+		String dateStr = this.babyBirth.getText().toString();
+		
+		String dateStrSplitted[] = dateStr.split("/");
+			
+		int day = Integer.parseInt(dateStrSplitted[0]);
+		int month = Integer.parseInt(dateStrSplitted[1]) - 1;
+		int year = Integer.parseInt(dateStrSplitted[2]);
+		
+		Calendar birthDate = new GregorianCalendar(year, month, day);
+		Calendar currentDate = Calendar.getInstance();
+		
+		return birthDate.before(currentDate);
 	}
 
 	@Override
