@@ -116,7 +116,7 @@ public class VaccinesPage implements Page {
 			String ageStr;
 			if (vaccines.get(0).getMonth() == 0) {
 				
-				ageStr = "Recï¿½m Nascido";
+				ageStr = "Recêm Nascido";
 			} else {
 				
 				ageStr = this.getAgeStr(vaccines.get(0).getMonth());
@@ -150,7 +150,7 @@ public class VaccinesPage implements Page {
 	    	String ageStr;
 	    	if (age < 12) {
 	        	
-	    		ageStr = ((age == 1) ? "1 mï¿½s" : (age + " meses"));
+	    		ageStr = ((age == 1) ? "1 mês" : (age + " meses"));
 	        } else if (age < 24) {
 	        	
 	            if (age == 12) {
@@ -158,7 +158,7 @@ public class VaccinesPage implements Page {
 	            	ageStr = "1 ano";
 	            } else {
 	            	
-	            	ageStr = "1 ano e " + (((age % 12) == 1) ? "1 mï¿½s" : ((age % 12) + " meses"));
+	            	ageStr = "1 ano e " + (((age % 12) == 1) ? "1 mês" : ((age % 12) + " meses"));
 	            }
 	        } else {
 	        	
@@ -167,7 +167,7 @@ public class VaccinesPage implements Page {
 	            	ageStr = (age / 12) + " anos";
 	            } else {
 	            	
-	            	ageStr = (age / 12) + " anos e " + (((age % 12) == 1) ? "1 mï¿½s" : ((age % 12) + " meses"));
+	            	ageStr = (age / 12) + " anos e " + (((age % 12) == 1) ? "1 mês" : ((age % 12) + " meses"));
 	            }
 	        }
 	    	
@@ -229,7 +229,7 @@ public class VaccinesPage implements Page {
 					        			   + " tomou a " + vaccine.getDose() + " da vacina " + vaccine.getName());
 					           }
 					       })
-					       .setNegativeButton("NÃ£o", new DialogInterface.OnClickListener() {
+					       .setNegativeButton("Não", new DialogInterface.OnClickListener() {
 					           public void onClick(DialogInterface dialog, int id) {
 					        	   
 					                dialog.cancel();

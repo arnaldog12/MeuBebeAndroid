@@ -24,9 +24,10 @@ public final class ShareController {
 		
 		adapter = new SocialAuthAdapter(new ResponseListener());
 
-		// Add providers
+		//Add providers.
 		adapter.addProvider(Provider.FACEBOOK, R.drawable.facebook);
-		adapter.addProvider(Provider.TWITTER, R.drawable.twitter);
+		
+//		adapter.addProvider(Provider.TWITTER, R.drawable.twitter);
 		/*adapter.addProvider(Provider.LINKEDIN, R.drawable.linkedin);
 		adapter.addProvider(Provider.MYSPACE, R.drawable.myspace);
 		adapter.addProvider(Provider.YAHOO, R.drawable.yahoo);
