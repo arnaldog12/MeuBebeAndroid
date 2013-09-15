@@ -149,16 +149,16 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
         loginButton.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
             @Override
             public void onUserInfoFetched(GraphUser user) {
+                MyBabyActivity.this.fbHelper.setUser(user);
                 
                 if(user != null){
-                	MyBabyActivity.this.fbHelper.setUser(user);
+                	loginButton.setVisibility(View.INVISIBLE);
+                	loginButton.setEnabled(false);
                 
-                	MyBabyActivity.this.fbButton.setVisibility(View.VISIBLE);
                 	MyBabyActivity.this.fbButton.setEnabled(true);
                 	MyBabyActivity.this.fbHelper.handlePendingAction();
                 }else{
-                	MyBabyActivity.this.loginButton.setVisibility(View.VISIBLE);
-                	MyBabyActivity.this.loginButton.setEnabled(true);
+                	MyBabyActivity.this.fbButton.setEnabled(false);
                 }
             }
         });
@@ -448,14 +448,8 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	
 	public void shareOnFacebook(View view){
 		
-		if(this.fbHelper.getUser() != null){
-			this.fbHelper.postMyBabyLink();
-		}else{
-			Toast.makeText(this, "Faça login com o facebook primeiro", Toast.LENGTH_SHORT).show();
-			
-			this.loginButton.setVisibility(View.VISIBLE);
-			this.loginButton.setEnabled(true);
-		}
+		Log.v("facebook", "facebook");
+		this.fbHelper.postMyBabyLink();
 	}
 	
 	private class BabyListAdapter extends ArrayAdapter<Baby> {
