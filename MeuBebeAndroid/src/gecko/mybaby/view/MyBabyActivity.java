@@ -2,6 +2,7 @@ package gecko.mybaby.view;
 
 import gecko.mybaby.R;
 import gecko.mybaby.controller.BabyController;
+import gecko.mybaby.controller.ShareController;
 import gecko.mybaby.controller.TakenVaccineController;
 import gecko.mybaby.controller.VaccineController;
 import gecko.mybaby.model.Baby;
@@ -12,12 +13,18 @@ import gecko.mybaby.webservice.AddRemoteBaby.AddBabyCallback;
 import gecko.mybaby.webservice.LoginAutenticator;
 import gecko.mybaby.webservice.LoginAutenticator.LoginCallback;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.brickred.socialauth.android.DialogListener;
+import org.brickred.socialauth.android.SocialAuthAdapter;
+import org.brickred.socialauth.android.SocialAuthError;
+import org.brickred.socialauth.android.SocialAuthListener;
+import org.brickred.socialauth.android.SocialAuthAdapter.Provider;
 
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
@@ -26,8 +33,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +46,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,7 +67,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	private static int backgroundDivider= R.drawable.divider_neutral;
 
 	private FacebookHelper fbHelper;
-
+	
 	private LinearLayout externalLayout;
 	private RelativeLayout tabBar;
 	private LinearLayout navigationBar;
@@ -96,7 +107,10 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.babyList = (ArrayList<Baby>) this.getIntent().getSerializableExtra("babys");
 		
 		this.listView.setAdapter(new BabyListAdapter(this, 0, this.babyList));
+
+		Button share = (Button) findViewById(R.id.button_share);
 		
+		ShareController.getInstance().enableButton(share);
 	}
 	
 	@Override
@@ -141,37 +155,6 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 		this.babyName = ((TextView) this.findViewById(R.id.baby_name_header));
 		
 		this.listView = ((ListView) this.findViewById(R.id.list_view));
-		
-		this.fbButton = (ImageButton) this.findViewById(R.id.button_facebook);
-		this.fbButton.setEnabled(false);
-		
-		loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
-            @Override
-            public void onUserInfoFetched(GraphUser user) {
-                MyBabyActivity.this.fbHelper.setUser(user);
-                
-                if(user != null){
-                	loginButton.setVisibility(View.INVISIBLE);
-                	loginButton.setEnabled(false);
-                
-                	MyBabyActivity.this.fbButton.setEnabled(true);
-                	
-                	MyBabyActivity.this.loginButton.setVisibility(View.INVISIBLE);
-                	MyBabyActivity.this.loginButton.setEnabled(false);
-                	
-                	MyBabyActivity.this.fbHelper.handlePendingAction();
-                }else{
-                	
-                	MyBabyActivity.this.fbButton.setVisibility(View.INVISIBLE);
-                	MyBabyActivity.this.fbButton.setEnabled(false);
-                	
-                	MyBabyActivity.this.loginButton.setVisibility(View.VISIBLE);
-                	MyBabyActivity.this.loginButton.setEnabled(true);
-                }
-            }
-        });
-		
 	}
     
     private void addDefaultVaccines() {
@@ -458,7 +441,8 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 	public void shareOnFacebook(View view){
 		
 		Log.v("facebook", "facebook");
-		this.fbHelper.postMyBabyLink();
+		
+
 	}
 	
 	private class BabyListAdapter extends ArrayAdapter<Baby> {
@@ -595,5 +579,7 @@ public class MyBabyActivity extends Activity implements AddBabyCallback, LoginCa
 			
 		});
 	}
+	
+	
 
 }
