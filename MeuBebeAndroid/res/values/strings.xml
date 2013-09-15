@@ -54,6 +54,7 @@
     <string name="rotate_cw">Girar horário</string>
     <string name="rotate_ccw">Girar anti-horário</string>
     <string name="rotate_angle">Girar ângulo</string>
+    <string name="facebook">Facebook</string>
 
     <!-- Errors -->
     <string name="baby_name_not_set">Você precisa definir o nome do bebê</string>

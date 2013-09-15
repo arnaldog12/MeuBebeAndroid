@@ -304,6 +304,7 @@ public class VaccineDetailsActivity extends Activity {
 	            
 	        	e.printStackTrace();
 	        }
+			((VaccinesActivity) VaccinesActivity.instance).setPager();
 	    }
     	
     }
@@ -508,8 +509,9 @@ public class VaccineDetailsActivity extends Activity {
 			}
 			controller.addReminder(reminder);
 			
-			
 			VaccineDetailsActivity.this.updateListView();
+			
+			((VaccinesActivity) VaccinesActivity.instance).setPager();
 		}
 		
 		private int findNewReminderId() {

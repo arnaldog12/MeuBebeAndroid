@@ -1,7 +1,12 @@
 package gecko.mybaby.view;
 
 import gecko.mybaby.R;
+import gecko.mybaby.controller.ReminderController;
+import gecko.mybaby.controller.TakenVaccineController;
 import gecko.mybaby.controller.VaccineController;
+import gecko.mybaby.model.Baby;
+import gecko.mybaby.model.Reminder;
+import gecko.mybaby.model.TakenVaccine;
 import gecko.mybaby.model.Vaccine;
 import gecko.mybaby.view.custom.Page;
 import gecko.mybaby.view.custom.VaccinesPage;
@@ -72,7 +77,7 @@ public class VaccinesActivity extends Activity {
 		this.navigationBar.setBackgroundResource(MyBabyActivity.getBackgroundNavigationBar());
 	}
 	
-	private void setPager() {
+	public void setPager() {
 		
 		VaccineController controller = new VaccineController(this);
 
@@ -174,8 +179,8 @@ public class VaccinesActivity extends Activity {
 		private void setPages() {
 
 			List<List<Vaccine>> allVaccinesPerMonth = this.getAllVaccines();
-			List<List<Vaccine>> takenVaccinesPerMonth = new LinkedList<List<Vaccine>>();
-			List<List<Vaccine>> remindersPerMonth = new LinkedList<List<Vaccine>>();
+			List<List<Vaccine>> takenVaccinesPerMonth = this.getTakenVaccines(allVaccinesPerMonth);
+			List<List<Vaccine>> remindersPerMonth = this.getReminders(allVaccinesPerMonth);
 			
 			VaccinesPage allVaccinesPage = new VaccinesPage(this.activity, allVaccinesPerMonth);
 			VaccinesPage takenVaccinesPage = new VaccinesPage(this.activity, takenVaccinesPerMonth);
@@ -213,6 +218,66 @@ public class VaccinesActivity extends Activity {
 			return allVaccinesPerMonth;
 		}
 		
+		private List<List<Vaccine>> getTakenVaccines(List<List<Vaccine>> allVaccinesPerMonth) {
+			
+			List<List<Vaccine>> takenVaccines = new ArrayList<List<Vaccine>>();
+			
+			Baby selectedBaby = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
+			
+			TakenVaccineController controller = new TakenVaccineController(this.activity);
+			ArrayList<TakenVaccine> takenPerBaby = controller.takenVaccinesPerBaby(selectedBaby.getId());
+			
+			for (List<Vaccine> listMonth : allVaccinesPerMonth) {
+				
+				ArrayList<Vaccine> currentList = new ArrayList<Vaccine>();
+				
+				for (Vaccine vac : listMonth) {
+					
+					if (takenPerBaby.contains(new TakenVaccine(vac.getId(), vac.getMonth()))) {
+						
+						currentList.add(vac);
+					}
+				}
+				
+				if (currentList.size() != 0) {
+					
+					takenVaccines.add(currentList);
+				}
+			}
+			
+			return takenVaccines;
+		}
+		
+		private List<List<Vaccine>> getReminders(List<List<Vaccine>> allVaccinesPerMonth) {
+			
+			List<List<Vaccine>> takenVaccines = new ArrayList<List<Vaccine>>();
+			
+			Baby selectedBaby = ((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby();
+			
+			ReminderController controller = new ReminderController(this.activity);
+			ArrayList<Reminder> remindersPerBaby = controller.getRemindersPerBaby(selectedBaby.getId());
+			
+			for (List<Vaccine> listMonth : allVaccinesPerMonth) {
+				
+				ArrayList<Vaccine> currentList = new ArrayList<Vaccine>();
+				
+				for (Vaccine vac : listMonth) {
+					
+					if (remindersPerBaby.contains(new Reminder("", "", "", selectedBaby.getId(), vac.getId()))) {
+						
+						currentList.add(vac);
+					}
+				}
+				
+				if (currentList.size() != 0) {
+					
+					takenVaccines.add(currentList);
+				}
+			}
+			
+			return takenVaccines;
+		}
+		
 		public void updateLists(List<Vaccine> allVaccines, List<Vaccine> takenVaccines) {
 			
 			this.allVaccines = allVaccines;
@@ -224,7 +289,7 @@ public class VaccinesActivity extends Activity {
 		private void updatePages() {
 
 			List<List<Vaccine>> allVaccinesPerMonth = this.getAllVaccines();
-			List<List<Vaccine>> takenVaccinesPerMonth = new LinkedList<List<Vaccine>>();
+			List<List<Vaccine>> takenVaccinesPerMonth = this.getTakenVaccines(allVaccinesPerMonth);
 			List<List<Vaccine>> remindersPerMonth = new LinkedList<List<Vaccine>>();
 
 			((VaccinesPage) this.pages.get(0)).updateList(allVaccinesPerMonth);

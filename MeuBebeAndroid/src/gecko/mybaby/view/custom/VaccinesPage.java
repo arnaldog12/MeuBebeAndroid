@@ -6,6 +6,7 @@ import gecko.mybaby.model.TakenVaccine;
 import gecko.mybaby.model.Vaccine;
 import gecko.mybaby.view.MyBabyActivity;
 import gecko.mybaby.view.VaccineDetailsActivity;
+import gecko.mybaby.view.VaccinesActivity;
 
 import java.util.List;
 
@@ -220,6 +221,8 @@ public class VaccinesPage implements Page {
 						((MyBabyActivity) MyBabyActivity.instance).getSelectedBaby().getId(),
 						this.vaccine.getId(), this.vaccine.getMonth() );
 			}
+			
+			((VaccinesActivity) VaccinesActivity.instance).setPager();
 		}
 		
 		
